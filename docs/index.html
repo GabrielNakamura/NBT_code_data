@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,6 +32,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,6 +142,18 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/GabrielNakamura/NBT_code_data">
+            Source Code
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -207,10 +253,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info">Session Info</a></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="undefined"><i class="bi bi-file-code"></i>Source Code</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -218,7 +264,6 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science</h1>
-<p class="subtitle lead">Code</p>
 </div>
 
 
@@ -258,6 +303,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This manuscript is submitted as a preprint here: Link</p>
+</div>
+</div>
 <section id="general-overview" class="level1">
 <h1>General overview</h1>
 <p>This repository contains the data and code used in the analysis of the manuscript entitled <strong>“The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science”</strong>.</p>
@@ -295,18 +353,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="r" class="level2">
 <h2 class="anchored" data-anchor-id="r">R</h2>
-<p>The letters <code>D</code>, <code>A</code> and <code>V</code> represents scripts for, respectively, data processing (D), data analysis (A) and results visualization (V). The script sequence to reproduce the workflow is indicated by the numbers at the beginning of the name of the script file</p>
+<p>The letters <code>D</code>, <code>A</code> and <code>V</code> represents scripts for, respectively, data processing (D), data analysis (A) and results visualization (V). The script sequence to reproduce the workflow is indicated by the numbers at the beginning of the name of the script file.</p>
+<p><img src="scripts_diagram.png" class="img-fluid"></p>
 <ul>
-<li><p><code>01_D_data_preparation.qmd</code> initial data preparation</p></li>
-<li><p><code>02_A_beta-countries.qmd</code> analysis of beta diversity metrics. This script is used to calculate <code>turnover NBT</code> and <code>native NBT</code></p></li>
-<li><p><code>03_D_data_preparation_models.qmd</code> script used to build data frames that will be used in statistical models (<a href="">04_A_model_NBTs.qmd</a>)</p></li>
-<li><p><code>04_A_model_NBTs.qmd</code> statistical models for the total number of NBT, native and NBT turnover, Domestic Contribution and Domestic Retention</p></li>
-<li><p><code>05_V_chord_diagram_Fig1.qmd</code> code used to produce circular flow diagram. This is the Figure 1 of the study</p></li>
-<li><p><code>06_V_world_map_Fig1.qmd</code> code used to produce the world map in the Figure 1 of the main text</p></li>
-<li><p><code>07_V_scatterplot_Fig2.qmd</code> code used to reproduce the Figure 2 of the main text</p></li>
-<li><p><code>08_V_beta_Fig3.qmd</code> code used to build Figure 3 of the main text</p></li>
-<li><p><code>09_V_model_Fig4.qmd</code> code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script <a href="">04_A_model_NBTs.qmd</a></p></li>
-<li><p><code>0010_Supplementary_analysis.qmd</code> code to produce all the tables and figures presented in the Supplementary material of this study</p></li>
+<li><p><a href="./R/01_D_data_preparation.html"><code>01_D_data_preparation.qmd</code></a> initial data preparation</p></li>
+<li><p><a href="./R/02_A_beta-countries.html"><code>02_A_beta-countries.qmd</code></a> analysis of beta diversity metrics. This script is used to calculate <code>turnover NBT</code> and <code>native NBT</code></p></li>
+<li><p><a href="./R/03_D_data_preparation_models.html"><code>03_D_data_preparation_models.qmd</code></a> script used to build data frames that will be used in statistical models (<a href="./R/04_A_model_NBTs.html"><code>04_A_model_NBTs.qmd</code></a>)</p></li>
+<li><p><a href="./R/04_A_model_NBTs.html"><code>04_A_model_NBTs.qmd</code></a> statistical models for the total number of NBT, native and NBT turnover, Domestic Contribution and Domestic Retention</p></li>
+<li><p><a href="./R/05_V_chord_diagram_Fig1.html"><code>05_V_chord_diagram_Fig1.qmd</code></a> code used to produce circular flow diagram. This is the Figure 1 of the study</p></li>
+<li><p><a href="./R/06_V_world_map_Fig1.html"><code>06_V_world_map_Fig1.qmd</code></a> code used to produce the world map in the Figure 1 of the main text</p></li>
+<li><p><a href="./R/07_V_scatterplot_Fig2.html"><code>07_V_scatterplot_Fig2.qmd</code></a> code used to reproduce the Figure 2 of the main text</p></li>
+<li><p><a href="./R/08_V_beta_Fig3.html"><code>08_V_beta_Fig3.qmd</code></a> code used to build Figure 3 of the main text</p></li>
+<li><p><a href="./R/09_V_model_Fig4.html"><code>09_V_model_Fig4.qmd</code></a> code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script <a href="./R/04_A_model_NBTs.html">04_A_model_NBTs.qmd</a></p></li>
+<li><p><a href="./R/0010_Supplementary_analysis.html"><code>0010_Supplementary_analysis.qmd</code></a> code to produce all the tables and figures presented in the Supplementary material of this study</p></li>
 </ul>
 </section>
 <section id="output" class="level2">
@@ -315,21 +374,83 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="figures">Figures</h3>
 <p>In this folder you will find all figures used in the main text and supplementary material of this study</p>
 <p><code>Fig1.png</code> Figure with circular plots showing the flux of NBT among regions of the world in a 50-year time window</p>
-<p><code>Fig2.png</code> Scaterplot with World regions characterized by their Domestic Contribution and Domestic Retention values in a 50-year time frame</p>
+<p><code>Fig2.png</code> Scatterplot with World regions characterized by their Domestic Contribution and Domestic Retention values in a 50-year time frame</p>
 <p><code>fig3.png</code> Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map</p>
 <p><code>fig4.png</code> Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models</p>
 </section>
 </section>
 </section>
-<section id="authors" class="level1">
-<h1>Authors</h1>
-<p>Gabriel Nakamura, Lívia Estéfane F. Frateles, Bruno Henrique Mioto Stabile, Matheus Lima Araujo, Emanuel Neuhaus, Manoela Maria Ferreira Marinho, Aline Richter, Liuyong Ding, Tiago Magalhães da Silva Freitas, Bruno Eleres Soares, Weferson Júnio da Graça, José Alexandre Felizola Diniz-Filho</p>
-</section>
 <section id="contact" class="level1">
 <h1>Contact</h1>
 <p><a href="https://github.com/GabrielNakamura">Gabriel Nakamura</a> and <a href="https://github.com/brunomioto">Bruno Mioto</a></p>
 <p>If you have any suggestion or commentary, please open an issue</p>
-<p><a href="">Source code</a></p>
+<p><a href="https://github.com/GabrielNakamura/NBT_code_data">Source code</a></p>
+</section>
+<section id="session-info" class="level1">
+<h1>Session Info</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R version 4.3.2 (2023-10-31 ucrt)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Platform: x86_64-w64-mingw32/x64 (64-bit)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Running under: Windows 10 x64 (build 19045)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Matrix products: default</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; locale:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] LC_TIME=Portuguese_Brazil.utf8    </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; time zone: Etc/GMT+3</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tzcode source: internal</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; attached base packages:</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] stats4    stats     graphics  grDevices utils     datasets  methods  </span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [8] base     </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; other attached packages:</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] biscale_1.0.0        cowplot_1.1.1        patchwork_1.2.0.9000</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4] ggarrow_0.0.0.9000   rmapshaper_0.5.0     sf_1.0-14           </span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] rnaturalearth_0.3.4  circlize_0.4.15      DHARMa_0.4.6        </span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] bbmle_1.0.25.1       performance_0.12.1   glmmTMB_1.1.8       </span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] ggplot2_3.5.0        scales_1.3.0.9000    countrycode_1.6.0   </span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] phyloregion_1.0.8    readr_2.1.4          here_1.0.1          </span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] glue_1.6.2           tidyr_1.3.1          dplyr_1.1.4         </span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] DBI_1.1.3           phangorn_2.11.1     sandwich_3.0-2     </span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4] rlang_1.1.2         magrittr_2.0.3      multcomp_1.4-25    </span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] predicts_0.1-11     e1071_1.7-13        compiler_4.3.2     </span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] mgcv_1.9-0          vctrs_0.6.4         quadprog_1.5-8     </span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] pkgconfig_2.0.3     shape_1.4.6         fastmap_1.1.1      </span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] clustMixType_0.3-9  utf8_1.2.4          rmarkdown_2.26     </span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] tzdb_0.4.0          nloptr_2.0.3        purrr_1.0.2        </span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [22] xfun_0.43           reprex_2.0.2        jsonlite_1.8.8     </span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] styler_1.10.2       terra_1.7-55        parallel_4.3.2     </span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [28] R6_2.5.1            RColorBrewer_1.1-3  boot_1.3-28.1      </span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] numDeriv_2016.8-1.1 estimability_1.4.1  Rcpp_1.0.11        </span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [34] knitr_1.46          zoo_1.8-12          R.utils_2.12.2     </span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] Matrix_1.6-2        splines_4.3.2       R.cache_0.16.0     </span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [40] igraph_2.0.3        tidyselect_1.2.1    rstudioapi_0.16.0  </span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [43] yaml_2.3.8          TMB_1.9.10          codetools_0.2-19   </span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [46] curl_5.1.0          lattice_0.22-5      tibble_3.2.1       </span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [49] withr_3.0.0         coda_0.19-4.1       evaluate_0.23      </span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [52] survival_3.5-7      units_0.8-4         proxy_0.4-27       </span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [55] pillar_1.9.0        KernSmooth_2.23-22  smoothr_1.0.1      </span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [58] insight_0.20.2      generics_0.1.3      rprojroot_2.0.4    </span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [61] sp_2.1-3            maptpx_1.9-7        hms_1.1.3          </span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [64] munsell_0.5.0       minqa_1.2.6         xtable_1.8-4       </span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [67] class_7.3-22        slam_0.1-50         emmeans_1.8.9      </span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [70] tools_4.3.2         lme4_1.1-35.1       fs_1.6.3           </span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [73] mvtnorm_1.2-3       fastmatch_1.1-4     grid_4.3.2         </span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [76] ape_5.8             bdsmatrix_1.3-6     colorspace_2.1-0   </span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [79] nlme_3.1-163        cli_3.6.1           fansi_1.0.6        </span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [82] V8_4.4.0            gtable_0.3.4        R.methodsS3_1.8.2  </span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [85] digest_0.6.33       classInt_0.4-10     TH.data_1.1-2      </span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [88] htmltools_0.5.8.1   R.oo_1.25.0         lifecycle_1.0.4    </span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [91] httr_1.4.7          GlobalOptions_0.1.2 MASS_7.3-60</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
@@ -414,24 +535,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -466,11 +569,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

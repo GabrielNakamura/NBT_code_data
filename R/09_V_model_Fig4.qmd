@@ -1,6 +1,7 @@
 ---
 title: "09 - Results from generalized linear models (Figure 4)"
 format: html
+eval: FALSE
 ---
 
 # Model predictions and figures in the main text

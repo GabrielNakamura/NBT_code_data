@@ -1,6 +1,7 @@
 ---
 title: "07 - DC and DR for each region per time (Figure 2)"
 format: html
+eval: FALSE
 ---
 
 # Domestic contribution (DC) and Domestic retention (DR) for all countries

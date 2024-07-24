@@ -33,8 +33,17 @@ website:
         href: R/09_V_model_Fig4.qmd
       - text: "0010_Supplementary_analysis.qmd"
         href: R/0010_Supplementary_analysis.qmd
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/GabrielNakamura/NBT_code_data
 
 format:
   html:
     theme: cosmo
     toc: true
+    code-links:
+      - text: Source Code
+        icon: file-code
+        repo: https://github.com/GabrielNakamura/NBT_code_data

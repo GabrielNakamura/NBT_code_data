@@ -1,6 +1,7 @@
 ---
 title: "08 - World map with countries represented by its NBT and native turnover (Figure 3)"
 format: html
+eval: FALSE
 ---
 
 # Plotting native and NBT turnover for each country
