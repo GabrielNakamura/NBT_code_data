@@ -1,0 +1,35 @@
+{
+  "R/01_D_data_preparation.qmd": {
+    "01_D_data_preparation.html": "4fe56fe4"
+  },
+  "index.qmd": {
+    "index.html": "1eadc3a0"
+  },
+  "R/0010_Supplementary_analysis.qmd": {
+    "0010_Supplementary_analysis.html": "a5636ac0"
+  },
+  "R/02_A_beta-countries.qmd": {
+    "02_A_beta-countries.html": "e8048682"
+  },
+  "R/03_D_data_preparation_models.qmd": {
+    "03_D_data_preparation_models.html": "9f6aca2f"
+  },
+  "R/04_A_model_NBTs.qmd": {
+    "04_A_model_NBTs.html": "6ac4b4a1"
+  },
+  "R/05_V_chord_diagram_Fig1.qmd": {
+    "05_V_chord_diagram_Fig1.html": "4e8e64e3"
+  },
+  "R/06_V_world_map_Fig1.qmd": {
+    "06_V_world_map_Fig1.html": "59874836"
+  },
+  "R/07_V_scatterplot_Fig2.qmd": {
+    "07_V_scatterplot_Fig2.html": "1ea23361"
+  },
+  "R/08_V_beta_Fig3.qmd": {
+    "08_V_beta_Fig3.html": "78b0a3a6"
+  },
+  "R/09_V_model_Fig4.qmd": {
+    "09_V_model_Fig4.html": "855101ce"
+  }
+}
