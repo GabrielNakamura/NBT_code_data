@@ -1,0 +1,50 @@
+region_type,region_museum,n,total_region_type
+East Asia & Pacific,East Asia & Pacific,2029,4528
+East Asia & Pacific,Europe & Central Asia,1636,4528
+East Asia & Pacific,Latin America & Caribbean,0,4528
+East Asia & Pacific,Middle East & North Africa,0,4528
+East Asia & Pacific,North America,766,4528
+East Asia & Pacific,South Asia,97,4528
+East Asia & Pacific,Sub-Saharan Africa,0,4528
+Europe & Central Asia,East Asia & Pacific,4,1006
+Europe & Central Asia,Europe & Central Asia,961,1006
+Europe & Central Asia,Latin America & Caribbean,0,1006
+Europe & Central Asia,Middle East & North Africa,0,1006
+Europe & Central Asia,North America,38,1006
+Europe & Central Asia,South Asia,0,1006
+Europe & Central Asia,Sub-Saharan Africa,3,1006
+Latin America & Caribbean,East Asia & Pacific,2,7660
+Latin America & Caribbean,Europe & Central Asia,2226,7660
+Latin America & Caribbean,Latin America & Caribbean,3115,7660
+Latin America & Caribbean,Middle East & North Africa,0,7660
+Latin America & Caribbean,North America,2317,7660
+Latin America & Caribbean,South Asia,0,7660
+Latin America & Caribbean,Sub-Saharan Africa,0,7660
+Middle East & North Africa,East Asia & Pacific,1,407
+Middle East & North Africa,Europe & Central Asia,303,407
+Middle East & North Africa,Latin America & Caribbean,0,407
+Middle East & North Africa,Middle East & North Africa,68,407
+Middle East & North Africa,North America,27,407
+Middle East & North Africa,South Asia,8,407
+Middle East & North Africa,Sub-Saharan Africa,0,407
+North America,East Asia & Pacific,0,1387
+North America,Europe & Central Asia,129,1387
+North America,Latin America & Caribbean,0,1387
+North America,Middle East & North Africa,0,1387
+North America,North America,1258,1387
+North America,South Asia,0,1387
+North America,Sub-Saharan Africa,0,1387
+South Asia,East Asia & Pacific,29,1060
+South Asia,Europe & Central Asia,279,1060
+South Asia,Latin America & Caribbean,0,1060
+South Asia,Middle East & North Africa,1,1060
+South Asia,North America,77,1060
+South Asia,South Asia,674,1060
+South Asia,Sub-Saharan Africa,0,1060
+Sub-Saharan Africa,East Asia & Pacific,13,4198
+Sub-Saharan Africa,Europe & Central Asia,3398,4198
+Sub-Saharan Africa,Latin America & Caribbean,1,4198
+Sub-Saharan Africa,Middle East & North Africa,0,4198
+Sub-Saharan Africa,North America,545,4198
+Sub-Saharan Africa,South Asia,0,4198
+Sub-Saharan Africa,Sub-Saharan Africa,241,4198

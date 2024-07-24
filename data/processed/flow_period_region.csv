@@ -1,0 +1,295 @@
+period,region_type,region_museum,n,total_period_region_type
+1750,East Asia & Pacific,East Asia & Pacific,3,5
+1750,East Asia & Pacific,Europe & Central Asia,2,5
+1750,East Asia & Pacific,Latin America & Caribbean,0,5
+1750,East Asia & Pacific,Middle East & North Africa,0,5
+1750,East Asia & Pacific,North America,0,5
+1750,East Asia & Pacific,South Asia,0,5
+1750,East Asia & Pacific,Sub-Saharan Africa,0,5
+1750,Europe & Central Asia,East Asia & Pacific,0,24
+1750,Europe & Central Asia,Europe & Central Asia,24,24
+1750,Europe & Central Asia,Latin America & Caribbean,0,24
+1750,Europe & Central Asia,Middle East & North Africa,0,24
+1750,Europe & Central Asia,North America,0,24
+1750,Europe & Central Asia,South Asia,0,24
+1750,Europe & Central Asia,Sub-Saharan Africa,0,24
+1750,Latin America & Caribbean,East Asia & Pacific,0,24
+1750,Latin America & Caribbean,Europe & Central Asia,22,24
+1750,Latin America & Caribbean,Latin America & Caribbean,0,24
+1750,Latin America & Caribbean,Middle East & North Africa,0,24
+1750,Latin America & Caribbean,North America,2,24
+1750,Latin America & Caribbean,South Asia,0,24
+1750,Latin America & Caribbean,Sub-Saharan Africa,0,24
+1750,Middle East & North Africa,East Asia & Pacific,0,8
+1750,Middle East & North Africa,Europe & Central Asia,8,8
+1750,Middle East & North Africa,Latin America & Caribbean,0,8
+1750,Middle East & North Africa,Middle East & North Africa,0,8
+1750,Middle East & North Africa,North America,0,8
+1750,Middle East & North Africa,South Asia,0,8
+1750,Middle East & North Africa,Sub-Saharan Africa,0,8
+1750,North America,East Asia & Pacific,0,2
+1750,North America,Europe & Central Asia,2,2
+1750,North America,Latin America & Caribbean,0,2
+1750,North America,Middle East & North Africa,0,2
+1750,North America,North America,0,2
+1750,North America,South Asia,0,2
+1750,North America,Sub-Saharan Africa,0,2
+1750,South Asia,East Asia & Pacific,0,11
+1750,South Asia,Europe & Central Asia,11,11
+1750,South Asia,Latin America & Caribbean,0,11
+1750,South Asia,Middle East & North Africa,0,11
+1750,South Asia,North America,0,11
+1750,South Asia,South Asia,0,11
+1750,South Asia,Sub-Saharan Africa,0,11
+1750,Sub-Saharan Africa,East Asia & Pacific,0,1
+1750,Sub-Saharan Africa,Europe & Central Asia,1,1
+1750,Sub-Saharan Africa,Latin America & Caribbean,0,1
+1750,Sub-Saharan Africa,Middle East & North Africa,0,1
+1750,Sub-Saharan Africa,North America,0,1
+1750,Sub-Saharan Africa,South Asia,0,1
+1750,Sub-Saharan Africa,Sub-Saharan Africa,0,1
+1800,East Asia & Pacific,East Asia & Pacific,6,182
+1800,East Asia & Pacific,Europe & Central Asia,173,182
+1800,East Asia & Pacific,Latin America & Caribbean,0,182
+1800,East Asia & Pacific,Middle East & North Africa,0,182
+1800,East Asia & Pacific,North America,3,182
+1800,East Asia & Pacific,South Asia,0,182
+1800,East Asia & Pacific,Sub-Saharan Africa,0,182
+1800,Europe & Central Asia,East Asia & Pacific,0,108
+1800,Europe & Central Asia,Europe & Central Asia,83,108
+1800,Europe & Central Asia,Latin America & Caribbean,0,108
+1800,Europe & Central Asia,Middle East & North Africa,0,108
+1800,Europe & Central Asia,North America,25,108
+1800,Europe & Central Asia,South Asia,0,108
+1800,Europe & Central Asia,Sub-Saharan Africa,0,108
+1800,Latin America & Caribbean,East Asia & Pacific,0,274
+1800,Latin America & Caribbean,Europe & Central Asia,261,274
+1800,Latin America & Caribbean,Latin America & Caribbean,11,274
+1800,Latin America & Caribbean,Middle East & North Africa,0,274
+1800,Latin America & Caribbean,North America,2,274
+1800,Latin America & Caribbean,South Asia,0,274
+1800,Latin America & Caribbean,Sub-Saharan Africa,0,274
+1800,Middle East & North Africa,East Asia & Pacific,0,121
+1800,Middle East & North Africa,Europe & Central Asia,120,121
+1800,Middle East & North Africa,Latin America & Caribbean,0,121
+1800,Middle East & North Africa,Middle East & North Africa,0,121
+1800,Middle East & North Africa,North America,1,121
+1800,Middle East & North Africa,South Asia,0,121
+1800,Middle East & North Africa,Sub-Saharan Africa,0,121
+1800,North America,East Asia & Pacific,0,77
+1800,North America,Europe & Central Asia,52,77
+1800,North America,Latin America & Caribbean,0,77
+1800,North America,Middle East & North Africa,0,77
+1800,North America,North America,25,77
+1800,North America,South Asia,0,77
+1800,North America,Sub-Saharan Africa,0,77
+1800,South Asia,East Asia & Pacific,4,140
+1800,South Asia,Europe & Central Asia,113,140
+1800,South Asia,Latin America & Caribbean,0,140
+1800,South Asia,Middle East & North Africa,0,140
+1800,South Asia,North America,12,140
+1800,South Asia,South Asia,11,140
+1800,South Asia,Sub-Saharan Africa,0,140
+1800,Sub-Saharan Africa,East Asia & Pacific,0,46
+1800,Sub-Saharan Africa,Europe & Central Asia,42,46
+1800,Sub-Saharan Africa,Latin America & Caribbean,0,46
+1800,Sub-Saharan Africa,Middle East & North Africa,0,46
+1800,Sub-Saharan Africa,North America,1,46
+1800,Sub-Saharan Africa,South Asia,0,46
+1800,Sub-Saharan Africa,Sub-Saharan Africa,3,46
+1850,East Asia & Pacific,East Asia & Pacific,90,784
+1850,East Asia & Pacific,Europe & Central Asia,666,784
+1850,East Asia & Pacific,Latin America & Caribbean,0,784
+1850,East Asia & Pacific,Middle East & North Africa,0,784
+1850,East Asia & Pacific,North America,5,784
+1850,East Asia & Pacific,South Asia,23,784
+1850,East Asia & Pacific,Sub-Saharan Africa,0,784
+1850,Europe & Central Asia,East Asia & Pacific,1,276
+1850,Europe & Central Asia,Europe & Central Asia,270,276
+1850,Europe & Central Asia,Latin America & Caribbean,0,276
+1850,Europe & Central Asia,Middle East & North Africa,0,276
+1850,Europe & Central Asia,North America,5,276
+1850,Europe & Central Asia,South Asia,0,276
+1850,Europe & Central Asia,Sub-Saharan Africa,0,276
+1850,Latin America & Caribbean,East Asia & Pacific,1,1261
+1850,Latin America & Caribbean,Europe & Central Asia,864,1261
+1850,Latin America & Caribbean,Latin America & Caribbean,13,1261
+1850,Latin America & Caribbean,Middle East & North Africa,0,1261
+1850,Latin America & Caribbean,North America,383,1261
+1850,Latin America & Caribbean,South Asia,0,1261
+1850,Latin America & Caribbean,Sub-Saharan Africa,0,1261
+1850,Middle East & North Africa,East Asia & Pacific,0,41
+1850,Middle East & North Africa,Europe & Central Asia,39,41
+1850,Middle East & North Africa,Latin America & Caribbean,0,41
+1850,Middle East & North Africa,Middle East & North Africa,0,41
+1850,Middle East & North Africa,North America,2,41
+1850,Middle East & North Africa,South Asia,0,41
+1850,Middle East & North Africa,Sub-Saharan Africa,0,41
+1850,North America,East Asia & Pacific,0,833
+1850,North America,Europe & Central Asia,75,833
+1850,North America,Latin America & Caribbean,0,833
+1850,North America,Middle East & North Africa,0,833
+1850,North America,North America,758,833
+1850,North America,South Asia,0,833
+1850,North America,Sub-Saharan Africa,0,833
+1850,South Asia,East Asia & Pacific,11,101
+1850,South Asia,Europe & Central Asia,72,101
+1850,South Asia,Latin America & Caribbean,0,101
+1850,South Asia,Middle East & North Africa,0,101
+1850,South Asia,North America,1,101
+1850,South Asia,South Asia,17,101
+1850,South Asia,Sub-Saharan Africa,0,101
+1850,Sub-Saharan Africa,East Asia & Pacific,0,562
+1850,Sub-Saharan Africa,Europe & Central Asia,548,562
+1850,Sub-Saharan Africa,Latin America & Caribbean,0,562
+1850,Sub-Saharan Africa,Middle East & North Africa,0,562
+1850,Sub-Saharan Africa,North America,13,562
+1850,Sub-Saharan Africa,South Asia,0,562
+1850,Sub-Saharan Africa,Sub-Saharan Africa,1,562
+1900,East Asia & Pacific,East Asia & Pacific,213,1252
+1900,East Asia & Pacific,Europe & Central Asia,440,1252
+1900,East Asia & Pacific,Latin America & Caribbean,0,1252
+1900,East Asia & Pacific,Middle East & North Africa,0,1252
+1900,East Asia & Pacific,North America,539,1252
+1900,East Asia & Pacific,South Asia,60,1252
+1900,East Asia & Pacific,Sub-Saharan Africa,0,1252
+1900,Europe & Central Asia,East Asia & Pacific,1,169
+1900,Europe & Central Asia,Europe & Central Asia,168,169
+1900,Europe & Central Asia,Latin America & Caribbean,0,169
+1900,Europe & Central Asia,Middle East & North Africa,0,169
+1900,Europe & Central Asia,North America,0,169
+1900,Europe & Central Asia,South Asia,0,169
+1900,Europe & Central Asia,Sub-Saharan Africa,0,169
+1900,Latin America & Caribbean,East Asia & Pacific,0,2058
+1900,Latin America & Caribbean,Europe & Central Asia,504,2058
+1900,Latin America & Caribbean,Latin America & Caribbean,172,2058
+1900,Latin America & Caribbean,Middle East & North Africa,0,2058
+1900,Latin America & Caribbean,North America,1382,2058
+1900,Latin America & Caribbean,South Asia,0,2058
+1900,Latin America & Caribbean,Sub-Saharan Africa,0,2058
+1900,Middle East & North Africa,East Asia & Pacific,0,63
+1900,Middle East & North Africa,Europe & Central Asia,56,63
+1900,Middle East & North Africa,Latin America & Caribbean,0,63
+1900,Middle East & North Africa,Middle East & North Africa,0,63
+1900,Middle East & North Africa,North America,1,63
+1900,Middle East & North Africa,South Asia,6,63
+1900,Middle East & North Africa,Sub-Saharan Africa,0,63
+1900,North America,East Asia & Pacific,0,197
+1900,North America,Europe & Central Asia,0,197
+1900,North America,Latin America & Caribbean,0,197
+1900,North America,Middle East & North Africa,0,197
+1900,North America,North America,197,197
+1900,North America,South Asia,0,197
+1900,North America,Sub-Saharan Africa,0,197
+1900,South Asia,East Asia & Pacific,0,125
+1900,South Asia,Europe & Central Asia,26,125
+1900,South Asia,Latin America & Caribbean,0,125
+1900,South Asia,Middle East & North Africa,0,125
+1900,South Asia,North America,11,125
+1900,South Asia,South Asia,88,125
+1900,South Asia,Sub-Saharan Africa,0,125
+1900,Sub-Saharan Africa,East Asia & Pacific,1,1806
+1900,Sub-Saharan Africa,Europe & Central Asia,1537,1806
+1900,Sub-Saharan Africa,Latin America & Caribbean,0,1806
+1900,Sub-Saharan Africa,Middle East & North Africa,0,1806
+1900,Sub-Saharan Africa,North America,190,1806
+1900,Sub-Saharan Africa,South Asia,0,1806
+1900,Sub-Saharan Africa,Sub-Saharan Africa,78,1806
+1950,East Asia & Pacific,East Asia & Pacific,785,1093
+1950,East Asia & Pacific,Europe & Central Asia,166,1093
+1950,East Asia & Pacific,Latin America & Caribbean,0,1093
+1950,East Asia & Pacific,Middle East & North Africa,0,1093
+1950,East Asia & Pacific,North America,131,1093
+1950,East Asia & Pacific,South Asia,11,1093
+1950,East Asia & Pacific,Sub-Saharan Africa,0,1093
+1950,Europe & Central Asia,East Asia & Pacific,0,145
+1950,Europe & Central Asia,Europe & Central Asia,141,145
+1950,Europe & Central Asia,Latin America & Caribbean,0,145
+1950,Europe & Central Asia,Middle East & North Africa,0,145
+1950,Europe & Central Asia,North America,4,145
+1950,Europe & Central Asia,South Asia,0,145
+1950,Europe & Central Asia,Sub-Saharan Africa,0,145
+1950,Latin America & Caribbean,East Asia & Pacific,0,1580
+1950,Latin America & Caribbean,Europe & Central Asia,436,1580
+1950,Latin America & Caribbean,Latin America & Caribbean,753,1580
+1950,Latin America & Caribbean,Middle East & North Africa,0,1580
+1950,Latin America & Caribbean,North America,391,1580
+1950,Latin America & Caribbean,South Asia,0,1580
+1950,Latin America & Caribbean,Sub-Saharan Africa,0,1580
+1950,Middle East & North Africa,East Asia & Pacific,1,65
+1950,Middle East & North Africa,Europe & Central Asia,47,65
+1950,Middle East & North Africa,Latin America & Caribbean,0,65
+1950,Middle East & North Africa,Middle East & North Africa,6,65
+1950,Middle East & North Africa,North America,10,65
+1950,Middle East & North Africa,South Asia,1,65
+1950,Middle East & North Africa,Sub-Saharan Africa,0,65
+1950,North America,East Asia & Pacific,0,221
+1950,North America,Europe & Central Asia,0,221
+1950,North America,Latin America & Caribbean,0,221
+1950,North America,Middle East & North Africa,0,221
+1950,North America,North America,221,221
+1950,North America,South Asia,0,221
+1950,North America,Sub-Saharan Africa,0,221
+1950,South Asia,East Asia & Pacific,8,219
+1950,South Asia,Europe & Central Asia,39,219
+1950,South Asia,Latin America & Caribbean,0,219
+1950,South Asia,Middle East & North Africa,1,219
+1950,South Asia,North America,11,219
+1950,South Asia,South Asia,160,219
+1950,South Asia,Sub-Saharan Africa,0,219
+1950,Sub-Saharan Africa,East Asia & Pacific,5,1174
+1950,Sub-Saharan Africa,Europe & Central Asia,963,1174
+1950,Sub-Saharan Africa,Latin America & Caribbean,0,1174
+1950,Sub-Saharan Africa,Middle East & North Africa,0,1174
+1950,Sub-Saharan Africa,North America,145,1174
+1950,Sub-Saharan Africa,South Asia,0,1174
+1950,Sub-Saharan Africa,Sub-Saharan Africa,61,1174
+2000,East Asia & Pacific,East Asia & Pacific,932,1212
+2000,East Asia & Pacific,Europe & Central Asia,189,1212
+2000,East Asia & Pacific,Latin America & Caribbean,0,1212
+2000,East Asia & Pacific,Middle East & North Africa,0,1212
+2000,East Asia & Pacific,North America,88,1212
+2000,East Asia & Pacific,South Asia,3,1212
+2000,East Asia & Pacific,Sub-Saharan Africa,0,1212
+2000,Europe & Central Asia,East Asia & Pacific,2,284
+2000,Europe & Central Asia,Europe & Central Asia,275,284
+2000,Europe & Central Asia,Latin America & Caribbean,0,284
+2000,Europe & Central Asia,Middle East & North Africa,0,284
+2000,Europe & Central Asia,North America,4,284
+2000,Europe & Central Asia,South Asia,0,284
+2000,Europe & Central Asia,Sub-Saharan Africa,3,284
+2000,Latin America & Caribbean,East Asia & Pacific,1,2463
+2000,Latin America & Caribbean,Europe & Central Asia,139,2463
+2000,Latin America & Caribbean,Latin America & Caribbean,2166,2463
+2000,Latin America & Caribbean,Middle East & North Africa,0,2463
+2000,Latin America & Caribbean,North America,157,2463
+2000,Latin America & Caribbean,South Asia,0,2463
+2000,Latin America & Caribbean,Sub-Saharan Africa,0,2463
+2000,Middle East & North Africa,East Asia & Pacific,0,109
+2000,Middle East & North Africa,Europe & Central Asia,33,109
+2000,Middle East & North Africa,Latin America & Caribbean,0,109
+2000,Middle East & North Africa,Middle East & North Africa,62,109
+2000,Middle East & North Africa,North America,13,109
+2000,Middle East & North Africa,South Asia,1,109
+2000,Middle East & North Africa,Sub-Saharan Africa,0,109
+2000,North America,East Asia & Pacific,0,57
+2000,North America,Europe & Central Asia,0,57
+2000,North America,Latin America & Caribbean,0,57
+2000,North America,Middle East & North Africa,0,57
+2000,North America,North America,57,57
+2000,North America,South Asia,0,57
+2000,North America,Sub-Saharan Africa,0,57
+2000,South Asia,East Asia & Pacific,6,464
+2000,South Asia,Europe & Central Asia,18,464
+2000,South Asia,Latin America & Caribbean,0,464
+2000,South Asia,Middle East & North Africa,0,464
+2000,South Asia,North America,42,464
+2000,South Asia,South Asia,398,464
+2000,South Asia,Sub-Saharan Africa,0,464
+2000,Sub-Saharan Africa,East Asia & Pacific,7,609
+2000,Sub-Saharan Africa,Europe & Central Asia,307,609
+2000,Sub-Saharan Africa,Latin America & Caribbean,1,609
+2000,Sub-Saharan Africa,Middle East & North Africa,0,609
+2000,Sub-Saharan Africa,North America,196,609
+2000,Sub-Saharan Africa,South Asia,0,609
+2000,Sub-Saharan Africa,Sub-Saharan Africa,98,609

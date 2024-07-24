@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+
+execute:
+  freeze: auto
+
+website:
+  title: "The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Home"
+        href: index.qmd
+      - text: "01_D_data_preparation.qmd"
+        href: R/01_D_data_preparation.qmd
+      - text: "02_A_beta-countries.qmd"
+        href: R/02_A_beta-countries.qmd
+      - text: "03_D_data_preparation_models.qmd"
+        href: R/03_D_data_preparation_models.qmd
+      - text: "04_A_model_NBTs.qmd"
+        href: R/04_A_model_NBTs.qmd
+      - text: "05_V_chord_diagram_Fig1.qmd"
+        href: R/05_V_chord_diagram_Fig1.qmd
+      - text: "06_V_world_map_Fig1.qmd"
+        href: R/06_V_world_map_Fig1.qmd
+      - text: "07_V_scatterplot_Fig2.qmd"
+        href: R/07_V_scatterplot_Fig2.qmd
+      - text: "08_V_beta_Fig3.qmd"
+        href: R/08_V_beta_Fig3.qmd
+      - text: "09_V_model_Fig4.qmd"
+        href: R/09_V_model_Fig4.qmd
+      - text: "0010_Supplementary_analysis.qmd"
+        href: R/0010_Supplementary_analysis.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true

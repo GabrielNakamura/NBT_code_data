@@ -1,0 +1,178 @@
+---
+title: "01 Data preparation"
+format: html
+eval: false
+---
+
+# General overview
+
+In this document we provide all the scripts needed to process the main data and later create models and figures.
+
+# Reading libraries, data and basic functions
+
+```{r}
+library(dplyr)   # data manipulation
+library(tidyr)   # data tidying
+library(glue)    # string interpolation
+library(here)    # constructing file paths
+library(readr)   # reading CSV files
+
+# create period of 50 years
+floor_period = function(value){ return(value - value %% 50) }
+```
+
+Data from NBTs (Name Bearing Types) flow
+
+```{r}
+# Flow by each period, region and country
+flow_period_region_country <- readr::read_csv(here::here("data", "raw", "flow_period_region_country.csv"))
+```
+
+# Load data
+
+```{r}
+# 1
+
+# Flow by each period - add total
+flow_period <- flow_period_region_country |> 
+  dplyr::group_by(period) |> 
+  dplyr::count(wt = n) |> 
+  dplyr::ungroup() |>
+  dplyr::add_count(name = "total_period", wt = n)
+
+# Flow by each region - add total from region_type
+flow_region <- flow_period_region_country |> 
+  dplyr::group_by(region_type, region_museum) |> 
+  dplyr::count(wt = n) |> 
+  dplyr::ungroup() |>
+  dplyr::group_by(region_type) |>
+  dplyr::add_count(name = "total_region_type", wt = n) |> 
+  dplyr::ungroup()
+
+readr::write_csv(flow_region, here::here("data","processed", "flow_region.csv"))
+
+# Flow by each country - add total from country_type
+flow_country <- flow_period_region_country |> 
+  dplyr::group_by(country_type, country_museum) |> 
+  dplyr::count(wt = n) |> 
+  dplyr::ungroup() |>
+  dplyr::group_by(country_type) |>
+  dplyr::add_count(name = "total_country_type", wt = n) |> 
+  dplyr::ungroup()
+
+readr::write_csv(flow_country, here::here("data","processed", "flow_country.csv"))
+
+
+# 2
+
+# Flow by each period and region - add total from period and region_type
+flow_period_region <- flow_period_region_country |> 
+  dplyr::group_by(period, region_type, region_museum) |> 
+  dplyr::count(wt = n) |> 
+  dplyr::ungroup()|>
+  dplyr::group_by(period, region_type) |>
+  dplyr::add_count(name = "total_period_region_type", wt = n) |> 
+  dplyr::ungroup()
+
+readr::write_csv(flow_period_region, here::here("data","processed", "flow_period_region.csv"))
+
+# Flow by each region and country - add total from country_type
+flow_region_country <- flow_period_region_country |> 
+  dplyr::group_by(region_type, region_museum,
+                  country_type, country_museum) |> 
+  dplyr::count(wt = n) |> 
+  dplyr::ungroup() |>
+  dplyr::group_by(country_type) |>
+  dplyr::add_count(name = "total_country_type", wt = n) |> 
+  dplyr::ungroup()
+
+# Proportions
+
+# Flow by each period and region - add proportions
+flow_period_region_prop <- flow_period_region |>
+  # ungroup
+  dplyr::ungroup() |>
+  # group by period and museum region
+  dplyr::group_by(period, region_museum) |>
+  # count how many NBTs were deposited in the museums of this region during the period
+  dplyr::add_count(wt = n, name = "total_period_region_museum") |>
+  # ungroup
+  dplyr::ungroup() |>
+  # group by period
+  dplyr::group_by(period) |>
+  # count how many NBTs were described during the period
+  dplyr::add_count(wt = n, name = "total_period") |>
+  # filter only within each region
+  dplyr::filter(region_type == region_museum) |>
+  #add prop_DC (Domestic Contribution) and prop_DR (Domestic Retention)
+  dplyr::mutate(prop_DC = n/total_period_region_museum,
+                prop_DR = n/total_period_region_type) |> 
+  dplyr::ungroup() |> 
+  dplyr::mutate(prop_DC = ifelse(is.na(prop_DC), 0, prop_DC))
+
+readr::write_csv(flow_period_region_prop, here::here("data","processed", "flow_period_region_prop.csv"))
+
+# Flow by each period and region - add proportions
+flow_region_prop <- flow_region |>
+  # ungroup
+  dplyr::ungroup() |>
+  # group by period and museum region
+  dplyr::group_by(region_museum) |>
+  # count how many NBTs were deposited in the museums of this region
+  dplyr::add_count(wt = n, name = "total_region_museum") |>
+  # ungroup
+  dplyr::ungroup() |>
+  # filter only within each region
+  dplyr::filter(region_type == region_museum) |>
+  #add prop_DC (Domestic Contribution) and prop_DR (Domestic Retention)
+  dplyr::mutate(prop_DC = n/total_region_museum,
+                prop_DR = n/total_region_type)
+
+readr::write_csv(flow_region_prop, here::here("data","processed", "flow_region_prop.csv"))
+```
+
+# Museum data
+
+```{r}
+museum_data <- readr::read_csv(here::here("data", "raw", "museum_data.csv"))
+
+infra_museum <-
+  museum_data |>
+  dplyr::group_by(country_museum) |>
+  dplyr::count(name = "n.museums")
+
+readr::write_csv(infra_museum, here::here("data","processed", "infra_museum.csv"))
+```
+
+# Native and Types species by country list
+
+```{r}
+# Native
+spp_native_distribution <- readr::read_csv(here::here("data", "raw", "spp_native_distribution.csv")) 
+
+df_country_native <- spp_native_distribution |>
+  dplyr::group_by(country_distribution, region_distribution) |>
+  dplyr::count(name = "native.richness") |>
+  dplyr::ungroup()
+
+readr::write_csv(df_country_native, here::here("data","processed", "df_country_native.csv"))
+
+# Types
+spp_type_distribution <- readr::read_csv(here::here("data", "raw", "spp_type_distribution.csv")) 
+
+df_country_type <- spp_type_distribution |>
+  dplyr::group_by(country_museum, region_museum) |>
+  dplyr::count(name = "type_richness") |>
+  dplyr::ungroup()
+
+readr::write_csv(df_country_type, here::here("data","processed", "df_country_type.csv"))
+
+```
+
+# Bio-Dem
+
+We downloaded data from [Bio-Dem](https://bio-dem.surge.sh/#awards) data base and saved them as csv files. Here I read these files that contain information on GDP per capta (e_migdppc), total number of occurrence species records from gbif (records), records per area from gbif (records_per_area), years since independence for each country (yearsSinceIndependence). Country names is represented by iso3c code - an unique three letters code that identify each country.
+
+```{r}
+df_bio_dem <- readr::read_csv(file = here::here("data", "raw", "bio-dem_data.csv"))
+```

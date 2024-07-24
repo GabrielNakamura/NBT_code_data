@@ -1,0 +1,43 @@
+period,region_type,region_museum,n,total_period_region_type,total_period_region_museum,total_period,prop_DC,prop_DR
+1750,East Asia & Pacific,East Asia & Pacific,3,5,3,75,1,0.6
+1750,Europe & Central Asia,Europe & Central Asia,24,24,70,75,0.34285714285714286,1
+1750,Latin America & Caribbean,Latin America & Caribbean,0,24,0,75,0,0
+1750,Middle East & North Africa,Middle East & North Africa,0,8,0,75,0,0
+1750,North America,North America,0,2,2,75,0,0
+1750,South Asia,South Asia,0,11,0,75,0,0
+1750,Sub-Saharan Africa,Sub-Saharan Africa,0,1,0,75,0,0
+1800,East Asia & Pacific,East Asia & Pacific,6,182,10,948,0.6,0.03296703296703297
+1800,Europe & Central Asia,Europe & Central Asia,83,108,844,948,0.09834123222748815,0.7685185185185185
+1800,Latin America & Caribbean,Latin America & Caribbean,11,274,11,948,1,0.040145985401459854
+1800,Middle East & North Africa,Middle East & North Africa,0,121,0,948,0,0
+1800,North America,North America,25,77,69,948,0.36231884057971014,0.3246753246753247
+1800,South Asia,South Asia,11,140,11,948,1,0.07857142857142857
+1800,Sub-Saharan Africa,Sub-Saharan Africa,3,46,3,948,1,0.06521739130434782
+1850,East Asia & Pacific,East Asia & Pacific,90,784,103,3858,0.8737864077669902,0.11479591836734694
+1850,Europe & Central Asia,Europe & Central Asia,270,276,2534,3858,0.10655090765588003,0.9782608695652174
+1850,Latin America & Caribbean,Latin America & Caribbean,13,1261,13,3858,1,0.010309278350515464
+1850,Middle East & North Africa,Middle East & North Africa,0,41,0,3858,0,0
+1850,North America,North America,758,833,1167,3858,0.6495287060839761,0.9099639855942377
+1850,South Asia,South Asia,17,101,40,3858,0.425,0.16831683168316833
+1850,Sub-Saharan Africa,Sub-Saharan Africa,1,562,1,3858,1,0.0017793594306049821
+1900,East Asia & Pacific,East Asia & Pacific,213,1252,215,5670,0.9906976744186047,0.17012779552715654
+1900,Europe & Central Asia,Europe & Central Asia,168,169,2731,5670,0.061515928231417064,0.9940828402366864
+1900,Latin America & Caribbean,Latin America & Caribbean,172,2058,172,5670,1,0.08357628765792031
+1900,Middle East & North Africa,Middle East & North Africa,0,63,0,5670,0,0
+1900,North America,North America,197,197,2320,5670,0.08491379310344828,1
+1900,South Asia,South Asia,88,125,154,5670,0.5714285714285714,0.704
+1900,Sub-Saharan Africa,Sub-Saharan Africa,78,1806,78,5670,1,0.04318936877076412
+1950,East Asia & Pacific,East Asia & Pacific,785,1093,799,4497,0.9824780976220275,0.7182067703568161
+1950,Europe & Central Asia,Europe & Central Asia,141,145,1792,4497,0.07868303571428571,0.9724137931034482
+1950,Latin America & Caribbean,Latin America & Caribbean,753,1580,753,4497,1,0.47658227848101264
+1950,Middle East & North Africa,Middle East & North Africa,6,65,7,4497,0.8571428571428571,0.09230769230769231
+1950,North America,North America,221,221,913,4497,0.2420591456736035,1
+1950,South Asia,South Asia,160,219,172,4497,0.9302325581395349,0.730593607305936
+1950,Sub-Saharan Africa,Sub-Saharan Africa,61,1174,61,4497,1,0.051959114139693355
+2000,East Asia & Pacific,East Asia & Pacific,932,1212,948,5198,0.9831223628691983,0.768976897689769
+2000,Europe & Central Asia,Europe & Central Asia,275,284,961,5198,0.2861602497398543,0.9683098591549296
+2000,Latin America & Caribbean,Latin America & Caribbean,2166,2463,2167,5198,0.9995385325334564,0.879415347137637
+2000,Middle East & North Africa,Middle East & North Africa,62,109,62,5198,1,0.5688073394495413
+2000,North America,North America,57,57,557,5198,0.10233393177737882,1
+2000,South Asia,South Asia,398,464,402,5198,0.9900497512437811,0.8577586206896551
+2000,Sub-Saharan Africa,Sub-Saharan Africa,98,609,101,5198,0.9702970297029703,0.16091954022988506
