@@ -8,9 +8,9 @@ format: gfm
 
 This repository contains the data and code used in the analysis of the manuscript entitled **"The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science"**. 
 
-In this study we showed different aspects of global spatial and temporal patterns of fish Name Bearing Types (NBT). The characteristics are described through the number of total NBT, the NBT flowing among different world regions, the characteristics of regions and countries regarding the source of NBT in their biological collection among other characteristics.
+In this study we characterized different aspects of spatial and temporal patterns of fish Name Bearing Types (NBT) among countries and world regions. The characteristics comprises the number of total NBT, the NBT flowing among different world regions, the characteristics of regions and countries regarding the source of NBT in their biological collection, the level of underepresentation of native species and the level of overepresentation of non-native species for each country.
 
-We discuss how the fundamental knowledge in species is distributed and its implications for science development and knowledge sharing.
+We discuss how the fundamental knowledge in fish species is distributed and its implications for science development and knowledge sharing.
 
 # Repository structure
 
@@ -84,15 +84,23 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 In this folder you will find all figures used in the main text and supplementary material of this study
 
-`Fig1.png` Figure with circular plots showing the flux of NBT among regions of the world in a 
+`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux of NBT among regions of the world in a 
     50-year time window
 
-`Fig2.png` Scaterplot with World regions characterized by their Domestic Contribution and
+`Fig2_DC_DR.png` Scaterplot with World regions characterized by their Domestic Contribution and
    Domestic Retention values in a 50-year time frame
 
-`fig3.png` Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map
+`Fig3_turnover_metrics.png` Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map
 
-`fig4.png` Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models
+`Fig4_models.png` Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models
+
+#### Supp-material
+
+This folder contains the figures in the Supplementary material
+
+- `FigS1_native_richness.png` World map with countries coloured according to the number of native species richness according to the Catalog of Fishes
+
+- `FigS2_scatterplot.png` All-time Domestic contribution (DC) and Domestic retention (DR) for world regions
 
 # Authors
 

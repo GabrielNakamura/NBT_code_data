@@ -1,5 +1,4 @@
 
-
 <!-- Please do not edit .md document. Instead use .qmd -->
 
 # General overview
@@ -8,15 +7,16 @@ This repository contains the data and code used in the analysis of the
 manuscript entitled **“The macroecology of knowledge: Spatio-temporal
 patterns of name-bearing types in biodiversity science”**.
 
-In this study we showed different aspects of global spatial and temporal
-patterns of fish Name Bearing Types (NBT). The characteristics are
-described through the number of total NBT, the NBT flowing among
-different world regions, the characteristics of regions and countries
-regarding the source of NBT in their biological collection among other
-characteristics.
+In this study we characterized different aspects of spatial and temporal
+patterns of fish Name Bearing Types (NBT) among countries and world
+regions. The characteristics comprises the number of total NBT, the NBT
+flowing among different world regions, the characteristics of regions
+and countries regarding the source of NBT in their biological
+collection, the level of underepresentation of native species and the
+level of overepresentation of non-native species for each country.
 
-We discuss how the fundamental knowledge in species is distributed and
-its implications for science development and knowledge sharing.
+We discuss how the fundamental knowledge in fish species is distributed
+and its implications for science development and knowledge sharing.
 
 # Repository structure
 
@@ -115,18 +115,31 @@ the beginning of the name of the script file
 In this folder you will find all figures used in the main text and
 supplementary material of this study
 
-`Fig1.png` Figure with circular plots showing the flux of NBT among
-regions of the world in a 50-year time window
+`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux
+of NBT among regions of the world in a 50-year time window
 
-`Fig2.png` Scaterplot with World regions characterized by their Domestic
-Contribution and Domestic Retention values in a 50-year time frame
+`Fig2_DC_DR.png` Scaterplot with World regions characterized by their
+Domestic Contribution and Domestic Retention values in a 50-year time
+frame
 
-`fig3.png` Cartogram with 3 maps showing the level of native turnover,
-NBT turnover and the combination of both metrics in a combined map
+`Fig3_turnover_metrics.png` Cartogram with 3 maps showing the level of
+native turnover, NBT turnover and the combination of both metrics in a
+combined map
 
-`fig4.png` Figure showing the predictions of the number of NBT, DC, DR,
-native turnover and NBT turnover for different predictors. This is
-derived from the statistical models
+`Fig4_models.png` Figure showing the predictions of the number of NBT,
+DC, DR, native turnover and NBT turnover for different predictors. This
+is derived from the statistical models
+
+#### Supp-material
+
+This folder contains the figures in the Supplementary material
+
+- `FigS1_native_richness.png` World map with countries coloured
+  according to the number of native species richness according to the
+  Catalog of Fishes
+
+- `FigS2_scatterplot.png` All-time Domestic contribution (DC) and
+  Domestic retention (DR) for world regions
 
 # Authors
 
@@ -145,17 +158,16 @@ If you have any suggestion or commentary, please open an issue
 
 # Session info
 
-    R version 4.4.0 (2024-04-24 ucrt)
-    Platform: x86_64-w64-mingw32/x64
-    Running under: Windows 11 x64 (build 22631)
+    R version 4.3.1 (2023-06-16)
+    Platform: x86_64-apple-darwin20 (64-bit)
+    Running under: macOS Big Sur 11.7.10
 
     Matrix products: default
-
+    BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib 
+    LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
 
     locale:
-    [1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
-    [3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
-    [5] LC_TIME=Portuguese_Brazil.utf8    
+    [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
     time zone: America/Sao_Paulo
     tzcode source: internal
@@ -164,7 +176,7 @@ If you have any suggestion or commentary, please open an issue
     [1] stats     graphics  grDevices utils     datasets  methods   base     
 
     loaded via a namespace (and not attached):
-     [1] compiler_4.4.0    fastmap_1.1.1     cli_3.6.2         tools_4.4.0      
-     [5] htmltools_0.5.8.1 rstudioapi_0.16.0 yaml_2.3.8        rmarkdown_2.26   
-     [9] knitr_1.46        jsonlite_1.8.8    xfun_0.43         digest_0.6.35    
-    [13] rlang_1.1.3       evaluate_0.23    
+     [1] compiler_4.3.1    fastmap_1.1.1     cli_3.6.1         tools_4.3.1      
+     [5] htmltools_0.5.7   rstudioapi_0.15.0 yaml_2.3.7        rmarkdown_2.25   
+     [9] knitr_1.45        jsonlite_1.8.7    xfun_0.41         digest_0.6.33    
+    [13] rlang_1.1.2       evaluate_0.23    
