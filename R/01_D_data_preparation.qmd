@@ -6,7 +6,8 @@ eval: false
 
 # General overview
 
-In this document we provide all the scripts needed to process the main data and later create models and figures.
+In this document we provide all the scripts needed to process the main data and
+    later create models and figures.
 
 # Reading libraries, data and basic functions
 
@@ -21,7 +22,14 @@ library(readr)   # reading CSV files
 floor_period = function(value){ return(value - value %% 50) }
 ```
 
-Data from NBTs (Name Bearing Types) flow
+Data containing NBT (Name Bearing Types) flow. This data frame contains the flow of NBT
+    among countries. The source country of the NBT is represented by its three 
+    letter acronym (country_type) and its respective world bank region (region_type). 
+    The housing location is represented by three letter code of the country (contry_museum) and its 
+    respective world bank region of the museum (region_museum).
+    NBT flowing is represented by 50-year time intervals. The total number of 
+    NBT flowing from one region/country to another is represented by the column
+    n. These names and meanings are consistent throughout all data sets
 
 ```{r}
 # Flow by each period, region and country
@@ -33,14 +41,14 @@ flow_period_region_country <- readr::read_csv(here::here("data", "raw", "flow_pe
 ```{r}
 # 1
 
-# Flow by each period - add total
+# Flow by each period - total number of NBT by period
 flow_period <- flow_period_region_country |> 
   dplyr::group_by(period) |> 
   dplyr::count(wt = n) |> 
   dplyr::ungroup() |>
   dplyr::add_count(name = "total_period", wt = n)
 
-# Flow by each region - add total from region_type
+# Flow by each region - total number of NBT among regions
 flow_region <- flow_period_region_country |> 
   dplyr::group_by(region_type, region_museum) |> 
   dplyr::count(wt = n) |> 
@@ -51,7 +59,7 @@ flow_region <- flow_period_region_country |>
 
 readr::write_csv(flow_region, here::here("data","processed", "flow_region.csv"))
 
-# Flow by each country - add total from country_type
+# Flow among countries
 flow_country <- flow_period_region_country |> 
   dplyr::group_by(country_type, country_museum) |> 
   dplyr::count(wt = n) |> 

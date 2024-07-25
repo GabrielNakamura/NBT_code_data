@@ -5,29 +5,29 @@ eval: FALSE
 date: 2024-07-24
 author:
   - name: Gabriel Nakamura
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0002-5144-5312
   - name: Lívia Estéfane F. Frateles
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0003-0644-5425
   - name: Bruno H. Mioto Stabile
-    orcid: 0000-0002-1825-0097
-  - name: Matheus Lima Araujo
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0002-3524-537X
+  - name: Matheus Lima de Araujo
+    orcid: 0000-0002-9111-725X
   - name: Emanuel Neuhaus
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0002-5966-7585
   - name: Manoela Maria Ferreira Marinho
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0003-4226-666X
   - name: Aline Richter
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0001-6385-153X
   - name: Liuyong Ding
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0002-5490-182X
   - name: Tiago Magalhães da Silva Freitas
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0003-3203-3408
   - name: Bruno Eleres Soares
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0001-5678-0403
   - name: Weferson Júnio da Graça
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0002-8925-5629
   - name: José Alexandre Felizola Diniz-Filho
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0002-0967-9684
 ---
 
 ::: {.callout-note}
@@ -52,19 +52,77 @@ This folder stores raw and processed data used
 
 ### raw
 
-- `flow_period_region_country.csv` a data frame in the long format containing the flowing of NBT 
-    per regions per per time (50-year time frame)
+-   `flow_period_region_country.csv` a data frame in the long format
+    containing the flowing of NBT per regions per per time (50-year time
+    frame). Variables:
 
-- `spp_native_distribution.csv` data frame in the long format containing the native composition 
-    at the country level
+    -   `period` numeric variable representing 50-year time intervals
+
+    -   `region_type` character representing the name of the World Bank region
+        of the country where the NBT was sourced
+        
+    -   `country_type` character. A three letter code (alpha-3 ISO3166) representing
+        the country of the museum where the NBT was sourced
     
-- `spp_type_distribution.csv` data frame in the long format containing the composition of NBT by country
+    -   `region_museum` character. Name of the World Bank region of the country 
+        where the NBT is housed
+        
+    -   `country_museum` character. A three letter code (alpha-3 ISO3166) representing
+        the country of the museum where the NBT is housed
+        
+    - `n` numeric. The number of NBT flowing from one country to another
 
-- `bio-dem_data.csv` data frame with data downloaded from [Bio-Dem](https://bio-dem.surge.sh/#awards) containing information on biological and social
-    information at the country level
+-   `spp_native_distribution.csv` data frame in the long format
+    containing the native composition at the country level. Variables:
+    
+    -   `valid_name` character. The name of a species in the format genus_epithet
+        according to the Catalog of Fishes
+    
+    -   `country_distribution` character. Three letter code (alpha-3 ISO3166)
+        indicating the name of the country where a species is native to
+        
+    -   `region_distribution` character. The name of the region acording with 
+        World Bank where a species is native to
 
-- `museum_data.csv` data frame with museums' acronyms and the world region of each
+-   `spp_type_distribution.csv` data frame in the long format containing
+    the composition of NBT by country. Variables:
+    
+    
+    -   `valid_name` character. The name of a species in the format genus_epithet
+        according to the Catalog of Fishes
+    
+    -   `country_distribution` character. Three letter code (alpha-3 ISO3166)
+        indicating the name of the country where a species is housed
+        
+    -   `region_distribution` character. The name of the region acording with 
+        World Bank where a species is housed
 
+-   `bio-dem_data.csv` data frame with data downloaded from
+    [Bio-Dem](https://bio-dem.surge.sh/#awards) containing information
+    on biological and social information at the country level. Variables:
+    
+    - `country` character.  A three letter code (alpha-3 ISO3166) representing
+        a country
+      
+    - `records` numeric. Total number of species occurrence records from Global
+       Biodiverity Facility (GBIF)
+       
+    - `records_per_area` numeric. Records per area from gbif
+    
+    - `yearsSinceIndependence` numeric. Years since independence for each country
+    
+    - `e_migdppc` numeric. GDP per capta 
+
+-   `museum_data.csv` data frame with museums' acronyms and the world
+    region of each. Variables:
+    
+    - `code_museum` character. The acronym (three letter code) of the museum
+    
+    - `country_museum` character. A three letter code (alpha-3 ISO3166) representing
+        a country
+        
+    - `region_museum` character. The name of the region acording with 
+        World Bank
 ### processed 
 
 - `flow_region.csv` a data frame containing flowing of NBT among world regions and the total number of NBT derived from the source region
