@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -245,17 +245,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">data</a>
   <ul class="collapse">
   <li><a href="#raw" id="toc-raw" class="nav-link" data-scroll-target="#raw">raw</a></li>
+  <li><a href="#processed" id="toc-processed" class="nav-link" data-scroll-target="#processed">processed</a></li>
   </ul></li>
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
   <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">output</a>
   <ul class="collapse">
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
   </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   </ul></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
   <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info">Session Info</a></li>
   </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="undefined"><i class="bi bi-file-code"></i>Source Code</a></li></ul></div></nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/GabrielNakamura/NBT_code_data"><i class="bi bi-file-code"></i>Source Code</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -362,8 +364,13 @@ Note
 <ul>
 <li><p><code>code_museum</code> character. The acronym (three letter code) of the museum</p></li>
 <li><p><code>country_museum</code> character. A three letter code (alpha-3 ISO3166) representing a country</p></li>
-<li><p><code>region_museum</code> character. The name of the region acording with World Bank ### processed</p></li>
+<li><p><code>region_museum</code> character. The name of the region acording with World Bank</p></li>
 </ul></li>
+</ul>
+</section>
+<section id="processed" class="level3">
+<h3 class="anchored" data-anchor-id="processed">processed</h3>
+<ul>
 <li><p><code>flow_region.csv</code> a data frame containing flowing of NBT among world regions and the total number of NBT derived from the source region</p></li>
 <li><p><code>flow_period_region.csv</code> a data frame with the number of NBT between the world regions per 50-year time frame and the total number of NBT in each time frame for each world region</p></li>
 <li><p><code>flow_period_region_prop.csv</code> a data frame with the number of NBT, the Domestic Contribution and Domestic Retention between the world regions in a 50-year time frame</p></li>
@@ -410,6 +417,126 @@ Note
 </ul>
 </section>
 </section>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bbmle</td>
+<td>1.0.25.1</td>
+<td><a href="https://cran.r-project.org/web/packages/bbmle/bbmle.pdf">bbmle</a></td>
+</tr>
+<tr class="even">
+<td>biscale</td>
+<td>1.0.0</td>
+<td><a href="https://chris-prener.github.io/biscale/">biscale</a></td>
+</tr>
+<tr class="odd">
+<td>circlize</td>
+<td>0.4.15</td>
+<td><a href="https://jokergoo.github.io/circlize_book/book/">circlize</a></td>
+</tr>
+<tr class="even">
+<td>countrycode</td>
+<td>1.6.0</td>
+<td><a href="https://vincentarelbundock.github.io/countrycode/#/">countrycode</a></td>
+</tr>
+<tr class="odd">
+<td>cowplot</td>
+<td>1.1.1</td>
+<td><a href="https://wilkelab.org/cowplot/">cowplot</a></td>
+</tr>
+<tr class="even">
+<td>DHARMa</td>
+<td>0.4.6</td>
+<td><a href="https://florianhartig.github.io/DHARMa/">DHARMa</a></td>
+</tr>
+<tr class="odd">
+<td>dplyr</td>
+<td>1.1.4</td>
+<td><a href="https://dplyr.tidyverse.org">dplyr</a></td>
+</tr>
+<tr class="even">
+<td>ggarrow</td>
+<td>0.0.0.9000</td>
+<td><a href="https://teunbrand.github.io/ggarrow/">ggarrow</a></td>
+</tr>
+<tr class="odd">
+<td>ggplot2</td>
+<td>3.5.0</td>
+<td><a href="https://ggplot2.tidyverse.org">ggplot2</a></td>
+</tr>
+<tr class="even">
+<td>glmmTMB</td>
+<td>1.1.8</td>
+<td><a href="https://glmmtmb.github.io/glmmTMB/">glmmTMB</a></td>
+</tr>
+<tr class="odd">
+<td>glue</td>
+<td>1.6.2</td>
+<td><a href="https://glue.tidyverse.org">glue</a></td>
+</tr>
+<tr class="even">
+<td>here</td>
+<td>1.0.1</td>
+<td><a href="https://here.r-lib.org">here</a></td>
+</tr>
+<tr class="odd">
+<td>patchwork</td>
+<td>1.2.0.9000</td>
+<td><a href="https://patchwork.data-imaginist.com">patchwork</a></td>
+</tr>
+<tr class="even">
+<td>performance</td>
+<td>0.12.1</td>
+<td><a href="https://easystats.github.io/performance/">performance</a></td>
+</tr>
+<tr class="odd">
+<td>phyloregion</td>
+<td>1.0.8</td>
+<td><a href="https://phyloregion.com">phyloregion</a></td>
+</tr>
+<tr class="even">
+<td>readr</td>
+<td>2.1.4</td>
+<td><a href="https://readr.tidyverse.org">readr</a></td>
+</tr>
+<tr class="odd">
+<td>rmapshaper</td>
+<td>0.5.0</td>
+<td><a href="https://andyteucher.ca/rmapshaper/">rmapshaper</a></td>
+</tr>
+<tr class="even">
+<td>rnaturalearth</td>
+<td>0.3.4</td>
+<td><a href="https://ropensci.github.io/rnaturalearth/">rnaturalearth</a></td>
+</tr>
+<tr class="odd">
+<td>scales</td>
+<td>1.3.0.9000*</td>
+<td><a href="https://scales.r-lib.org">scales</a></td>
+</tr>
+<tr class="even">
+<td>sf</td>
+<td>1.0-14</td>
+<td><a href="https://r-spatial.github.io/sf/">sf</a></td>
+</tr>
+<tr class="odd">
+<td>tidyr</td>
+<td>1.3.1</td>
+<td><a href="https://tidyr.tidyverse.org">tidyr</a></td>
+</tr>
+</tbody>
+</table>
+<p>* Developer version</p>
 </section>
 </section>
 <section id="contact" class="level1">
@@ -567,24 +694,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -619,11 +728,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
