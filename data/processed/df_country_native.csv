@@ -1,178 +1,174 @@
 country_distribution,region_distribution,native.richness
-AFG,South Asia,83
-AGO,Sub-Saharan Africa,178
-ALB,Europe & Central Asia,47
-ARE,Middle East & North Africa,2
-ARG,Latin America & Caribbean,543
-ARM,Europe & Central Asia,8
+AFG,South Asia,44
+AGO,Sub-Saharan Africa,164
+ALB,Europe & Central Asia,18
+ARE,Middle East & North Africa,1
+ARG,Latin America & Caribbean,477
+ARM,Europe & Central Asia,7
 ASM,East Asia & Pacific,1
-AUS,East Asia & Pacific,241
-AUT,Europe & Central Asia,12
-AZE,Europe & Central Asia,15
-BDI,Sub-Saharan Africa,281
-BEN,Sub-Saharan Africa,15
+AUS,East Asia & Pacific,232
+AUT,Europe & Central Asia,7
+AZE,Europe & Central Asia,10
+BDI,Sub-Saharan Africa,272
+BEN,Sub-Saharan Africa,11
 BFA,Sub-Saharan Africa,2
-BGD,South Asia,212
-BGR,Europe & Central Asia,22
-BHS,Latin America & Caribbean,5
-BIH,Europe & Central Asia,28
+BGD,South Asia,92
+BGR,Europe & Central Asia,11
+BHS,Latin America & Caribbean,3
+BIH,Europe & Central Asia,22
 BLR,Europe & Central Asia,1
-BLZ,Latin America & Caribbean,42
-BMU,North America,1
-BOL,Latin America & Caribbean,865
-BRA,Latin America & Caribbean,3854
-BRN,East Asia & Pacific,20
-BTN,South Asia,77
-BWA,Sub-Saharan Africa,9
-CAF,Sub-Saharan Africa,32
-CAN,North America,60
+BLZ,Latin America & Caribbean,40
+BMU,North America,3
+BOL,Latin America & Caribbean,762
+BRA,Latin America & Caribbean,3646
+BRN,East Asia & Pacific,15
+BTN,South Asia,37
+BWA,Sub-Saharan Africa,8
+CAF,Sub-Saharan Africa,29
+CAN,North America,39
 CCK,East Asia & Pacific,2
-CHE,Europe & Central Asia,47
-CHL,Latin America & Caribbean,43
-CHN,East Asia & Pacific,1493
-CIV,Sub-Saharan Africa,43
-CMR,Sub-Saharan Africa,272
-COD,Sub-Saharan Africa,762
-COG,Sub-Saharan Africa,296
-COL,Latin America & Caribbean,1615
-COM,Sub-Saharan Africa,2
-CRI,Latin America & Caribbean,102
-CYM,Latin America & Caribbean,4
-DEU,Europe & Central Asia,17
-DMA,Latin America & Caribbean,1
+CHE,Europe & Central Asia,30
+CHL,Latin America & Caribbean,38
+CHN,East Asia & Pacific,1197
+CIV,Sub-Saharan Africa,41
+CMR,Sub-Saharan Africa,260
+COD,Sub-Saharan Africa,750
+COG,Sub-Saharan Africa,286
+COL,Latin America & Caribbean,1488
+COM,Sub-Saharan Africa,1
+CRI,Latin America & Caribbean,100
+CYM,Latin America & Caribbean,2
+CZE,Europe & Central Asia,2
+DEU,Europe & Central Asia,11
 DNK,Europe & Central Asia,1
-DOM,Latin America & Caribbean,14
-DZA,Middle East & North Africa,16
-ECU,Latin America & Caribbean,745
-EGY,Middle East & North Africa,10
+DOM,Latin America & Caribbean,12
+DZA,Middle East & North Africa,13
+ECU,Latin America & Caribbean,676
+EGY,Middle East & North Africa,8
 ERI,Sub-Saharan Africa,5
-ESP,Europe & Central Asia,44
+ESP,Europe & Central Asia,34
 EST,Europe & Central Asia,1
-ETH,Sub-Saharan Africa,51
-FIN,Europe & Central Asia,3
-FRA,Europe & Central Asia,38
+ETH,Sub-Saharan Africa,50
+FIN,Europe & Central Asia,2
+FRA,Europe & Central Asia,25
 FRO,Europe & Central Asia,1
-GAB,Sub-Saharan Africa,251
-GBR,Europe & Central Asia,15
-GEO,Europe & Central Asia,56
-GHA,Sub-Saharan Africa,30
-GIB,Europe & Central Asia,1
-GIN,Sub-Saharan Africa,79
-GMB,Sub-Saharan Africa,11
-GNB,Sub-Saharan Africa,7
-GNQ,Sub-Saharan Africa,49
-GRC,Europe & Central Asia,85
-GTM,Latin America & Caribbean,113
-GUF,Latin America & Caribbean,297
-GUY,Latin America & Caribbean,485
+GAB,Sub-Saharan Africa,241
+GBR,Europe & Central Asia,9
+GEO,Europe & Central Asia,49
+GHA,Sub-Saharan Africa,31
+GIN,Sub-Saharan Africa,72
+GMB,Sub-Saharan Africa,10
+GNB,Sub-Saharan Africa,5
+GNQ,Sub-Saharan Africa,46
+GRC,Europe & Central Asia,44
+GTM,Latin America & Caribbean,111
+GUF,Latin America & Caribbean,268
+GUY,Latin America & Caribbean,429
 HKG,East Asia & Pacific,3
-HND,Latin America & Caribbean,56
-HRV,Europe & Central Asia,47
-HTI,Latin America & Caribbean,23
-HUN,Europe & Central Asia,1
-IDN,East Asia & Pacific,777
-IND,South Asia,1035
-IRL,Europe & Central Asia,4
-IRN,Middle East & North Africa,213
-IRQ,Middle East & North Africa,62
+HND,Latin America & Caribbean,52
+HRV,Europe & Central Asia,38
+HTI,Latin America & Caribbean,16
+IDN,East Asia & Pacific,714
+IND,South Asia,767
+IRL,Europe & Central Asia,3
+IRN,Middle East & North Africa,180
+IRQ,Middle East & North Africa,55
 ISL,Europe & Central Asia,3
-ISR,Middle East & North Africa,24
-ITA,Europe & Central Asia,43
-JAM,Latin America & Caribbean,7
-JOR,Middle East & North Africa,18
-JPN,East Asia & Pacific,110
-KAZ,Europe & Central Asia,27
-KEN,Sub-Saharan Africa,243
-KGZ,Europe & Central Asia,18
-KHM,East Asia & Pacific,234
-KOR,East Asia & Pacific,92
-LAO,East Asia & Pacific,368
+ISR,Middle East & North Africa,19
+ITA,Europe & Central Asia,31
+JAM,Latin America & Caribbean,5
+JOR,Middle East & North Africa,15
+JPN,East Asia & Pacific,97
+KAZ,Europe & Central Asia,15
+KEN,Sub-Saharan Africa,238
+KGZ,Europe & Central Asia,13
+KHM,East Asia & Pacific,208
+KOR,East Asia & Pacific,61
+LAO,East Asia & Pacific,339
 LBN,Middle East & North Africa,4
-LBR,Sub-Saharan Africa,48
-LKA,South Asia,102
+LBR,Sub-Saharan Africa,45
+LKA,South Asia,66
 LSO,Sub-Saharan Africa,1
 LTU,Europe & Central Asia,1
-MAR,Middle East & North Africa,24
+MAR,Middle East & North Africa,23
 MDA,Europe & Central Asia,1
-MDG,Sub-Saharan Africa,80
+MDG,Sub-Saharan Africa,79
 MDV,South Asia,1
-MEX,Latin America & Caribbean,415
-MKD,Europe & Central Asia,46
-MLI,Sub-Saharan Africa,11
-MMR,East Asia & Pacific,420
-MNE,Europe & Central Asia,15
-MNG,East Asia & Pacific,60
+MEX,Latin America & Caribbean,392
+MKD,Europe & Central Asia,11
+MLI,Sub-Saharan Africa,6
+MMR,East Asia & Pacific,331
+MNE,Europe & Central Asia,6
+MNG,East Asia & Pacific,44
 MNP,East Asia & Pacific,1
-MOZ,Sub-Saharan Africa,462
+MOZ,Sub-Saharan Africa,456
 MTQ,Latin America & Caribbean,1
 MUS,Sub-Saharan Africa,2
-MWI,Sub-Saharan Africa,450
-MYS,East Asia & Pacific,277
-NAM,Sub-Saharan Africa,29
-NCL,East Asia & Pacific,7
-NGA,Sub-Saharan Africa,62
-NIC,Latin America & Caribbean,72
-NOR,Europe & Central Asia,2
-NPL,South Asia,195
+MWI,Sub-Saharan Africa,445
+MYS,East Asia & Pacific,238
+NAM,Sub-Saharan Africa,21
+NCL,East Asia & Pacific,6
+NGA,Sub-Saharan Africa,55
+NIC,Latin America & Caribbean,70
+NOR,Europe & Central Asia,1
+NPL,South Asia,87
 NZL,East Asia & Pacific,23
-OMN,Middle East & North Africa,8
-PAK,South Asia,162
-PAN,Latin America & Caribbean,140
-PER,Latin America & Caribbean,1128
-PHL,East Asia & Pacific,100
+OMN,Middle East & North Africa,7
+PAK,South Asia,68
+PAN,Latin America & Caribbean,136
+PER,Latin America & Caribbean,1019
+PHL,East Asia & Pacific,86
 PLW,East Asia & Pacific,2
-PNG,East Asia & Pacific,215
-POL,Europe & Central Asia,3
+PNG,East Asia & Pacific,201
+POL,Europe & Central Asia,2
 PRI,Latin America & Caribbean,1
-PRK,East Asia & Pacific,18
-PRT,Europe & Central Asia,28
-PRY,Latin America & Caribbean,315
-REU,NA,3
-ROU,Europe & Central Asia,17
-RUS,Europe & Central Asia,231
+PRK,East Asia & Pacific,14
+PRT,Europe & Central Asia,19
+PRY,Latin America & Caribbean,266
+ROU,Europe & Central Asia,15
+RUS,Europe & Central Asia,145
 RWA,Sub-Saharan Africa,23
-SAU,Middle East & North Africa,8
+SAU,Middle East & North Africa,6
 SDN,Sub-Saharan Africa,15
-SEN,Sub-Saharan Africa,35
-SGP,East Asia & Pacific,17
+SEN,Sub-Saharan Africa,33
+SGP,East Asia & Pacific,14
 SLB,East Asia & Pacific,10
-SLE,Sub-Saharan Africa,34
-SLV,Latin America & Caribbean,23
-SOM,Sub-Saharan Africa,20
-SRB,Europe & Central Asia,2
+SLE,Sub-Saharan Africa,33
+SLV,Latin America & Caribbean,22
+SOM,Sub-Saharan Africa,16
+SRB,Europe & Central Asia,1
 SSD,Sub-Saharan Africa,2
 STP,Sub-Saharan Africa,5
-SUR,Latin America & Caribbean,318
-SVN,Europe & Central Asia,17
-SWE,Europe & Central Asia,5
+SUR,Latin America & Caribbean,286
+SVN,Europe & Central Asia,12
+SWE,Europe & Central Asia,4
 SWZ,Sub-Saharan Africa,1
-SYC,Sub-Saharan Africa,3
-SYR,Middle East & North Africa,70
-TCD,Sub-Saharan Africa,25
+SYC,Sub-Saharan Africa,2
+SYR,Middle East & North Africa,62
+TCD,Sub-Saharan Africa,23
 TGO,Sub-Saharan Africa,5
-THA,East Asia & Pacific,445
-TJK,Europe & Central Asia,8
-TKM,Europe & Central Asia,14
+THA,East Asia & Pacific,404
+TJK,Europe & Central Asia,7
+TKM,Europe & Central Asia,7
 TLS,East Asia & Pacific,3
 TON,East Asia & Pacific,3
-TTO,Latin America & Caribbean,45
-TUN,Middle East & North Africa,3
-TUR,Europe & Central Asia,333
-TWN,East Asia & Pacific,63
-TZA,Sub-Saharan Africa,1009
+TTO,Latin America & Caribbean,33
+TUN,Middle East & North Africa,2
+TUR,Europe & Central Asia,284
+TWN,East Asia & Pacific,60
+TZA,Sub-Saharan Africa,987
 UGA,Sub-Saharan Africa,246
-UKR,Europe & Central Asia,15
-URY,Latin America & Caribbean,325
-USA,North America,801
-UZB,Europe & Central Asia,26
-VEN,Latin America & Caribbean,955
+UKR,Europe & Central Asia,6
+URY,Latin America & Caribbean,279
+USA,North America,754
+UZB,Europe & Central Asia,18
+VEN,Latin America & Caribbean,883
 VGB,Latin America & Caribbean,1
-VIR,Latin America & Caribbean,58
-VNM,East Asia & Pacific,451
+VIR,Latin America & Caribbean,50
+VNM,East Asia & Pacific,336
 VUT,East Asia & Pacific,4
 WSM,East Asia & Pacific,2
 YEM,Middle East & North Africa,4
-ZAF,Sub-Saharan Africa,50
-ZMB,Sub-Saharan Africa,323
-ZWE,Sub-Saharan Africa,7
-NA,NA,1149
+ZAF,Sub-Saharan Africa,48
+ZMB,Sub-Saharan Africa,309
+ZWE,Sub-Saharan Africa,6

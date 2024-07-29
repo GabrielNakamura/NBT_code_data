@@ -5,10 +5,7 @@ format: html
 
 # Overview
 
-Here we process the data on species native distribution filtering by species with 
-    only one occurrence of native distribution per country. This was done in 
-    order to reduce the effects of species with large distribution ranges in the
-    the metrics of native turnover and NBT turnover
+Here we process the data on species native distribution filtering by species with only one occurrence of native distribution per country. This was done in order to reduce the effects of species with large distribution ranges in the the metrics of native turnover and NBT turnover
     
 # Packages
 
@@ -39,7 +36,7 @@ Filtering data to keep only species with one occurrence records in native
 ```{r processing}
 spp_endemic_native <- 
   spp_native_distribution |> 
-  group_by(valid_name) |>
+  group_by(species) |>
   add_count(name = "n.species") |> 
   filter(n.species == 1) |> 
   ungroup() |> 
@@ -49,20 +46,20 @@ spp_endemic_native <-
 df_native_endemic_grid <- 
   spp_endemic_native |> 
   dplyr::select(grids = country_distribution, 
-                species = valid_name) |> 
+                species) |> 
   tidyr::drop_na(grids)
 
 df_type_grid <- 
   spp_type_distribution |> 
-  dplyr::select(grids = grids, 
-                species = species) |> 
-  tidyr::drop_na(grids) 
+  dplyr::select(grids = country_museum, 
+                species) |> 
+  tidyr::drop_na(grids) |>
+  dplyr::mutate(grids = paste(grids, "type", sep = "_"))
   
 
 # joining data frames
 df_all_grid <- rbind(df_native_endemic_grid, df_type_grid) # joining both matrices - 
     #native and types composition
-
 
 
 #### Just descriptive quantities
@@ -94,7 +91,7 @@ sparse_all_pa2 <- rbind(sparse_all_pa, matrix_type_zero)
  
 
 sparse_all_pa3 <- 
-  sparse_all_pa2[, colnames(sparse_all_pa2) %in% spp_endemic_native$valid_name]
+  sparse_all_pa2[, colnames(sparse_all_pa2) %in% spp_endemic_native$species]
 ```
 
 
