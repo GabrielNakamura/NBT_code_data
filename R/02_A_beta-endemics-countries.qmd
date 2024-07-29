@@ -1,0 +1,114 @@
+---
+title: "A_Beta_endemics - Turnover with endemic species"
+format: html
+---
+
+# Overview
+
+Here we process the data on species native distribution filtering by species with 
+    only one occurrence of native distribution per country. This was done in 
+    order to reduce the effects of species with large distribution ranges in the
+    the metrics of native turnover and NBT turnover
+    
+# Packages
+
+```{r packages}
+library(readr)        # reading CSV files
+library(here)         # constructing file paths
+library(dplyr)        # data manipulation
+library(tidyr)        # data tidying
+```
+
+
+# Data
+
+```{r data}
+# From 01_C_data_preparation.qmd
+spp_native_distribution <- readr::read_csv(here::here("data", "raw", "spp_native_distribution.csv")) 
+
+# From 01_C_data_preparation.qmd
+spp_type_distribution <- readr::read_csv(here::here("data", "raw", "spp_type_distribution.csv")) 
+```
+
+
+# Data processing
+
+Filtering data to keep only species with one occurrence records in native
+   distribution
+   
+```{r processing}
+spp_endemic_native <- 
+  spp_native_distribution |> 
+  group_by(valid_name) |>
+  add_count(name = "n.species") |> 
+  filter(n.species == 1) |> 
+  ungroup() |> 
+  group_by(country_distribution) |> 
+  add_count(name = "n.endemics.country")
+
+df_native_endemic_grid <- 
+  spp_endemic_native |> 
+  dplyr::select(grids = country_distribution, 
+                species = valid_name) |> 
+  tidyr::drop_na(grids)
+
+df_type_grid <- 
+  spp_type_distribution |> 
+  dplyr::select(grids = grids, 
+                species = species) |> 
+  tidyr::drop_na(grids) 
+  
+
+# joining data frames
+df_all_grid <- rbind(df_native_endemic_grid, df_type_grid) # joining both matrices - 
+    #native and types composition
+
+
+
+#### Just descriptive quantities
+country_native_endemic <- unique(df_native_endemic_grid$grids)
+country_type <- gsub(pattern = "_type", 
+                     replacement = "",
+                     unique(df_type_grid$grids))
+country_type_zero <- setdiff(country_native_endemic, country_type) # countries with no type specimen
+
+# transforming into a sparse matrix to speed up calculations
+sparse_all <- 
+  df_all_grid |> 
+  phyloregion::long2sparse(grids = "grids", species = "species") |> 
+  phyloregion::sparse2dense()
+
+# Transforming in presence absence matrix
+sparse_all_pa <- ifelse(sparse_all >= 1, 1, 0) 
+
+# Binding countries with no types - adding zeroes
+country_type_zero_names <- paste(country_type_zero, "_type", sep = "") # this will be used to bind together matrix with types and add the countries with no type
+matrix_type_zero <- matrix(0,
+         nrow = length(country_type_zero_names),
+         ncol = ncol(sparse_all_pa), 
+         dimnames = list(country_type_zero_names, 
+                         colnames(sparse_all_pa)))
+
+sparse_all_pa2 <- rbind(sparse_all_pa, matrix_type_zero)
+
+ 
+
+sparse_all_pa3 <- 
+  sparse_all_pa2[, colnames(sparse_all_pa2) %in% spp_endemic_native$valid_name]
+```
+
+
+```{r}
+source(here::here("R", "functions", "function_beta_types.R"))
+
+names_countries <- unique(df_native_endemic_grid$grids) # country names
+names_countries <- 
+  unique(gsub(pattern = "_type", 
+              replacement = "",
+              c(unique(df_native_endemic_grid$grids), df_type_grid$grids)))
+df_endemic_beta <- beta_types(presab = sparse_all_pa3, 
+                          names.countries = names_countries) # calculating metrics
+
+readr::write_csv(df_endemic_beta, here::here("data", "processed", "df_endemic_beta.csv"))
+```
+

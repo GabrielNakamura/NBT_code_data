@@ -1,10 +1,9 @@
 ---
-title: "08 - World map with countries represented by its NBT and native turnover (Figure 3)"
+title: "08 - World map with countries represented by its NBT and native turnover for endemic species"
 format: html
-eval: FALSE
 ---
 
-# Plotting native and NBT turnover for each country
+# Plotting native and NBT turnover for endemic species for each country
 
 Loading packages
 
@@ -24,7 +23,7 @@ Data used
 
 ```{r}
 # Data from 02_D_beta-countries.qmd
-df_all_beta <- readr::read_csv(here::here("data", "processed", "df_all_beta.csv"))
+df_endemic_beta <- readr::read_csv(here::here("data", "processed", "df_endemic_beta.csv"))
 ```
 
 Joining metric information with geographical data
@@ -38,17 +37,17 @@ sf_countries <-
   sf::st_transform(crs = "+proj=moll +x_0=0 +y_0=0 +lat_0=0 +lon_0=0") |> 
   dplyr::select(iso_a3_eh)
 
-df_all_beta_sf <-
+df_endemic_beta_sf <-
   sf_countries |>
-  dplyr::full_join(df_all_beta, by = c(iso_a3_eh = "countries"))
+  dplyr::full_join(df_endemic_beta, by = c(iso_a3_eh = "countries"))
 
 ```
 
 First processing spatial data to convert NA values into 0
 
 ```{r}
-df_all_beta_sf2 <- 
-  df_all_beta_sf |> 
+df_endemic_beta_sf2 <- 
+  df_endemic_beta_sf |> 
   sf::st_as_sf() |> 
   rmapshaper::ms_filter_islands(min_area = 12391399903) |> 
   dplyr::mutate(
@@ -72,9 +71,9 @@ palette_pink <- colorRampPalette(c("#d3d3d3", "#c5acc2", "#bb84b1", "#ac5a9c"))
 # Plotting maps
 
 ```{r}
-map_native_beta <- 
+map_native_endemic_beta <- 
   ggplot() +
-  geom_sf(data = df_all_beta_sf2,
+  geom_sf(data = df_endemic_beta_sf2,
           aes(geometry = geometry,
               fill = native.beta),
           color = "white",
@@ -103,9 +102,9 @@ map_native_beta <-
     axis.line = element_blank()
   ) 
 
-map_type_beta <- 
+map_type_endemic_beta <- 
   ggplot() +
-  geom_sf(data = df_all_beta_sf2,
+  geom_sf(data = df_endemic_beta_sf2,
           aes(geometry = geometry,
               fill = type.beta),
           color = "white",
@@ -138,16 +137,16 @@ map_type_beta <-
 Plotting the two quantities (native and types turnover) in a bivariate map
 
 ```{r}
-sf_bivar_types <-
-  bi_class(df_all_beta_sf2, 
+sf_bivar_types_endemic <-
+  bi_class(df_endemic_beta_sf2, 
            x = type.beta, 
            y = native.beta, 
            style = "equal",
            dim = 4)
 
-bivar_map_types <- 
+bivar_map_types_endemic <- 
   ggplot() +
-  geom_sf(data = sf_bivar_types, 
+  geom_sf(data = sf_bivar_types_endemic, 
           aes(geometry = geometry,
               fill = bi_class), 
           color = "white",
@@ -173,18 +172,18 @@ legend <-
             ylab = "Native",
             size = )
 
-bivar_map_type_final <- 
+bivar_map_type_final_endemic <- 
   ggdraw() +
   draw_plot(legend, 0.0, 0.15, 0.25, 0.25) +
-  draw_plot(bivar_map_types, 0, 0, 1, 1)
+  draw_plot(bivar_map_types_endemic, 0, 0, 1, 1)
 
 ```
 
 Joining all the maps 
 
 ```{r}
-map_turnover_all <-
-  map_native_beta+map_type_beta+bivar_map_type_final+
+map_turnover_endemic <-
+  map_native_endemic_beta+map_type_endemic_beta+bivar_map_type_final_endemic+
   patchwork::plot_layout(
     design = 
 "AB
@@ -197,7 +196,7 @@ map_turnover_all <-
   )
 
 
-ggsave(here::here("output", "figures", "Fig3_turnover_metrics.png"),
-       map_turnover_all, dpi=600, width = 10, height = 9)
+ggsave(here::here("output", "figures", "Fig3_turnover_metrics_endemic.png"),
+       map_turnover_endemic, dpi=600, width = 10, height = 9)
 
 ```
