@@ -100,14 +100,17 @@ sparse_all_pa3 <-
 
 ```{r}
 source(here::here("R", "functions", "function_beta_types.R"))
-
-names_countries <- unique(df_native_endemic_grid$grids) # country names
+source(here::here("R", "functions", "function_beta_types_success_fail.R"))
+# names_countries <- unique(df_native_endemic_grid$grids) # country names
 names_countries <- 
   unique(gsub(pattern = "_type", 
               replacement = "",
               c(unique(df_native_endemic_grid$grids), df_type_grid$grids)))
 df_endemic_beta <- beta_types(presab = sparse_all_pa3, 
-                          names.countries = names_countries) # calculating metrics
+                          names.countries = names_countries)
+
+
+# calculating metrics
 
 readr::write_csv(df_endemic_beta, here::here("data", "processed", "df_endemic_beta.csv"))
 ```
