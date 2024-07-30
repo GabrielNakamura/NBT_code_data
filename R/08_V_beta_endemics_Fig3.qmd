@@ -196,7 +196,7 @@ map_turnover_endemic <-
   )
 
 
-ggsave(here::here("output", "figures", "Fig3_turnover_metrics_endemic.png"),
+ggsave(here::here("output", "figures", "Fig3_turnover_metrics_endemics.png"),
        map_turnover_endemic, dpi=600, width = 10, height = 9)
 
 ```

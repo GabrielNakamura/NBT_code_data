@@ -33,13 +33,13 @@ Checking the specimens with data in both tables (native distribution and types).
 df_native_grid <- 
   spp_native_distribution |> 
   dplyr::select(grids = country_distribution, 
-                species = valid_name) |> 
+                species = species) |> 
   tidyr::drop_na(grids)
 
 df_type_grid <- 
   spp_type_distribution |> 
   dplyr::select(grids = country_museum, 
-                species = valid_name) |> 
+                species = species) |> 
   tidyr::drop_na(grids) |> 
   dplyr::mutate(grids = paste(grids, "type", sep = "_"))
   
@@ -83,6 +83,7 @@ The other metric is primary type turnover. Values approaching one indicate that 
 
 ```{r}
 source(here::here("R", "functions", "function_beta_types.R"))
+source(here::here("R", "functions", "function_beta_types_success_fail.R"))
 
 names_countries <- unique(df_native_grid$grids) # country names
 
