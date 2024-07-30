@@ -55,11 +55,22 @@ sqrt_trans <- scales::trans_new("sqrt_with_zero",
 ```{r}
 # Extracting predicted values
 pred_mod_counting_gdp <-
-  ggeffects::ggpredict(mod_counting_NBT, "gdp.pad[-1:4 by=.05]")
+  ggeffects::ggpredict(mod_counting_NBT, "gdp.pad[-0.88:4 by=.05]")
 
 
 pred_mod_counting_richness <-
   ggeffects::ggpredict(mod_counting_NBT, "native.richness.pad[-0.4:8.6 by=.05]")
+
+# scaling back response variables
+source(here::here("R", "functions", "function_scale_back.R"))
+
+scale_gdp <- scale(df_country_complete6$e_migdppc)
+
+pred_mod_counting_gdp2 <- scale_back(data =  pred_mod_counting_gdp, scaled = scale_gdp)
+
+scale_native_richness <- scale(df_country_complete6$native_richness)
+
+pred_mod_counting_richness2 <- scale_back(data =  pred_mod_counting_richness, scaled = scale_native_richness)
 
 
 # plotting figure 4a
@@ -71,14 +82,14 @@ a <-
   region = df_country_complete6$region
 ) |>
   ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_counting_gdp,
-              aes(x = x,
+  geom_ribbon(data = pred_mod_counting_gdp2,
+              aes(x = x_original,
                   y = predicted,
                   ymin = conf.low,
                   ymax = conf.high),
               alpha = 0.2)+
   geom_line(data = pred_mod_counting_gdp,
-              aes(x = x,
+              aes(x = x_original,
                   y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
@@ -123,14 +134,14 @@ b <- tibble(
   region = df_country_complete6$region
 ) |>
   ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_counting_richness,
-              aes(x = x,
+  geom_ribbon(data = pred_mod_counting_richness2,
+              aes(x = x_original,
                   y = predicted,
                   ymin = conf.low,
                   ymax = ifelse(conf.high >= 20000, 20000, conf.high)),
               alpha = 0.2)+
-  geom_line(data = pred_mod_counting_richness,
-              aes(x = x,
+  geom_line(data = pred_mod_counting_richness2,
+              aes(x = x_original,
                   y = predicted))+
   annotate(
     "segment",
@@ -182,7 +193,11 @@ b <- tibble(
 
 # predicted values
 pred_mod_dc <-
-  ggeffects::ggpredict(mod_DC, "gdp.pad[-1:4 by=.05]")
+  ggeffects::ggpredict(mod_DC, "gdp.pad[-0.88:4 by=.05]")
+
+
+pred_mod_dc_gdp2 <- scale_back(data =  pred_mod_dc, scaled = scale_gdp)
+
 
 # plotting figure 4c
 c <- tibble(
@@ -192,14 +207,14 @@ c <- tibble(
   region = df_country_complete6$region
 ) |>
   ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_dc,
-              aes(x = x,
+  geom_ribbon(data = pred_mod_dc_gdp2,
+              aes(x = x_original,
                   y = predicted,
                   ymin = conf.low,
                   ymax = conf.high),
               alpha = 0.2)+
-  geom_line(data = pred_mod_dc,
-              aes(x = x,
+  geom_line(data = pred_mod_dc_gdp2,
+              aes(x = x_original,
                   y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
@@ -239,7 +254,9 @@ c <- tibble(
 ```{r}
 # predicted values
 pred_mod_dr <-
-  ggeffects::ggpredict(mod_DR, "gdp.pad[-1:4 by=.05]")
+  ggeffects::ggpredict(mod_DR, "gdp.pad[-0.88:4 by=.05]")
+
+pred_mod_dr_gdp2 <- scale_back(data =  pred_mod_dr, scaled = scale_gdp)
 
 # plotting figure 4d
 d <- tibble(
@@ -249,14 +266,14 @@ d <- tibble(
   region = df_country_complete6$region
 ) |>
   ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_dr,
-              aes(x = x,
+  geom_ribbon(data = pred_mod_dr_gdp2,
+              aes(x = x_original,
                   y = predicted,
                   ymin = conf.low,
                   ymax = conf.high),
               alpha = 0.2)+
-  geom_line(data = pred_mod_dr,
-              aes(x = x,
+  geom_line(data = pred_mod_dr_gdp2,
+              aes(x = x_original,
                   y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
@@ -296,8 +313,10 @@ d <- tibble(
 ```{r}
 
 pred_mod_beta_native <- 
-  ggeffects::ggpredict(mod_turnover_native, "gdp.pad[-1:4 by=.05]")
+  ggeffects::ggpredict(mod_turnover_native, "gdp.pad[-0.88:4 by=.05]")
 
+
+pred_mod_beta_native2 <- scale_back(data =  pred_mod_beta_native, scaled = scale_gdp)
 
 # plotting figure 4e
 e <- tibble(
@@ -307,14 +326,14 @@ e <- tibble(
   region = df_country_complete6$region
 ) |>
   ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_beta_native,
-              aes(x = x,
+  geom_ribbon(data = pred_mod_beta_native2,
+              aes(x = x_original,
                   y = predicted,
                   ymin = conf.low,
                   ymax = conf.high),
               alpha = 0.2)+
-  geom_line(data = pred_mod_beta_native,
-              aes(x = x,
+  geom_line(data = pred_mod_beta_native2,
+              aes(x = x_original,
                   y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
@@ -354,7 +373,9 @@ e <- tibble(
 ```{r}
 # predictions
 pred_mod_beta_type <- 
-  ggeffects::ggpredict(mod_turnover_nbt, "gdp.pad[-1:4 by=.05]")
+  ggeffects::ggpredict(mod_turnover_nbt, "gdp.pad[-0.88:4 by=.05]")
+
+pred_mod_beta_type2 <- scale_back(data =  pred_mod_beta_type, scaled = scale_gdp)
 
 # plotting figure 4f
 f <- tibble(
@@ -364,14 +385,14 @@ f <- tibble(
   region = df_country_complete6$region
 ) |>
   ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_beta_type,
-              aes(x = x,
+  geom_ribbon(data = pred_mod_beta_type2,
+              aes(x = x_original,
                   y = predicted,
                   ymin = conf.low,
                   ymax = conf.high),
               alpha = 0.2)+
-  geom_line(data = pred_mod_beta_type,
-              aes(x = x,
+  geom_line(data = pred_mod_beta_type2,
+              aes(x = x_original,
                   y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
