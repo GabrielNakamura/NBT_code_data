@@ -57,8 +57,10 @@ sqrt_trans <- scales::trans_new("sqrt_with_zero",
 pred_mod_counting_gdp <-
   ggeffects::ggpredict(mod_counting_NBT, "gdp.pad[-1:4 by=.05]")
 
+
 pred_mod_counting_richness <-
   ggeffects::ggpredict(mod_counting_NBT, "native.richness.pad[-0.4:8.6 by=.05]")
+
 
 # plotting figure 4a
 a <-
@@ -294,7 +296,7 @@ d <- tibble(
 ```{r}
 
 pred_mod_beta_native <- 
-  ggeffects::ggpredict(mod_turnover_native, "n.museums.pad[-0.40:4 by=.05]")
+  ggeffects::ggpredict(mod_turnover_native, "gdp.pad[-1:4 by=.05]")
 
 
 # plotting figure 4e

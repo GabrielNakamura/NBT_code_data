@@ -38,7 +38,7 @@ df_bio_dem <- readr::read_csv(file = here::here("data", "raw", "bio-dem_data.csv
 infra_museum <- readr::read_csv(here::here("data", "processed", "infra_museum.csv"))
 
 # Data from 02_D_beta-countries.qmd
-df_all_beta <- readr::read_csv(here::here("data", "processed", "df_all_beta.csv"))
+df_endemic_beta <- readr::read_csv(here::here("data", "processed", "df_endemic_beta.csv"))
 ```
 
 Get a list of countries and regions
@@ -98,7 +98,7 @@ df_country_complete2 <-
 # joining with beta metric
 df_country_complete3 <-
   df_country_complete2 |>
-  dplyr::left_join(df_all_beta, by = c("country" = "countries"))
+  dplyr::left_join(df_endemic_beta, by = c("country" = "countries"))
 
 ```
 

@@ -16,6 +16,8 @@ author:
     orcid: 0000-0002-5966-7585
   - name: Manoela Maria Ferreira Marinho
     orcid: 0000-0003-4226-666X
+  - name: Melina de Souza Leite
+    orcid: 0000-0003-0505-0667
   - name: Aline Richter
     orcid: 0000-0001-6385-153X
   - name: Liuyong Ding
@@ -75,8 +77,8 @@ This folder stores raw and processed data used
 -   `spp_native_distribution.csv` data frame in the long format
     containing the native composition at the country level. Variables:
     
-    -   `valid_name` character. The name of a species in the format genus_epithet
-        according to the Catalog of Fishes
+    -   `species` character. The name of a species in the format genus_epithet
+        according to the Catalog of Fishes (including synonym names)
     
     -   `country_distribution` character. Three letter code (alpha-3 ISO3166)
         indicating the name of the country where a species is native to
@@ -88,8 +90,8 @@ This folder stores raw and processed data used
     the composition of NBT by country. Variables:
     
     
-    -   `valid_name` character. The name of a species in the format genus_epithet
-        according to the Catalog of Fishes
+    -   `species` character. The name of a species in the format genus_epithet
+        according to the Catalog of Fishes (including synonym names)
     
     -   `country_distribution` character. Three letter code (alpha-3 ISO3166)
         indicating the name of the country where a species is housed
@@ -167,6 +169,14 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 - [`09_V_model_Fig4.qmd`](R/09_V_model_Fig4.qmd) code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
 
 - [`0010_Supplementary_analysis.qmd`](R/0010_Supplementary_analysis.qmd) code to produce all the tables and figures presented in the Supplementary material of this study
+
+- [`0011_V_beta_all_FigS3.qmd`]() code to produce the Figure S3 in the supplementary material
+    producing a cartogram with countries coloured accoridng to its native and NBT 
+    turnover values, considering all species
+
+### functions
+
+- [`function_beta_types_success_fail.R]() function used to calculate turnover metrics. 
 
 ## output
 

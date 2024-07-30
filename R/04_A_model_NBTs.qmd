@@ -130,18 +130,18 @@ In this section we will model the two turnover metrics that represent the defici
 
 ```{r}
 mod_native_turnover <-
-  glmmTMB::glmmTMB(native.beta.model ~ native.richness.pad +
+  glmmTMB::glmmTMB(cbind(native.success, native.fail) ~ native.richness.pad +
                      records.per.area.pad + years.independence.pad +
                      gdp.pad + n.museums.pad, 
-                   family = glmmTMB::beta_family,
+                   family = glmmTMB::betabinomial,
                    data = df_country_complete6)
 
 
 mod_type_turnover <-
-  glmmTMB::glmmTMB(type.beta.model ~ native.richness.pad +
+  glmmTMB::glmmTMB(cbind(type.success, type.fail) ~ native.richness.pad +
                      records.per.area.pad + years.independence.pad +
                      gdp.pad + n.museums.pad, 
-                   family = glmmTMB::beta_family,
+                   family = glmmTMB::betabinomial,
                    data = df_country_complete6)
 
 
@@ -170,13 +170,13 @@ Model with a binomial distribution with success and failures using the raw data 
 mod_beta_dc_binom <-
   glmmTMB::glmmTMB(cbind(success.DC, failures.DC) ~ native.richness.pad +
                      records.per.area.pad + years.independence.pad +
-                     gdp.pad + n.museums.pad, ziformula = ~.,
+                     gdp.pad + n.museums.pad,
                    family = glmmTMB::betabinomial, 
                    data = df_country_complete6)
 
 DHARMa::simulateResiduals(fittedModel = mod_beta_dc_binom, plot = TRUE)
 summary(mod_beta_dc_binom)
-performance::check_collinearity(mod_beta_dc_binom)
+
 
 mod_beta_dr_binom <-
   glmmTMB::glmmTMB(cbind(success.DR, failures.DR) ~ native.richness.pad +
