@@ -98,7 +98,6 @@ sparse_all_pa3 <-
 
 
 ```{r}
-source(here::here("R", "functions", "function_beta_types.R"))
 source(here::here("R", "functions", "function_beta_types_success_fail.R"))
 # names_countries <- unique(df_native_endemic_grid$grids) # country names
 names_countries <- 

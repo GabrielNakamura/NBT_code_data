@@ -27,7 +27,7 @@ website:
           - R/0010_Supplementary_analysis.qmd
       - section: "Functions"
         contents:
-          - R/functions/function_beta_types_success_fail.R
+          - R/0012_Functions.qmd
     tools:
       - icon: github
         menu:
