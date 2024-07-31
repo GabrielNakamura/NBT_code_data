@@ -50,8 +50,7 @@ countries_list <-
   tidyr::drop_na(region, iso3c)
 ```
 
-Joining primary type (NBT) and native data with Bio-Dem, Infra-museum, and Beta
-    metrics (NBT turnover and native turnover)
+Joining primary type (NBT) and native data with Bio-Dem, Infra-museum, and Beta metrics (NBT turnover and native turnover)
 
 ```{r}
 # joining type and native data frames

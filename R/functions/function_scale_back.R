@@ -13,7 +13,7 @@ scale_back <-
     data2 <- data.frame(data)
     res <- 
       data2 |> 
-      mutate(x_original = as.matrix(x) * attr(scaled, 'scaled:scale') + 
+      dplyr::mutate(x_original = as.matrix(x) * attr(scaled, 'scaled:scale') + 
                attr(scaled, 'scaled:center'))
     return(res)
   }

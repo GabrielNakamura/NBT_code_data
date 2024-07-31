@@ -14,6 +14,7 @@ library(readr)     # reading CSV files
 library(here)      # constructing file paths
 library(ggeffects) # extracting model predictions
 library(tibble)    # creating tibbles (data frames)
+library(dplyr)     # data manipulation
 
 # plots
 library(scales)    # scale transformations and labels
@@ -64,10 +65,12 @@ pred_mod_counting_richness <-
 # scaling back response variables
 source(here::here("R", "functions", "function_scale_back.R"))
 
+## GDP
 scale_gdp <- scale(df_country_complete6$e_migdppc)
 
 pred_mod_counting_gdp2 <- scale_back(data =  pred_mod_counting_gdp, scaled = scale_gdp)
 
+## Native Richness
 scale_native_richness <- scale(df_country_complete6$native_richness)
 
 pred_mod_counting_richness2 <- scale_back(data =  pred_mod_counting_richness, scaled = scale_native_richness)
@@ -76,8 +79,8 @@ pred_mod_counting_richness2 <- scale_back(data =  pred_mod_counting_richness, sc
 # plotting figure 4a
 a <-
   tibble(
-  x= df_country_complete6$gdp.pad,
-  y = df_country_complete6$type.richness.pad,
+  x= df_country_complete6$e_migdppc,
+  y = df_country_complete6$total_country_museum,
   country = df_country_complete6$country,
   region = df_country_complete6$region
 ) |>
@@ -88,17 +91,20 @@ a <-
                   ymin = conf.low,
                   ymax = conf.high),
               alpha = 0.2)+
-  geom_line(data = pred_mod_counting_gdp,
-              aes(x = x_original,
-                  y = predicted))+
+  geom_line(data = pred_mod_counting_gdp2,
+            aes(x = x_original,
+                y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
   scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,10,1))+
+                     breaks = seq(0,40000,10000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale()
+                     ))+
   scale_y_continuous(trans = sqrt_trans,
                      expand = expansion(mult = c(0,0)),
-                     breaks = c(0,100,1000,10000),
-                     labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
+                     breaks = c(0,100,1000,5000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
+                     )+
   guides(
     y = guide_axis_logticks()
   )+
@@ -116,20 +122,21 @@ a <-
   labs(x = "Gross Domestic Product - GDP",
        y = "Number of NBT") +
   theme_classic()+
-    theme(
-      axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "black"),
-      axis.line = element_blank(),
-      axis.ticks.x = element_blank(),
-      panel.grid.major = element_line(linetype = "dashed"),
-      legend.position = "none"
-        )+
-  coord_cartesian(clip = "off")
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    axis.line = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid.major = element_line(linetype = "dashed"),
+    legend.position = "none"
+  )+
+  coord_cartesian(clip = "off",
+                  xlim = c(0,40000))
 
 # plotting figure 4b
 b <- tibble(
-  x= df_country_complete6$native.richness.pad,
-  y = df_country_complete6$type.richness.pad,
+  x= df_country_complete6$native_richness,
+  y = df_country_complete6$total_country_museum,
   country = df_country_complete6$country,
   region = df_country_complete6$region
 ) |>
@@ -141,18 +148,20 @@ b <- tibble(
                   ymax = ifelse(conf.high >= 20000, 20000, conf.high)),
               alpha = 0.2)+
   geom_line(data = pred_mod_counting_richness2,
-              aes(x = x_original,
-                  y = predicted))+
+            aes(x = x_original,
+                y = predicted))+
   annotate(
     "segment",
-    x = 5, xend = Inf,
+    x = 2317.744, xend = Inf,
     y = Inf, yend = Inf,
     linetype = "dotted"
   )+
   geom_point(aes(fill = region),
              shape = 21)+
   scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,10,1))+
+                     breaks = seq(0,3000,1000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
+                     )+
   scale_y_continuous(trans = sqrt_trans,
                      expand = expansion(mult = c(0,0)),
                      breaks = c(0,1000,10000,100000,300000),
@@ -174,16 +183,16 @@ b <- tibble(
   labs(x = "Native richness",
        y = "Number of NBT") +
   theme_classic()+
-    theme(
-      axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "black"),
-      axis.line = element_blank(),
-      axis.ticks.x = element_blank(),
-      panel.grid.major = element_line(linetype = "dashed"),
-      legend.position = "none"
-        )+
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    axis.line = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid.major = element_line(linetype = "dashed"),
+    legend.position = "none"
+  )+
   coord_cartesian(clip = "off",
-                  xlim = c(-0.6,NA),
+                  xlim = c(-100,NA),
                   ylim = c(NA, 20000))
 ```
 
@@ -201,7 +210,7 @@ pred_mod_dc_gdp2 <- scale_back(data =  pred_mod_dc, scaled = scale_gdp)
 
 # plotting figure 4c
 c <- tibble(
-  x = df_country_complete6$gdp.pad,
+  x = df_country_complete6$e_migdppc,
   y = df_country_complete6$prop_DC,
   country = df_country_complete6$country,
   region = df_country_complete6$region
@@ -214,12 +223,14 @@ c <- tibble(
                   ymax = conf.high),
               alpha = 0.2)+
   geom_line(data = pred_mod_dc_gdp2,
-              aes(x = x_original,
-                  y = predicted))+
+            aes(x = x_original,
+                y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
   scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,10,1)) +
+                     breaks = seq(0,40000,10000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
+                     ) +
   scale_y_continuous(expand = expansion(mult = c(0)),
                      labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
   scale_fill_manual(
@@ -236,16 +247,18 @@ c <- tibble(
   labs(x = "Gross Domestic Product - GDP",
        y = "Domestic Contribution") +
   theme_classic()+
-    theme(
-      axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "black"),
-      axis.line = element_blank(),
-      axis.ticks = element_blank(),
-      panel.grid.major = element_line(linetype = "dashed",
-                                      lineend = "round"),
-      legend.position = "none"
-        )+
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    axis.line = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major = element_line(linetype = "dashed",
+                                    lineend = "round"),
+    legend.position = "none"
+    
+  )+
   coord_cartesian(clip = "off",
+                  xlim = c(0,40000),
                   ylim = c(0,1))
 ```
 
@@ -260,7 +273,7 @@ pred_mod_dr_gdp2 <- scale_back(data =  pred_mod_dr, scaled = scale_gdp)
 
 # plotting figure 4d
 d <- tibble(
-  x = df_country_complete6$gdp.pad,
+  x = df_country_complete6$e_migdppc,
   y = df_country_complete6$prop_DR,
   country = df_country_complete6$country,
   region = df_country_complete6$region
@@ -273,12 +286,14 @@ d <- tibble(
                   ymax = conf.high),
               alpha = 0.2)+
   geom_line(data = pred_mod_dr_gdp2,
-              aes(x = x_original,
-                  y = predicted))+
+            aes(x = x_original,
+                y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
   scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,10,1)) +
+                     breaks = seq(0,40000,10000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
+                     ) +
   scale_y_continuous(expand = expansion(mult = c(0)),
                      labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
   scale_fill_manual(
@@ -295,16 +310,17 @@ d <- tibble(
   labs(x = "Gross Domestic Product - GDP",
        y = "Domestic Retention") +
   theme_classic()+
-    theme(
-      axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "black"),
-      axis.line = element_blank(),
-      axis.ticks = element_blank(),
-      panel.grid.major = element_line(linetype = "dashed",
-                                      lineend = "round"),
-      legend.position = "none"
-        )+
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    axis.line = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major = element_line(linetype = "dashed",
+                                    lineend = "round"),
+    legend.position = "none"
+  )+
   coord_cartesian(clip = "off",
+                  xlim = c(0,40000),
                   ylim = c(0,1))
 ```
 
@@ -320,7 +336,7 @@ pred_mod_beta_native2 <- scale_back(data =  pred_mod_beta_native, scaled = scale
 
 # plotting figure 4e
 e <- tibble(
-  x = df_country_complete6$gdp.pad,
+  x = df_country_complete6$e_migdppc,
   y = df_country_complete6$native.beta.model,
   country = df_country_complete6$country,
   region = df_country_complete6$region
@@ -333,12 +349,14 @@ e <- tibble(
                   ymax = conf.high),
               alpha = 0.2)+
   geom_line(data = pred_mod_beta_native2,
-              aes(x = x_original,
-                  y = predicted))+
+            aes(x = x_original,
+                y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
   scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,10,1))+
+                     breaks = seq(0,40000,10000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
+                     )+
   scale_y_continuous(expand = expansion(mult = c(0,0)),
                      labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
   scale_fill_manual(
@@ -352,19 +370,20 @@ e <- tibble(
       "Middle East & North Africa" = "#8491B4FF"
     )
   )+
-  labs(x = "Number of Museums",
+  labs(x = "Gross Domestic Product - GDP",
        y = "Native turnover") +
   theme_classic()+
-    theme(
-      axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "black"),
-      axis.line = element_blank(),
-      axis.ticks = element_blank(),
-      panel.grid.major = element_line(linetype = "dashed",
-                                      lineend = "round"),
-      legend.position = "none"
-        )+
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    axis.line = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major = element_line(linetype = "dashed",
+                                    lineend = "round"),
+    legend.position = "none"
+  )+
   coord_cartesian(clip = "off",
+                  xlim = c(0,40000),
                   ylim = c(0,1))
 ```
 
@@ -379,7 +398,7 @@ pred_mod_beta_type2 <- scale_back(data =  pred_mod_beta_type, scaled = scale_gdp
 
 # plotting figure 4f
 f <- tibble(
-  x = df_country_complete6$gdp.pad,
+  x = df_country_complete6$e_migdppc,
   y = df_country_complete6$type.beta.model,
   country = df_country_complete6$country,
   region = df_country_complete6$region
@@ -392,12 +411,13 @@ f <- tibble(
                   ymax = conf.high),
               alpha = 0.2)+
   geom_line(data = pred_mod_beta_type2,
-              aes(x = x_original,
-                  y = predicted))+
+            aes(x = x_original,
+                y = predicted))+
   geom_point(aes(fill = region),
              shape = 21)+
   scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,10,1)) +
+                     breaks = seq(0,40000,10000),
+                     labels = scales::label_number(scale_cut = scales::cut_short_scale())) +
   scale_y_continuous(expand = expansion(mult = c(0)),
                      labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
   scale_fill_manual(
@@ -414,16 +434,17 @@ f <- tibble(
   labs(x = "Gross Domestic Product - GDP",
        y = "NBT turnover") +
   theme_classic()+
-    theme(
-      axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "black"),
-      axis.line = element_blank(),
-      axis.ticks = element_blank(),
-      panel.grid.major = element_line(linetype = "dashed",
-                                      lineend = "round"),
-      legend.position = "none"
-        )+
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    axis.line = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major = element_line(linetype = "dashed",
+                                    lineend = "round"),
+    legend.position = "none"
+  )+
   coord_cartesian(clip = "off",
+                  xlim = c(0,40000),
                   ylim = c(0,1))
 ```
 
@@ -433,7 +454,10 @@ f <- tibble(
 fig_model <-
   a+b+c+d+e+f+
   patchwork::plot_annotation(tag_levels = "a")+
-  patchwork::plot_layout(nrow = 3)
+  patchwork::plot_layout(nrow = 3)&
+  theme(
+    plot.margin = margin(5.5,8,5.5,5.5,"pt")
+  )
 ```
 
 ```{r}

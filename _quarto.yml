@@ -16,13 +16,13 @@ website:
       - section: "R"
         contents:
           - R/01_D_data_preparation.qmd
-          - R/02_A_beta-countries.qmd
+          - R/02_A_beta-endemics-countries.qmd
           - R/03_D_data_preparation_models.qmd
           - R/04_A_model_NBTs.qmd
           - R/05_V_chord_diagram_Fig1.qmd
           - R/06_V_world_map_Fig1.qmd
           - R/07_V_scatterplot_Fig2.qmd
-          - R/08_V_beta_Fig3.qmd
+          - R/08_V_beta_endemics_Fig3.qmd
           - R/09_V_model_Fig4.qmd
           - R/0010_Supplementary_analysis.qmd
     tools:
