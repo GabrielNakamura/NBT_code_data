@@ -176,7 +176,7 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 ### functions
 
-- [`function_beta_types_success_fail.R]() function used to calculate turnover metrics. 
+- [`function_beta_types_success_fail.R`]() function used to calculate turnover metrics. 
 
 ## output
 

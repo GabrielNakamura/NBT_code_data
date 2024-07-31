@@ -1,5 +1,6 @@
 ---
-title: "06 - Creating World Map with World Bank regions (Figure 3)"
+title: "06 - Creating World Map with World Bank regions (Figure 1)"
+subtitle: "06_V_world_map_Fig1.qmd"
 format: html
 eval: false
 ---

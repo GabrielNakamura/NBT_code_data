@@ -25,6 +25,9 @@ website:
           - R/08_V_beta_endemics_Fig3.qmd
           - R/09_V_model_Fig4.qmd
           - R/0010_Supplementary_analysis.qmd
+      - section: "Functions"
+        contents:
+          - R/functions/function_beta_types_success_fail.R
     tools:
       - icon: github
         menu:
