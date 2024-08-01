@@ -118,7 +118,9 @@ This folder stores raw and processed data used to perform all the analysis prese
 
 -   `df_country_type.csv` data frame with the number of NBT at the country level
 
--   `df_all_beta.csv` data frame with values of native and NBT turnover at the country level
+- `df_endemic_beta.csv` data frame with values of native and NBT turnover at the country level using only species with restricted occurrences at the country level
+
+- `df_all_beta.csv` data frame with values of native and NBT turnover at the country level. This is used in the analysis of Supplementary material
 
 ## R
 
@@ -151,6 +153,8 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 ### functions
 
 -   [`function_beta_types_success_fail.R`]() function used to calculate turnover metrics.
+
+-   [`function_scale_back.R`]() function used to transform back normalized variables 
 
 ## output
 
