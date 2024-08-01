@@ -3,6 +3,10 @@ title: "Supplementary material - Figures and Tables"
 subtitle: "0010_Supplementary_analysis.qmd"
 format: html
 eval: true
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
 ---
 
 In this document we provide the code to reproduce the Figures and Tables presented in supplementary material of the manuscript **"The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science"**
@@ -49,6 +53,9 @@ df_country_native_sf <-
 Native richness was extracted from the Catalog of Fishes
 
 ```{r}
+#| fig-width: 7
+#| fig-height: 5
+
 df_country_native_sf |>
   ggplot()+
   geom_sf(aes(fill = native.richness))+
@@ -89,6 +96,9 @@ flow_region_prop <- readr::read_csv(file = here::here("data", "processed", "flow
 ## Figure S2 - Scatterplot of all-time
 
 ```{r}
+#| fig-width: 3.5
+#| fig-height: 3
+
 flow_region_prop |>
   ggplot(aes(x = prop_DC, y = prop_DR, fill = region_type))+
   geom_hline(yintercept = 0.5, linetype = "dashed")+
@@ -414,6 +424,9 @@ bivar_map_type_final <-
 ## Joining all the maps 
 
 ```{r}
+#| fig-width: 10
+#| fig-height: 9
+
 map_turnover_all <-
   map_native_beta+map_type_beta+bivar_map_type_final+
   patchwork::plot_layout(
@@ -608,26 +621,41 @@ QQ-plots and residuals x predicted plots using DHARMa package. These plots are
     used to compose the Figure S4 in the Supplementary material
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 5
+
 # total number of NBT
 DHARMa::simulateResiduals(fittedModel = mod_counting_NBT, plot = T)
 ```
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 5
+
 # Domestic Contribution and Domestic Retention
 DHARMa::simulateResiduals(fittedModel = mod_DC, plot = TRUE) # DC
 ```
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 5
+
 DHARMa::simulateResiduals(fittedModel = mod_DR, plot = TRUE) # DR
 ```
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 5
+
 # native turnover
 DHARMa::simulateResiduals(fittedModel = mod_turnover_native, plot = TRUE)
 
 ```
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 5
+
 # NBT turnover
 DHARMa::simulateResiduals(fittedModel = mod_turnover_nbt, plot = TRUE)
 ```
