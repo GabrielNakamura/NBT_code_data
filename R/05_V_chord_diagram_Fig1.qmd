@@ -3,6 +3,10 @@ title: "05 - Producing chord diagram (Figure 1)"
 subtitle: "05_V_chord_diagram_Fig1.qmd"
 format: html
 eval: true
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
 ---
 
 Here we produce the chord diagram (Figure 1 in the manuscript)

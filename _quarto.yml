@@ -27,7 +27,7 @@ website:
           - R/0010_Supplementary_analysis.qmd
       - section: "Functions"
         contents:
-          - R/0012_Functions.qmd
+          - R/0011_Functions.qmd
     tools:
       - icon: github
         menu:

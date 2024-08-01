@@ -1,8 +1,15 @@
 ---
-title: "08 - World map with countries represented by its NBT and native turnover for endemic species"
+title: "08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)"
 subtitle: "08_V_beta_endemics_Fig3.qmd"
-format: html
 eval: true
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
+format: 
+  html:
+    fig-width: 10
+    fig-height: 9
 ---
 
 # Plotting native and NBT turnover for endemic species for each country
@@ -178,7 +185,6 @@ bivar_map_type_final_endemic <-
   ggdraw() +
   draw_plot(legend, 0.0, 0.15, 0.25, 0.25) +
   draw_plot(bivar_map_types_endemic, 0, 0, 1, 1)
-
 ```
 
 Joining all the maps 

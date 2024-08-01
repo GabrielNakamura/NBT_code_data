@@ -1,8 +1,15 @@
 ---
 title: "09 - Results from generalized linear models (Figure 4)"
 subtitle: "09_V_model_Fig4.qmd"
-format: html
 eval: true
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
+format: 
+  html:
+    fig-width: 6
+    fig-height: 8
 ---
 
 # Model predictions and figures in the main text

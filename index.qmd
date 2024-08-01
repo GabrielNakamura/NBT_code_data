@@ -118,9 +118,9 @@ This folder stores raw and processed data used to perform all the analysis prese
 
 -   `df_country_type.csv` data frame with the number of NBT at the country level
 
-- `df_endemic_beta.csv` data frame with values of native and NBT turnover at the country level using only species with restricted occurrences at the country level
+-   `df_endemic_beta.csv` data frame with values of native and NBT turnover at the country level using only species with restricted occurrences at the country level
 
-- `df_all_beta.csv` data frame with values of native and NBT turnover at the country level. This is used in the analysis of Supplementary material
+-   `df_all_beta.csv` data frame with values of native and NBT turnover at the country level. This is used in the analysis of Supplementary material
 
 ## R
 
@@ -154,7 +154,7 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 -   [`function_beta_types_success_fail.R`]() function used to calculate turnover metrics.
 
--   [`function_scale_back.R`]() function used to transform back normalized variables 
+-   [`function_scale_back.R`]() function used to transform back normalized variables
 
 ## output
 
@@ -180,32 +180,32 @@ This folder contains the figures in the Supplementary material
 
 ## Packages
 
-| Package       | Version      | Documentation                                                             |
-|--------------|--------------|---------------------------------------------|
-| bbmle         | 1.0.25.1     | [bbmle](https://cran.r-project.org/web/packages/bbmle/bbmle.pdf)          |
-| betapart      | 1.6          | [betapart](https://cran.r-project.org/web/packages/betapart/betapart.pdf) |
-| biscale       | 1.0.0        | [biscale](https://chris-prener.github.io/biscale/)                        |
-| circlize      | 0.4.15       | [circlize](https://jokergoo.github.io/circlize_book/book/)                |
-| countrycode   | 1.6.0        | [countrycode](https://vincentarelbundock.github.io/countrycode/#/)        |
-| cowplot       | 1.1.1        | [cowplot](https://wilkelab.org/cowplot/)                                  |
-| DHARMa        | 0.4.6        | [DHARMa](https://florianhartig.github.io/DHARMa/)                         |
-| dplyr         | 1.1.4        | [dplyr](https://dplyr.tidyverse.org)                                      |
-| ggarrow       | 0.0.0.9000   | [ggarrow](https://teunbrand.github.io/ggarrow/)                           |
-| ggplot2       | 3.5.0        | [ggplot2](https://ggplot2.tidyverse.org)                                  |
-| glmmTMB       | 1.1.8        | [glmmTMB](https://glmmtmb.github.io/glmmTMB/)                             |
-| glue          | 1.6.2        | [glue](https://glue.tidyverse.org)                                        |
-| here          | 1.0.1        | [here](https://here.r-lib.org)                                            |
-| patchwork     | 1.2.0.9000   | [patchwork](https://patchwork.data-imaginist.com)                         |
-| performance   | 0.12.1       | [performance](https://easystats.github.io/performance/)                   |
-| phyloregion   | 1.0.8        | [phyloregion](https://phyloregion.com)                                    |
-| readr         | 2.1.4        | [readr](https://readr.tidyverse.org)                                      |
-| rmapshaper    | 0.5.0        | [rmapshaper](https://andyteucher.ca/rmapshaper/)                          |
-| rnaturalearth | 0.3.4        | [rnaturalearth](https://ropensci.github.io/rnaturalearth/)                |
-| scales        | 1.3.0.9000\* | [scales](https://scales.r-lib.org)                                        |
-| sf            | 1.0-14       | [sf](https://r-spatial.github.io/sf/)                                     |
-| tidyr         | 1.3.1        | [tidyr](https://tidyr.tidyverse.org)                                      |
+| Package       | Version                                                | Documentation                                                             |
+|-------------|-------------|---------------------------------------------|
+| bbmle         | 1.0.25.1                                               | [bbmle](https://cran.r-project.org/web/packages/bbmle/bbmle.pdf)          |
+| betapart      | 1.6                                                    | [betapart](https://cran.r-project.org/web/packages/betapart/betapart.pdf) |
+| biscale       | 1.0.0                                                  | [biscale](https://chris-prener.github.io/biscale/)                        |
+| circlize      | 0.4.15                                                 | [circlize](https://jokergoo.github.io/circlize_book/book/)                |
+| countrycode   | 1.6.0                                                  | [countrycode](https://vincentarelbundock.github.io/countrycode/#/)        |
+| cowplot       | 1.1.1                                                  | [cowplot](https://wilkelab.org/cowplot/)                                  |
+| DHARMa        | 0.4.6                                                  | [DHARMa](https://florianhartig.github.io/DHARMa/)                         |
+| dplyr         | 1.1.4                                                  | [dplyr](https://dplyr.tidyverse.org)                                      |
+| ggarrow       | 0.0.0.9000                                             | [ggarrow](https://teunbrand.github.io/ggarrow/)                           |
+| ggplot2       | 3.5.0                                                  | [ggplot2](https://ggplot2.tidyverse.org)                                  |
+| glmmTMB       | 1.1.8                                                  | [glmmTMB](https://glmmtmb.github.io/glmmTMB/)                             |
+| glue          | 1.6.2                                                  | [glue](https://glue.tidyverse.org)                                        |
+| here          | 1.0.1                                                  | [here](https://here.r-lib.org)                                            |
+| patchwork     | 1.2.0.9000                                             | [patchwork](https://patchwork.data-imaginist.com)                         |
+| performance   | 0.12.1                                                 | [performance](https://easystats.github.io/performance/)                   |
+| phyloregion   | 1.0.8                                                  | [phyloregion](https://phyloregion.com)                                    |
+| readr         | 2.1.4                                                  | [readr](https://readr.tidyverse.org)                                      |
+| rmapshaper    | 0.5.0                                                  | [rmapshaper](https://andyteucher.ca/rmapshaper/)                          |
+| rnaturalearth | 0.3.4                                                  | [rnaturalearth](https://ropensci.github.io/rnaturalearth/)                |
+| scales        | [1.3\@420](https://github.com/r-lib/scales/pull/420)\* | [scales](https://scales.r-lib.org)                                        |
+| sf            | 1.0-14                                                 | [sf](https://r-spatial.github.io/sf/)                                     |
+| tidyr         | 1.3.1                                                  | [tidyr](https://tidyr.tidyverse.org)                                      |
 
-\* Developer version
+\* Pull request 420 version
 
 # Contact
 
