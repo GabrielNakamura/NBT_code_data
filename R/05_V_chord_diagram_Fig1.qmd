@@ -2,7 +2,7 @@
 title: "05 - Producing chord diagram (Figure 1)"
 subtitle: "05_V_chord_diagram_Fig1.qmd"
 format: html
-eval: false
+eval: true
 ---
 
 Here we produce the chord diagram (Figure 1 in the manuscript)
@@ -282,3 +282,19 @@ title("2000-present")
 dev.off()
 circos.clear()
 ```
+
+# Plotting the final figure
+
+::: callout-note
+The manuscript version of this Figure is edited with Inkscape software
+:::
+
+This is the final figure that correspond to the Figure 1 of the manuscript
+
+```{r}
+#| echo: false
+
+
+knitr::include_graphics(here::here("output", "figures", "Fig1_flow_circle_plot.png"))
+```
+

@@ -2,7 +2,7 @@
 title: "03 - Data preparation for models"
 subtitle: "03_D_data_preparation_models.qmd"
 format: html
-eval: false
+eval: true
 ---
 
 # General overview

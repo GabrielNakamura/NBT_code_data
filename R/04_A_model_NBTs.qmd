@@ -105,24 +105,47 @@ mod_hurdle <-
                    data = df_country_complete6,
                    family = glmmTMB::truncated_nbinom2)
 
+```
+
+Checking model output and fit
+
+```{r}
 summary(mod_hurdle)
 performance::check_zeroinflation(mod_hurdle)
 summary(mod_zero_pois)
 performance::check_zeroinflation(mod_zero_pois)
 
+```
+
+Checking best model
+
+```{r}
 ## model selection
 bbmle::ICtab(mod_pois, mod_zero_pois, mod_hurdle)
+
+```
+
+Checking residual diagnostic and colinearity
+
+```{r}
 
 # checking homocedasticity 
 DHARMa::simulateResiduals(fittedModel = mod_zero_pois, plot = T)
 DHARMa::simulateResiduals(fittedModel = mod_hurdle, plot = T)
-
 performance::check_collinearity(mod_zero_pois)
+performance::check_collinearity(mod_hurdle)
+```
+
+Exporting best model
+
+```{r}
+
 # Exporting best model
 
 saveRDS(mod_zero_pois, here::here("output", "models", "model_res_counting.rds"))
 
 ```
+
 
 ## Modelling native and NBT turnover
 
@@ -146,15 +169,33 @@ mod_type_turnover <-
                    data = df_country_complete6)
 
 
+
+```
+
+Checking model outputs
+
+```{r}
 ## Diagnose plots
 summary(mod_native_turnover)
 summary(mod_type_turnover)
+
+```
+
+Checking residuals and colinearity 
+
+```{r}
 
 DHARMa::simulateResiduals(fittedModel = mod_native_turnover, plot = TRUE)
 DHARMa::simulateResiduals(fittedModel = mod_type_turnover, plot = TRUE)
 performance::check_collinearity(mod_native_turnover)
 performance::check_collinearity(mod_type_turnover)
 
+
+```
+
+Saving models
+
+```{r}
 # Saving models
 
 saveRDS(mod_native_turnover, here::here("output", "models", "model_res_turnover_native.rds"))
@@ -166,6 +207,7 @@ saveRDS(mod_type_turnover, here::here("output", "models", "model_res_turnover_nb
 
 Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR)
 
+## DC
 
 ```{r}
 mod_beta_dc_binom <-
@@ -175,9 +217,29 @@ mod_beta_dc_binom <-
                    family = glmmTMB::betabinomial, 
                    data = df_country_complete6)
 
-DHARMa::simulateResiduals(fittedModel = mod_beta_dc_binom, plot = TRUE)
+
+```
+
+Checking model output
+
+```{r}
 summary(mod_beta_dc_binom)
 
+```
+
+Diagnostic residuals distribution and model collinearity
+
+```{r}
+DHARMa::simulateResiduals(fittedModel = mod_beta_dc_binom, plot = TRUE)
+performance::check_collinearity(mod_beta_dc_binom)
+
+```
+
+## DR
+
+Running model and checking results
+
+```{r}
 
 mod_beta_dr_binom <-
   glmmTMB::glmmTMB(cbind(success.DR, failures.DR) ~ native.richness.pad +
@@ -185,12 +247,23 @@ mod_beta_dr_binom <-
                      gdp.pad + n.museums.pad, ziformula = ~., 
                    family = glmmTMB::betabinomial, 
                    data = df_country_complete6)
+summary(mod_beta_dr_binom)
 
+```
+
+Checking residual distribution and colinearity
+
+```{r}
 DHARMa::simulateResiduals(fittedModel = mod_beta_dr_binom, 
                           plot = TRUE)
-summary(mod_beta_dr_binom)
+
 performance::check_collinearity(mod_beta_dr_binom)
 
+```
+
+Saving models for DR and DC
+
+```{r}
 # saving results
 saveRDS(mod_beta_dc_binom, 
         here::here("output", "models", "model_res_dc.rds"))
@@ -198,5 +271,4 @@ saveRDS(mod_beta_dr_binom,
         here::here("output", "models", "model_res_dr.rds"))
 
 ```
-
 

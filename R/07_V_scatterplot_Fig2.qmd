@@ -2,8 +2,14 @@
 title: "07 - DC and DR for each region per time (Figure 2)"
 subtitle: "07_V_scatterplot_Fig2.qmd"
 format: html
-eval: FALSE
+eval: true
 ---
+
+:::callout-note
+The final figure presented in the manuscript is further edited with
+    the aid o inkscape software
+:::
+
 
 # Domestic contribution (DC) and Domestic retention (DR) for all countries
 

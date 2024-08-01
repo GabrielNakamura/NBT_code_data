@@ -7,8 +7,10 @@ eval: false
 
 # Create world map with WorldBank regions
 
+:::callout-note
 This map was created to bind it together with the Figure 1 containing circle plots.
     The full plot was created using inkscape.
+:::
 
 Load packages
 

@@ -2,7 +2,7 @@
 title: "09 - Results from generalized linear models (Figure 4)"
 subtitle: "09_V_model_Fig4.qmd"
 format: html
-eval: FALSE
+eval: true
 ---
 
 # Model predictions and figures in the main text
@@ -459,6 +459,7 @@ fig_model <-
   theme(
     plot.margin = margin(5.5,8,5.5,5.5,"pt")
   )
+fig_model
 ```
 
 ```{r}

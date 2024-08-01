@@ -2,7 +2,7 @@
 title: "Supplementary material - Figures and Tables"
 subtitle: "0010_Supplementary_analysis.qmd"
 format: html
-eval: false
+eval: true
 ---
 
 In this document we provide the code to reproduce the Figures and Tables presented in supplementary material of the manuscript **"The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science"**
@@ -141,13 +141,103 @@ flow_region_prop |>
 ggsave(filename = here::here("output", "figures", "Supp-material", "FigS2_scatterplot.png"), 
        width = 3.5, height = 3)
 ```
+# Calculating turnover metrics with full native dataset
+
+## Reading packages
+
+```{r packages}
+# data
+library(readr)        # reading CSV files
+library(here)         # constructing file paths
+library(dplyr)        # data manipulation
+library(tidyr)        # data tidying
+library(phyloregion)  # handling phylogenetic data and transformations
+```
+
+## Importing and processing data 
+
+Importing and processing native composition and NBT composition data
+
+```{r}
+# From 01_C_data_preparation.qmd
+spp_native_distribution <- readr::read_csv(here::here("data", "raw", "spp_native_distribution.csv")) 
+
+# From 01_C_data_preparation.qmd
+spp_type_distribution <- readr::read_csv(here::here("data", "raw", "spp_type_distribution.csv")) 
+```
+
+Checking the specimens with data in both tables (native distribution and types). We transformed the long format species occurrence data frame to dense format. During this procedure we removed 1204 species that do not have information on native distribution (or we couldn't get this information from CAS)
+
+```{r}
+df_native_grid <- 
+  spp_native_distribution |> 
+  dplyr::select(grids = country_distribution, 
+                species = species) |> 
+  tidyr::drop_na(grids)
+
+df_type_grid <- 
+  spp_type_distribution |> 
+  dplyr::select(grids = country_museum, 
+                species = species) |> 
+  tidyr::drop_na(grids) |> 
+  dplyr::mutate(grids = paste(grids, "type", sep = "_"))
+  
+
+# joining data frames
+df_all_grid <- rbind(df_native_grid, df_type_grid) # joining both matrices - 
+    #native and types composition
+
+#### Just descriptive quantities
+country_native <- unique(df_native_grid$grids)
+country_type <- gsub(pattern = "_type", 
+                     replacement = "",
+                     unique(df_type_grid$grids))
+country_type_zero <- setdiff(country_native, country_type) # countries with no type specimen
+
+# transforming into a sparse matrix to speed up calculations
+sparse_all <- df_all_grid |> 
+  phyloregion::long2sparse(grids = "grids", species = "species") |> 
+  phyloregion::sparse2dense()
+
+# Transforming in presence absence matrix
+sparse_all_pa <- ifelse(sparse_all >= 1, 1, 0) 
+
+# Binding countries with no types - adding zeroes
+country_type_zero_names <- paste(country_type_zero, "_type", sep = "") # this will be used to bind together matrix with types and add the countries with no type
+matrix_type_zero <- matrix(0,
+         nrow = length(country_type_zero_names),
+         ncol = ncol(sparse_all_pa), 
+         dimnames = list(country_type_zero_names, 
+                         colnames(sparse_all_pa)))
+
+sparse_all_pa2 <- rbind(sparse_all_pa, matrix_type_zero)
+
+```
+
+## Calculating directional turnover based on native and primary type comparison
+
+Here we calculated the turnover in two directions. One is the turnover of native composition, in other words, the underrepresentation of native fish species in museums and natural collections within the country. Values closer to one indicate that the country present a huge underepresentation of its native fish fauna in primary types located within the country. 
+
+The other metric is primary type turnover. Values approaching one indicate that there is an overepresentation of primary types maintained in the country when compared to the native fish fauna of that country.
+
+```{r}
+source(here::here("R", "functions", "function_beta_types_success_fail.R"))
+
+names_countries <- unique(df_native_grid$grids) # country names
+
+df_all_beta <- beta_types(presab = sparse_all_pa2, 
+                          names.countries = names_countries) # calculating metrics of directional turnover
+
+readr::write_csv(df_all_beta, here::here("data", "processed", "df_all_beta.csv"))
+```
+
 
 # Plotting native and NBT turnover for each country
 
 In this section we present the cartogram of world map with values of native and 
     NBT turnover using the full dataset of native species (Figure S4)
 
-Loading packages
+## Loading packages
 
 ```{r}
 #plot
@@ -161,14 +251,14 @@ library(sf)
 library(biscale)
 ```
 
-Data used
+## Data
 
 ```{r}
 # Data from 02_D_beta-countries.qmd
 df_all_beta <- readr::read_csv(here::here("data", "processed", "df_all_beta.csv"))
 ```
 
-Joining metric information with geographical data
+## Joining metric information with geographical data
 
 ```{r}
 countries <- rnaturalearth::ne_countries(returnclass = "sf")
@@ -201,7 +291,7 @@ df_all_beta_sf2 <-
                            native.beta))
 ```
 
-Create palettes
+## Create palettes
 
 ```{r}
 palette_blue <- colorRampPalette(c("#d3d3d3", "#accaca", "#81c1c1", "#52b6b6"))
@@ -210,7 +300,7 @@ palette_pink <- colorRampPalette(c("#d3d3d3", "#c5acc2", "#bb84b1", "#ac5a9c"))
 
 ```
 
-# Plotting maps
+## Plotting maps
 
 ```{r}
 map_native_beta <- 
@@ -276,7 +366,7 @@ map_type_beta <-
   ) 
 ```
 
-Plotting the two quantities (native and types turnover) in a bivariate map
+## Plotting the two quantities (native and types turnover) in a bivariate map
 
 ```{r}
 sf_bivar_types <-
@@ -321,7 +411,7 @@ bivar_map_type_final <-
 
 ```
 
-Joining all the maps 
+## Joining all the maps 
 
 ```{r}
 map_turnover_all <-
@@ -336,7 +426,7 @@ map_turnover_all <-
     plot.tag = element_text(face = "bold", hjust = 0, vjust = 1),
     plot.tag.position = c(0, 1),
   )
-
+map_turnover_all
 
 ggsave(here::here("output", "figures", "FigS4_turnover_metrics.png"),
        map_turnover_all, dpi=600, width = 10, height = 9)
@@ -368,7 +458,11 @@ cor(df_cor$native.beta.x, df_cor$native.beta.y)
 ```
 
 
-# Model results 
+# Model results
+
+Here we report tables containing full results of the generalized linear models
+    presented in the main text . Also we report residuals diagnostic plots using
+    [DHARMa](https://cran.r-project.org/web/packages/DHARMa/vignettes/DHARMa.html) package
 
 ```{r}
 library(sjPlot)    # creating summary tables of model results
@@ -377,9 +471,9 @@ library(DHARMa)    # diagnostic graphics of models
 library(here)      # constructing file paths
 ```
 
-We provide here the detailed results from all models used in the main text of the manuscript. 
-
 ## Model data
+
+Reading model results
 
 ```{r}
 # Data from 03_C_data_preparation.qmd
@@ -406,9 +500,12 @@ mod_turnover_nbt <- readRDS(here::here("output",
 
 ## Tables with estimated parameters
 
-Producing tables with sjPlot
+Producing tables with model parameters. These tables corresponds to the Tables S1 to 
+    S5 in the Supplementary material
 
 ```{r}
+
+# Table with model parameters for total number of NBT
 sjPlot::tab_model(mod_counting_NBT, 
                   transform = NULL, 
                   pred.labels = c("Intercept", 
@@ -425,7 +522,11 @@ sjPlot::tab_model(mod_counting_NBT,
 
 
 
-# Table for betabinomial model with Domestic contribution
+
+```
+
+```{r}
+# Table with parameter for Domestic contribution as the response variable
 
 sjPlot::tab_model(mod_DC, 
                   transform = NULL, 
@@ -441,7 +542,10 @@ sjPlot::tab_model(mod_DC,
                   string.p = "P-value")
 
 
-# Table for betabinomial model with Domestic retention
+```
+
+```{r}
+# Table with parameters for model with Domestic retention as response variable
 
 sjPlot::tab_model(mod_DR, 
                   transform = NULL, 
@@ -456,7 +560,10 @@ sjPlot::tab_model(mod_DR,
                   string.est = "Estimates", 
                   string.p = "P-value")
 
-# Table for beta model with native turnover 
+```
+
+```{r}
+# Table with parameter from model with native turnover as response variable
 
 sjPlot::tab_model(mod_turnover_native, 
                   transform = NULL, 
@@ -471,7 +578,10 @@ sjPlot::tab_model(mod_turnover_native,
                   string.est = "Estimates", 
                   string.p = "P-value")
 
-# Table for beta model with nbt turnover 
+```
+
+```{r}
+# Table with parameters from model with nbt turnover as response variable
 
 sjPlot::tab_model(mod_turnover_nbt, 
                   transform = NULL,
@@ -488,19 +598,37 @@ sjPlot::tab_model(mod_turnover_nbt,
 
 
 
+
 ```
 
+
 ## Diagnostic graphics
+
+QQ-plots and residuals x predicted plots using DHARMa package. These plots are 
+    used to compose the Figure S4 in the Supplementary material
 
 ```{r}
 # total number of NBT
 DHARMa::simulateResiduals(fittedModel = mod_counting_NBT, plot = T)
+```
 
+```{r}
 # Domestic Contribution and Domestic Retention
 DHARMa::simulateResiduals(fittedModel = mod_DC, plot = TRUE) # DC
-DHARMa::simulateResiduals(fittedModel = mod_DR, plot = TRUE) # DR
+```
 
-# turnover metrics
+```{r}
+DHARMa::simulateResiduals(fittedModel = mod_DR, plot = TRUE) # DR
+```
+
+```{r}
+# native turnover
 DHARMa::simulateResiduals(fittedModel = mod_turnover_native, plot = TRUE)
+
+```
+
+```{r}
+# NBT turnover
 DHARMa::simulateResiduals(fittedModel = mod_turnover_nbt, plot = TRUE)
 ```
+
