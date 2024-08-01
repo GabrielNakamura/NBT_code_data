@@ -130,7 +130,7 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 -   [`01_D_data_preparation.qmd`](R/01_D_data_preparation.qmd) initial data preparation
 
--   [`02_A_beta-countries.qmd`](R/02_A_beta-countries.qmd) analysis of beta diversity metrics. This script is used to calculate `turnover NBT` and `native NBT`
+-   [`02_A_beta-endemics-countries.qmd`](R/02_A_beta-endemics-countries.qmd) analysis of beta diversity metrics. This script is used to calculate `turnover NBT` and `native NBT`
 
 -   [`03_D_data_preparation_models.qmd`](R/03_D_data_preparation_models.qmd) script used to build data frames that will be used in statistical models ([`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd))
 
@@ -142,13 +142,13 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 -   [`07_V_scatterplot_Fig2.qmd`](R/07_V_scatterplot_Fig2.qmd) code used to reproduce the Figure 2 of the main text
 
--   [`08_V_beta_Fig3.qmd`](R/08_V_beta_Fig3.qmd) code used to build Figure 3 of the main text
+-   [08_V_beta_endemics_Fig3.qmd](R/08_V_beta_endemics_Fig3.qmd) code used to build Figure 3 of the main text
 
 -   [`09_V_model_Fig4.qmd`](R/09_V_model_Fig4.qmd) code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
 
 -   [`0010_Supplementary_analysis.qmd`](R/0010_Supplementary_analysis.qmd) code to produce all the tables and figures presented in the Supplementary material of this study
 
--   [`0011_V_beta_all_FigS3.qmd`]() code to produce the Figure S3 in the supplementary material producing a cartogram with countries coloured accoridng to its native and NBT turnover values, considering all species
+<!-- -   [`0011_V_beta_all_FigS3.qmd`](R/0011_V_beta_all_FigS3.qmd) code to produce the Figure S3 in the supplementary material producing a cartogram with countries coloured accoridng to its native and NBT turnover values, considering all species -->
 
 ### functions
 
@@ -166,7 +166,7 @@ In this folder you will find all figures used in the main text and supplementary
 
 `Fig2_DC_DR.png` Scaterplot with World regions characterized by their Domestic Contribution and Domestic Retention values in a 50-year time frame
 
-`Fig3_turnover_metrics.png` Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map
+`Fig3_turnover_metrics_endemics.png` Cartogram with 3 maps showing the level of native endemic turnover, NBT turnover and the combination of both metrics in a combined map
 
 `Fig4_models.png` Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models
 
@@ -178,10 +178,12 @@ This folder contains the figures in the Supplementary material
 
 -   `FigS2_scatterplot.png` All-time Domestic contribution (DC) and Domestic retention (DR) for world regions
 
+-   `FigS3_turnover_metrics.png` Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map
+
 ## Packages
 
 | Package       | Version                                                | Documentation                                                             |
-|---------------|--------------------------------------------------------|---------------------------------------------------------------------------|
+|---------------|---------------|------------------------------------------|
 | bbmle         | 1.0.25.1                                               | [bbmle](https://cran.r-project.org/web/packages/bbmle/bbmle.pdf)          |
 | betapart      | 1.6                                                    | [betapart](https://cran.r-project.org/web/packages/betapart/betapart.pdf) |
 | biscale       | 1.0.0                                                  | [biscale](https://chris-prener.github.io/biscale/)                        |

@@ -4,6 +4,7 @@ subtitle: "0010_Supplementary_analysis.qmd"
 format: html
 eval: true
 warning: false
+fig-align: "center"
 knitr: 
   opts_chunk:
     message: false
@@ -127,7 +128,7 @@ flow_region_prop |>
     expand = expansion(mult = c(0.05, 0))
   )+
   labs(
-    x = "Domestic Constribution (DC)",
+    x = "Domestic Contribution (DC)",
     y = "Domestic Retention (DR)"
   )+
   theme_classic()+
@@ -441,7 +442,7 @@ map_turnover_all <-
   )
 map_turnover_all
 
-ggsave(here::here("output", "figures", "FigS4_turnover_metrics.png"),
+ggsave(here::here("output", "figures", "Supp-material", "FigS3_turnover_metrics.png"),
        map_turnover_all, dpi=600, width = 10, height = 9)
 
 ```
