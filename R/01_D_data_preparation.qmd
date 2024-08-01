@@ -3,6 +3,10 @@ title: "01 - Data preparation"
 subtitle: "01_D_data_preparation.qmd"
 format: html
 eval: TRUE
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
 ---
 
 # General overview

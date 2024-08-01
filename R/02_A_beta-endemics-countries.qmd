@@ -3,6 +3,10 @@ title: "02 - Turnover with endemic species"
 subtitle: "02_A_beta-endemics-countries.qmd"
 format: html
 eval: true
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
 ---
 
 # Overview

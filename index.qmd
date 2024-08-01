@@ -181,7 +181,7 @@ This folder contains the figures in the Supplementary material
 ## Packages
 
 | Package       | Version                                                | Documentation                                                             |
-|-------------|-------------|---------------------------------------------|
+|---------------|--------------------------------------------------------|---------------------------------------------------------------------------|
 | bbmle         | 1.0.25.1                                               | [bbmle](https://cran.r-project.org/web/packages/bbmle/bbmle.pdf)          |
 | betapart      | 1.6                                                    | [betapart](https://cran.r-project.org/web/packages/betapart/betapart.pdf) |
 | biscale       | 1.0.0                                                  | [biscale](https://chris-prener.github.io/biscale/)                        |
