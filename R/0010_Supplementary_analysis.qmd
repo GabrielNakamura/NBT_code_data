@@ -22,6 +22,8 @@ library(countrycode) # download country information
 
 # Native species richness
 
+## Native richness with Catalog of Fishes
+
 We calculate the native species richness for each country from data in the Catalog of Fishes. We used this source to avoid taxonomic mismatches between species names.
 
 ```{r}
@@ -48,6 +50,28 @@ df_country_native_sf <-
   dplyr::full_join(df_country_native, 
                    by = c(iso_a3 = "country_distribution"))
 ```
+
+## Comparing richness from the Catalog of Fishes and Fishbase
+
+Here we compared the richness obtained from the Catalog of Fishes and 
+    the Fishbase.
+
+```{r}
+df_country_native_fishbase <- readr::read_csv(file = here::here("data","processed", "fishbase_species_country.csv"))
+
+df_country_native_fishbase2 <- 
+  df_country_native_fishbase |> 
+  rename(iso3c.fishbase = iso3c)
+
+df_richness_all <- 
+  df_country_native |> 
+  left_join(df_country_native_fishbase2, by = c(country_distribution = "iso3c.fishbase")) |> 
+  drop_na()
+
+cor(df_richness_all$native.richness, df_richness_all$n)
+
+```
+
 
 ## Figure S1 - Native richness
 

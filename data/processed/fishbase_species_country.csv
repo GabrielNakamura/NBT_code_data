@@ -1,0 +1,230 @@
+country,n,iso3c
+brazil,3643,BRA
+china,1727,CHN
+indonesia,1553,IDN
+india,1312,IND
+congo dem rp,1226,COD
+venezuela,1059,VEN
+colombia,1043,COL
+usa,1041,USA
+thailand,1036,THA
+tanzania,1034,TZA
+peru,951,PER
+viet nam,814,VNM
+malaysia,801,MYS
+mexico,744,MEX
+cameroon,669,CMR
+australia,665,AUS
+myanmar,629,MMR
+guyana,587,GUY
+argentina,572,ARG
+laos,562,LAO
+cambodia,550,KHM
+papua new guinea,500,PNG
+russia,491,RUS
+philippines,485,PHL
+malawi,475,MWI
+mozambique,475,MOZ
+ecuador,468,ECU
+suriname,467,SUR
+french guiana,460,GUF
+japan,456,JPN
+congo,452,COG
+turkey,436,TUR
+angola,430,AGO
+zambia,410,ZMB
+chinese taipei,406,TWN
+bolivia,398,BOL
+kenya,376,KEN
+gabon,366,GAB
+bangladesh,364,BGD
+nigeria,364,NGA
+guinea,340,GIN
+pakistan,334,PAK
+uruguay,327,URY
+panama,325,PAN
+iran,319,IRN
+south africa,316,ZAF
+sri lanka,296,LKA
+ivory coast,286,CIV
+uganda,283,UGA
+costa rica,280,CRI
+ghana,274,GHA
+senegal,272,SEN
+paraguay,264,PRY
+guatemala,257,GTM
+canada,247,CAN
+madagascar,245,MDG
+burundi,240,BDI
+sierra leone,230,SLE
+korea (south),215,KOR
+benin,213,BEN
+nicaragua,212,NIC
+honduras,209,HND
+liberia,207,LBR
+singapore,202,SGP
+guinea-bissau,200,GNB
+greece,198,GRC
+gambia,194,GMB
+nepal,185,NPL
+trinidad tobago,177,TTO
+brunei darsm,175,BRN
+ukraine,175,UKR
+eq guinea,170,GNQ
+namibia,169,NAM
+togo,169,TGO
+ethiopia,164,ETH
+egypt,160,EGY
+sudan,156,SDN
+croatia,154,HRV
+mauritania,154,MRT
+france,147,FRA
+bulgaria,145,BGR
+new caledonia,144,NCL
+romania,143,ROU
+mali,141,MLI
+germany,140,DEU
+spain,139,ESP
+chad,135,TCD
+belize,134,BLZ
+somalia,133,SOM
+italy,132,ITA
+portugal,131,PRT
+zimbabwe,127,ZWE
+albania,125,ALB
+hong kong,123,HKG
+vanuatu,123,VUT
+burkina faso,123,BFA
+bosnia herzegov.,120,BIH
+jamaica,120,JAM
+montenegro,118,MNE
+uk,115,GBR
+el salvador,114,SLV
+syria,112,SYR
+afghanistan,111,AFG
+slovenia,108,SVN
+korea (north),107,PRK
+georgia,106,GEO
+south sudan,101,SSD
+iraq,100,IRQ
+morocco,98,MAR
+israel,97,ISR
+kazakhstan,95,KAZ
+aruba,91,ABW
+curaçao i.,86,CUW
+finland,85,FIN
+netherlands,85,NLD
+algeria,84,DZA
+azerbaijan,84,AZE
+botswana,82,BWA
+haiti,82,HTI
+poland,82,POL
+norway,81,NOR
+solomon is.,80,SLB
+denmark,79,DNK
+mongolia,79,MNG
+belgium,78,BEL
+puerto rico,78,PRI
+serbia,77,SRB
+austria,75,AUT
+mauritius,75,MUS
+switzerland,74,CHE
+ireland,72,IRL
+new zealand,72,NZL
+palau,71,PLW
+grenada,70,GRD
+la reunion is.,69,REU
+seychelles,69,SYC
+bahamas,68,BHS
+estonia,67,EST
+french polynesia,67,PYF
+djibouti,67,DJI
+lithuania,67,LTU
+rwanda,67,RWA
+timor-leste,66,TLS
+slovakia,66,SVK
+sweden,66,SWE
+lebanon,64,LBN
+latvia,63,LVA
+saudi arabia,63,SAU
+tunisia,63,TUN
+yemen,63,YEM
+hungary,60,HUN
+oman,60,OMN
+barbados,57,BRB
+gibraltar,57,GIB
+libya,57,LBY
+czechia,56,CZE
+moldova,56,MDA
+comoros,55,COM
+dominica,55,DMA
+chile,54,CHL
+monaco,54,MCO
+st vincent gren.,54,VCT
+north macedonia,53,MKD
+st lucia,52,LCA
+turkmenistan,52,TKM
+samoa,51,WSM
+antigua barbuda,50,ATG
+uzbekistan,50,UZB
+eswatini,48,SWZ
+martinique,45,MTQ
+bhutan,44,BTN
+armenia,43,ARM
+malta,43,MLT
+cyprus,42,CYP
+jordan,42,JOR
+st kitts nevis,40,KNA
+bermuda,39,BMU
+kuwait,39,KWT
+north marianas,39,MNP
+eritrea,39,ERI
+belarus,38,BLR
+guadeloupe,37,GLP
+bahrain,34,BHR
+qatar,34,QAT
+united arab em.,34,ARE
+tahiti,33,PYF
+iceland,33,ISL
+uk scotland,33,GBR
+isle of man,31,IMN
+cayman is.,30,CYM
+virgin is. (uk),29,VGB
+montserrat,28,MSR
+virgin is. (us),28,VIR
+anguilla,26,AIA
+marshall is.,25,MHL
+sao tome princ.,25,STP
+american samoa,24,ASM
+greenland,24,GRL
+wallis futuna,24,WLF
+mayotte,23,MYT
+guam,23,GUM
+maldives,21,MDV
+turks caicos is.,21,TCA
+kyrgyzstan,19,KGZ
+faeroe is.,18,FRO
+tonga,18,TON
+kiribati,13,KIR
+liechtenstein,12,LIE
+luxembourg,12,LUX
+tuvalu,12,TUV
+cook is.,11,COK
+macau,11,MAC
+tokelau,9,TKL
+niue,8,NIU
+st helena,8,SHN
+andorra,7,AND
+falkland is.,7,FLK
+lesotho,7,LSO
+nauru,6,NRU
+norfolk i.,5,NFK
+svalbard,5,SJM
+christmas i.,4,CXR
+us minor is.,4,USA
+tajikistan,4,TJK
+cocos i. (c.r.),4,CCK
+cocos is. (keel),3,CCK
+pitcairn,3,PCN
+st maarten (nl),1,SXM
+us misc pac,1,USA
