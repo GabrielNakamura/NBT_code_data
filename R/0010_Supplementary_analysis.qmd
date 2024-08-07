@@ -15,6 +15,7 @@ In this document we provide the code to reproduce the Figures and Tables present
 ```{r}
 library(readr) # read csv objects
 library(dplyr) # manipulate tables
+library(tidyr) # data tidying
 library(ggplot2) # plot figures
 library(scales) # change axis values
 library(countrycode) # download country information
@@ -61,12 +62,12 @@ df_country_native_fishbase <- readr::read_csv(file = here::here("data","processe
 
 df_country_native_fishbase2 <- 
   df_country_native_fishbase |> 
-  rename(iso3c.fishbase = iso3c)
+  dplyr::rename(iso3c.fishbase = iso3c)
 
 df_richness_all <- 
   df_country_native |> 
-  left_join(df_country_native_fishbase2, by = c(country_distribution = "iso3c.fishbase")) |> 
-  drop_na()
+  dplyr::left_join(df_country_native_fishbase2, by = c(country_distribution = "iso3c.fishbase")) |> 
+  tidyr::drop_na()
 
 cor(df_richness_all$native.richness, df_richness_all$n)
 
@@ -275,6 +276,9 @@ In this section we present the cartogram of world map with values of native and
 ## Loading packages
 
 ```{r}
+#data
+library(dplyr)
+library(tidyr)
 #plot
 library(ggplot2)
 library(patchwork)
@@ -481,14 +485,14 @@ df_endemic_beta <- readr::read_csv(here::here("data", "processed", "df_endemic_b
 
 df_endemic_beta2 <- 
   df_endemic_beta |> 
-  drop_na(type.beta) 
+  tidyr::drop_na(type.beta) 
 df_all_beta_sf2 <- 
   df_all_beta_sf |> 
-  drop_na(type.beta) 
+  tidyr::drop_na(type.beta) 
 
 df_cor <- 
   df_endemic_beta2 |> 
-  left_join(df_all_beta_sf2, by = c(countries = "iso_a3_eh")) 
+  dplyr::left_join(df_all_beta_sf2, by = c(countries = "iso_a3_eh")) 
 
 cor(df_cor$type.beta.x, df_cor$type.beta.y)
 cor(df_cor$native.beta.x, df_cor$native.beta.y)
