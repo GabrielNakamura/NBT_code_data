@@ -66,7 +66,7 @@ df_country_native_fishbase2 <-
 df_richness_all <- 
   df_country_native |> 
   left_join(df_country_native_fishbase2, by = c(country_distribution = "iso3c.fishbase")) |> 
-  drop_na()
+  tidyr::drop_na()
 
 cor(df_richness_all$native.richness, df_richness_all$n)
 
