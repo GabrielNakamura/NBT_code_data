@@ -318,7 +318,7 @@
     "href": "R/0010_Supplementary_analysis.html",
     "title": "Supplementary material - Figures and Tables",
     "section": "",
-    "text": "In this document we provide the code to reproduce the Figures and Tables presented in supplementary material of the manuscript “The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science”\nlibrary(readr) # read csv objects\nlibrary(dplyr) # manipulate tables\nlibrary(ggplot2) # plot figures\nlibrary(scales) # change axis values\nlibrary(countrycode) # download country information",
+    "text": "In this document we provide the code to reproduce the Figures and Tables presented in supplementary material of the manuscript “The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science”\nlibrary(readr) # read csv objects\nlibrary(dplyr) # manipulate tables\nlibrary(tidyr) # data tidying\nlibrary(ggplot2) # plot figures\nlibrary(scales) # change axis values\nlibrary(countrycode) # download country information",
     "crumbs": [
       "R",
       "Supplementary material - Figures and Tables"
@@ -340,7 +340,7 @@
     "href": "R/0010_Supplementary_analysis.html#comparing-richness-from-the-catalog-of-fishes-and-fishbase",
     "title": "Supplementary material - Figures and Tables",
     "section": "Comparing richness from the Catalog of Fishes and Fishbase",
-    "text": "Comparing richness from the Catalog of Fishes and Fishbase\nHere we compared the richness obtained from the Catalog of Fishes and the Fishbase.\n\ndf_country_native_fishbase &lt;- readr::read_csv(file = here::here(\"data\",\"processed\", \"fishbase_species_country.csv\"))\n\ndf_country_native_fishbase2 &lt;- \n  df_country_native_fishbase |&gt; \n  rename(iso3c.fishbase = iso3c)\n\ndf_richness_all &lt;- \n  df_country_native |&gt; \n  left_join(df_country_native_fishbase2, by = c(country_distribution = \"iso3c.fishbase\")) |&gt; \n  tidyr::drop_na()\n\ncor(df_richness_all$native.richness, df_richness_all$n)\n\n[1] 0.898011",
+    "text": "Comparing richness from the Catalog of Fishes and Fishbase\nHere we compared the richness obtained from the Catalog of Fishes and the Fishbase.\n\ndf_country_native_fishbase &lt;- readr::read_csv(file = here::here(\"data\",\"processed\", \"fishbase_species_country.csv\"))\n\ndf_country_native_fishbase2 &lt;- \n  df_country_native_fishbase |&gt; \n  dplyr::rename(iso3c.fishbase = iso3c)\n\ndf_richness_all &lt;- \n  df_country_native |&gt; \n  dplyr::left_join(df_country_native_fishbase2, by = c(country_distribution = \"iso3c.fishbase\")) |&gt; \n  tidyr::drop_na()\n\ncor(df_richness_all$native.richness, df_richness_all$n)\n\n[1] 0.898011",
     "crumbs": [
       "R",
       "Supplementary material - Figures and Tables"
@@ -406,7 +406,7 @@
     "href": "R/0010_Supplementary_analysis.html#loading-packages",
     "title": "Supplementary material - Figures and Tables",
     "section": "Loading packages",
-    "text": "Loading packages\n\n#plot\nlibrary(ggplot2)\nlibrary(patchwork)\nlibrary(cowplot)\n#map\nlibrary(rnaturalearth)\nlibrary(rmapshaper)\nlibrary(sf)\nlibrary(biscale)",
+    "text": "Loading packages\n\n#data\nlibrary(dplyr)\nlibrary(tidyr)\n#plot\nlibrary(ggplot2)\nlibrary(patchwork)\nlibrary(cowplot)\n#map\nlibrary(rnaturalearth)\nlibrary(rmapshaper)\nlibrary(sf)\nlibrary(biscale)",
     "crumbs": [
       "R",
       "Supplementary material - Figures and Tables"
