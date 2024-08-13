@@ -33,7 +33,9 @@ author:
 ---
 
 ::: callout-note
-This manuscript is submitted as a preprint here: Link
+This manuscript is submitted as a preprint [here](https://ecoevorxiv.org/repository/view/7539/) 
+
+Code and data can be downloaded from zenodo [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13307474.svg)](https://doi.org/10.5281/zenodo.13307474)
 :::
 
 # General overview
