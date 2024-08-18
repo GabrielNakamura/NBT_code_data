@@ -33,6 +33,7 @@ website:
         menu:
           - text: Source Code
             href:  https://github.com/GabrielNakamura/NBT_code_data
+  google-analytics: "G-NJP5GZ6SZH"
 
 format:
   html:
