@@ -59,9 +59,12 @@ flow_period_region_prop_lag <- flow_period_region_prop |>
 
 ```{r}
 flow_period_region_prop_lag |>
-  dplyr::filter(dplyr::if_all(c(prop_DC, prop_DR, 
-                                new_DC, new_DR), 
-                              ~ . != 0 | is.na(.))) |> 
+  # dplyr::mutate(dplyr::across(c(prop_DC, prop_DR, 
+  #                               new_DC, new_DR), 
+  #                             ~ ifelse(is.na(.), 0, .))) |> 
+  dplyr::filter(!dplyr::if_all(c(prop_DC, prop_DR,
+                                new_DC, new_DR),
+                              ~ . == 0 | is.na(.))) |>
   ggplot(aes(x = prop_DC, y = prop_DR, fill = region_type))+
   geom_hline(yintercept = 0.5, linetype = "dashed")+
   geom_vline(xintercept = 0.5, linetype = "dashed")+
@@ -91,13 +94,13 @@ flow_period_region_prop_lag |>
               )+
   scale_fill_manual(
     values = c(
-      "Europe & Central Asia" = "#E64B35FF",
-      "East Asia & Pacific" = "#4DBBD5FF",
-      "North America" = "#3C5488FF",
-      "South Asia" = "#B09C85FF",
-      "Latin America & Caribbean" = "#00A087FF",
-      "Sub-Saharan Africa" = "#F39B7FFF",
-      "Middle East & North Africa" = "#8491B4FF"
+      "Europe & Central Asia" = "#f34d4d",
+      "East Asia & Pacific" = "#4da8a6",
+      "North America" = "#416295",
+      "South Asia" = "#a6a7a6",
+      "Latin America & Caribbean" = "#4dae7d",
+      "Sub-Saharan Africa" = "#e0a0a7",
+      "Middle East & North Africa" = "#9D7AAB"
     )
   )+
   scale_x_continuous(
@@ -113,7 +116,6 @@ flow_period_region_prop_lag |>
     strip.background = element_rect(fill = NA, color = NA),
     strip.text = element_text(face = "bold"),
     legend.position = "none",
-    plot.background = element_blank(),
     panel.spacing = unit(5, "pt"),
     panel.spacing.x = unit(15, "pt"),
     plot.margin = margin(5,15,5,5,"pt"),
@@ -126,6 +128,6 @@ flow_period_region_prop_lag |>
                   clip = "off")
 
 
-ggsave(filename = here::here("output", "figures", "Fig2_DC_DR.png"), 
+ggsave(filename = here::here("output", "figures", "Fig2_DC_DR.svg"), 
        width = 8, height = 5)
 ```

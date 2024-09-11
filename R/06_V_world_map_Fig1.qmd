@@ -82,13 +82,13 @@ world_wb2 |>
   color = "white")+
   scale_fill_manual(
     values = c(
-      "ECA" = "#E64B35",
-      "EAP" = "#4DBBD5",
-      "NA" = "#3C5488",
-      "SAR" = "#B09C85",
-      "LAC" = "#00A087",
-      "SSA" = "#F39B7F",
-      "MENA" = "#8491B4"
+      "ECA" = "#f34d4d",
+      "EAP" = "#4da8a6",
+      "NA" = "#416295",
+      "SAR" = "#a6a7a6",
+      "LAC" = "#4dae7d",
+      "SSA" = "#e0a0a7",
+      "MENA" = "#9D7AAB"
     )
   )+
   guides(

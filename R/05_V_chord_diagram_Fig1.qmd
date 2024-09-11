@@ -154,20 +154,21 @@ regions_alltime <- flow_region2 |>
   dplyr::filter(value != 0)
 
 #define colors
-colors <- c(" EAP" = "#4DBBD5FF", 
-            " ECA" = "#E64B35FF",
-            " LAC" = "#00A087FF", 
-            " MENA" = "#8491B4FF",
-            " NA" = "#3C5488FF", 
-            " SAR" = "#B09C85FF",
-            " SSA" = "#F39B7FFF",
-            "EAP " = "#4DBBD5FF", 
-            "ECA " = "#E64B35FF",
-            "LAC " = "#00A087FF", 
-            "MENA " = "#8491B4FF",
-            "NA " = "#3C5488FF", 
-            "SAR " = "#B09C85FF",
-            "SSA " = "#F39B7FFF"
+colors <- c(
+  " ECA" = "#f34d4d",
+  " EAP" = "#4da8a6",
+  " NA" = "#416295",
+  " SAR" = "#a6a7a6",
+  " LAC" = "#4dae7d",
+  " SSA" = "#E0A0A7",
+  " MENA" = "#9D7AAB",
+  "ECA " = "#f34d4d",
+  "EAP " = "#4da8a6",
+  "NA " = "#416295",
+  "SAR " = "#a6a7a6",
+  "LAC " = "#4dae7d",
+  "SSA " = "#E0A0A7",
+  "MENA " = "#9D7AAB"
 )
 ```
 
