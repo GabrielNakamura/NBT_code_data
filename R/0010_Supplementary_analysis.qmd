@@ -135,13 +135,13 @@ flow_region_prop |>
   )+
   scale_fill_manual(
     values = c(
-      "Europe & Central Asia" = "#E64B35FF",
-      "East Asia & Pacific" = "#4DBBD5FF",
-      "North America" = "#3C5488FF",
-      "South Asia" = "#B09C85FF",
-      "Latin America & Caribbean" = "#00A087FF",
-      "Sub-Saharan Africa" = "#F39B7FFF",
-      "Middle East & North Africa" = "#8491B4FF"
+      "Europe & Central Asia"= "#f34d4d",
+      "East Asia & Pacific"= "#4da8a6",
+      "North America"= "#416295",
+      "South Asia"= "#a6a7a6",
+      "Latin America & Caribbean"= "#4dae7d",
+      "Sub-Saharan Africa"= "#e0a0a7",
+      "Middle East & North Africa" = "#9D7AAB"
     )
   )+
   scale_x_continuous(
