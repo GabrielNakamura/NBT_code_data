@@ -614,20 +614,6 @@ QQ-plots and residuals x predicted plots using DHARMa package. These plots are
 DHARMa::simulateResiduals(fittedModel = mod_counting_NBT, plot = T)
 ```
 
-```{r}
-#| fig-width: 8
-#| fig-height: 5
-
-# Domestic Contribution and Domestic Retention
-DHARMa::simulateResiduals(fittedModel = mod_DC, plot = TRUE) # DC
-```
-
-```{r}
-#| fig-width: 8
-#| fig-height: 5
-
-DHARMa::simulateResiduals(fittedModel = mod_DR, plot = TRUE) # DR
-```
 
 ```{r}
 #| fig-width: 8
