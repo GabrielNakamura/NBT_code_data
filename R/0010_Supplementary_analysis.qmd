@@ -177,7 +177,7 @@ flow_region_prop |>
 ggsave(filename = here::here("output", "figures", "Supp-material", "FigS2_scatterplot.png"), 
        width = 3.5, height = 3)
 ```
-# Calculating turnover metrics with full native dataset
+# Calculating native deficit and non-native representation metrics with full native dataset
 
 ## Reading packages
 
@@ -192,7 +192,7 @@ library(phyloregion)  # handling phylogenetic data and transformations
 
 ## Importing and processing data 
 
-Importing and processing native composition and NBT composition data
+Importing and processing native composition and name bearer composition data
 
 ```{r}
 # From 01_C_data_preparation.qmd
@@ -268,10 +268,10 @@ readr::write_csv(df_all_beta, here::here("data", "processed", "df_all_beta.csv")
 ```
 
 
-# Plotting native and NBT turnover for each country
+# Plotting native deficit and non-native representation for each country
 
-In this section we present the cartogram of world map with values of native and 
-    NBT turnover using the full dataset of native species (Figure S4)
+In this section we present the cartogram of world map with values of native deficit and 
+    non-native representation using the full dataset of native species (Figure S4)
 
 ## Loading packages
 
@@ -362,7 +362,7 @@ map_native_beta <-
     title.hjust = 0.5
   )) +
   labs(
-    fill = "Native"
+    fill = "Native deficit"
   )+
   theme_classic()+
   theme(
@@ -393,7 +393,7 @@ map_type_beta <-
     title.hjust = 0.5
   )) +
   labs(
-    fill = "Types"
+    fill = "Non-native representation"
   )+
   theme_classic()+
   theme(
@@ -439,8 +439,8 @@ bivar_map_types <-
 legend <-
   bi_legend(pal = "DkBlue2",
             dim = 4,
-            xlab = "NBT",
-            ylab = "Native",
+            xlab = "Non-native",
+            ylab = "Native deficit",
             size = )
 
 bivar_map_type_final <- 
@@ -525,12 +525,6 @@ df_country_complete6 <- readr::read_csv(here::here("data", "processed", "df_coun
 mod_counting_NBT <- readRDS(here::here("output", 
                                        "models", 
                                        "model_res_counting.rds")) # NBT total countings
-mod_DC <- readRDS(here::here("output", 
-                             "models", 
-                             "model_res_dc.rds"))
-mod_DR <- readRDS(here::here("output", 
-                             "models", 
-                             "model_res_dr.rds"))
 mod_turnover_native <- readRDS(here::here("output", 
                                           "models",
                                       "model_res_turnover_native.rds"))
@@ -568,44 +562,7 @@ sjPlot::tab_model(mod_counting_NBT,
 ```
 
 ```{r}
-# Table with parameter for Domestic contribution as the response variable
-
-sjPlot::tab_model(mod_DC, 
-                  transform = NULL, 
-                  pred.labels = c("Intercept", 
-                                  "Native richness",
-                                  "Gbif records per area",
-                                  "Years since independence", 
-                                  "GDP", 
-                                  "Number of museums"), 
-                  dv.labels = "Domestic Contribution", 
-                  string.pred = "Coefficients", 
-                  string.est = "Estimates", 
-                  string.p = "P-value")
-
-
-```
-
-```{r}
-# Table with parameters for model with Domestic retention as response variable
-
-sjPlot::tab_model(mod_DR, 
-                  transform = NULL, 
-                  pred.labels = c("Intercept", 
-                                  "Native richness",
-                                  "Gbif records per area",
-                                  "Years since independence", 
-                                  "GDP", 
-                                  "Number of museums"), 
-                  dv.labels = "Domestic Retention", 
-                  string.pred = "Coefficients", 
-                  string.est = "Estimates", 
-                  string.p = "P-value")
-
-```
-
-```{r}
-# Table with parameter from model with native turnover as response variable
+# Table with parameter from model with endemic deficit as response variable
 
 sjPlot::tab_model(mod_turnover_native, 
                   transform = NULL, 
@@ -615,7 +572,7 @@ sjPlot::tab_model(mod_turnover_native,
                                   "Years since independence", 
                                   "GDP", 
                                   "Number of museums"), 
-                  dv.labels = "Native turnover", 
+                  dv.labels = "Endemic deficit", 
                   string.pred = "Coefficients", 
                   string.est = "Estimates", 
                   string.p = "P-value")
@@ -623,7 +580,7 @@ sjPlot::tab_model(mod_turnover_native,
 ```
 
 ```{r}
-# Table with parameters from model with nbt turnover as response variable
+# Table with parameters from model with non-endemic representation as response variable
 
 sjPlot::tab_model(mod_turnover_nbt, 
                   transform = NULL,
@@ -633,7 +590,7 @@ sjPlot::tab_model(mod_turnover_nbt,
                                   "Years since independence", 
                                   "GDP", 
                                   "Number of museums"), 
-                  dv.labels = "NBT turnover", 
+                  dv.labels = "Non-endemic representation", 
                   string.pred = "Coefficients", 
                   string.est = "Estimates", 
                   string.p = "P-value")

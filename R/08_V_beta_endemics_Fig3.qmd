@@ -100,7 +100,7 @@ map_native_endemic_beta <-
     title.hjust = 0.5
   )) +
   labs(
-    fill = "Native"
+    fill = "Endemic deficit"
   )+
   theme_classic()+
   theme(
@@ -131,7 +131,7 @@ map_type_endemic_beta <-
     title.hjust = 0.5
   )) +
   labs(
-    fill = "Types"
+    fill = "Non-endemic name bearers"
   )+
   theme_classic()+
   theme(
@@ -177,8 +177,8 @@ bivar_map_types_endemic <-
 legend <-
   bi_legend(pal = "DkBlue2",
             dim = 4,
-            xlab = "NBT",
-            ylab = "Native",
+            xlab = "Non endemic",
+            ylab = "Endemic",
             size = )
 
 bivar_map_type_final_endemic <- 

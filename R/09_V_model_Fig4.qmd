@@ -63,7 +63,7 @@ sqrt_trans <- scales::trans_new("sqrt_with_zero",
                         inverse = function(x) x^2)
 ```
 
-## Total NBT counting
+## Total name bearer counting
 
 ```{r}
 # Extracting predicted values
@@ -132,7 +132,7 @@ a <-
     )
   )+
   labs(x = "Gross Domestic Product - GDP",
-       y = "Number of NBT") +
+       y = "Number of name bearers") +
   theme_classic()+
   theme(
     axis.title = element_text(face = "bold"),
@@ -193,7 +193,7 @@ b <- tibble(
     )
   )+
   labs(x = "Native richness",
-       y = "Number of NBT") +
+       y = "Number of name bearers") +
   theme_classic()+
   theme(
     axis.title = element_text(face = "bold"),
@@ -208,135 +208,8 @@ b <- tibble(
                   ylim = c(NA, 20000))
 ```
 
-## Domestic Contribution
 
-```{r}
-
-# predicted values
-pred_mod_dc <-
-  ggeffects::ggpredict(mod_DC, "gdp.pad[-0.88:4 by=.05]")
-
-
-pred_mod_dc_gdp2 <- scale_back(data =  pred_mod_dc, scaled = scale_gdp)
-
-
-# plotting figure 4c
-c <- tibble(
-  x = df_country_complete6$e_migdppc,
-  y = df_country_complete6$prop_DC,
-  country = df_country_complete6$country,
-  region = df_country_complete6$region
-) |>
-  ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_dc_gdp2,
-              aes(x = x_original,
-                  y = predicted,
-                  ymin = conf.low,
-                  ymax = conf.high),
-              alpha = 0.2)+
-  geom_line(data = pred_mod_dc_gdp2,
-            aes(x = x_original,
-                y = predicted))+
-  geom_point(aes(fill = region),
-             shape = 21)+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,40000,10000),
-                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
-                     ) +
-  scale_y_continuous(expand = expansion(mult = c(0)),
-                     labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
-  scale_fill_manual(
-    values = c(
-      "Europe & Central Asia" = "#f34d4d",
-      "East Asia & Pacific" = "#4da8a6",
-      "North America" = "#416295",
-      "South Asia" = "#a6a7a6",
-      "Latin America & Caribbean" = "#4dae7d",
-      "Sub-Saharan Africa" = "#e0a0a7",
-      "Middle East & North Africa" = "#9D7AAB"
-    )
-  )+
-  labs(x = "Gross Domestic Product - GDP",
-       y = "Domestic Contribution") +
-  theme_classic()+
-  theme(
-    axis.title = element_text(face = "bold"),
-    axis.text = element_text(color = "black"),
-    axis.line = element_blank(),
-    axis.ticks = element_blank(),
-    panel.grid.major = element_line(linetype = "dashed",
-                                    lineend = "round"),
-    legend.position = "none"
-    
-  )+
-  coord_cartesian(clip = "off",
-                  xlim = c(0,40000),
-                  ylim = c(0,1))
-```
-
-## Domestic Retention
-
-```{r}
-# predicted values
-pred_mod_dr <-
-  ggeffects::ggpredict(mod_DR, "gdp.pad[-0.88:4 by=.05]")
-
-pred_mod_dr_gdp2 <- scale_back(data =  pred_mod_dr, scaled = scale_gdp)
-
-# plotting figure 4d
-d <- tibble(
-  x = df_country_complete6$e_migdppc,
-  y = df_country_complete6$prop_DR,
-  country = df_country_complete6$country,
-  region = df_country_complete6$region
-) |>
-  ggplot(aes(x=x,y=y))+
-  geom_ribbon(data = pred_mod_dr_gdp2,
-              aes(x = x_original,
-                  y = predicted,
-                  ymin = conf.low,
-                  ymax = conf.high),
-              alpha = 0.2)+
-  geom_line(data = pred_mod_dr_gdp2,
-            aes(x = x_original,
-                y = predicted))+
-  geom_point(aes(fill = region),
-             shape = 21)+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     breaks = seq(0,40000,10000),
-                     labels = scales::label_number(scale_cut = scales::cut_short_scale())
-                     ) +
-  scale_y_continuous(expand = expansion(mult = c(0)),
-                     labels = scales::label_number(scale_cut = scales::cut_short_scale()))+
-  scale_fill_manual(
-    values = c(
-      "Europe & Central Asia" = "#f34d4d",
-      "East Asia & Pacific" = "#4da8a6",
-      "North America" = "#416295",
-      "South Asia" = "#a6a7a6",
-      "Latin America & Caribbean" = "#4dae7d",
-      "Sub-Saharan Africa" = "#e0a0a7",
-      "Middle East & North Africa" = "#9D7AAB"
-    )
-  )+
-  labs(x = "Gross Domestic Product - GDP",
-       y = "Domestic Retention") +
-  theme_classic()+
-  theme(
-    axis.title = element_text(face = "bold"),
-    axis.text = element_text(color = "black"),
-    axis.line = element_blank(),
-    axis.ticks = element_blank(),
-    panel.grid.major = element_line(linetype = "dashed",
-                                    lineend = "round"),
-    legend.position = "none"
-  )+
-  coord_cartesian(clip = "off",
-                  xlim = c(0,40000),
-                  ylim = c(0,1))
-```
-
-## Native turnover
+## Endemic deficit
 
 ```{r}
 
@@ -383,7 +256,7 @@ e <- tibble(
     )
   )+
   labs(x = "Gross Domestic Product - GDP",
-       y = "Native turnover") +
+       y = "Endemic deficit") +
   theme_classic()+
   theme(
     axis.title = element_text(face = "bold"),
@@ -399,7 +272,7 @@ e <- tibble(
                   ylim = c(0,1))
 ```
 
-## NBT turnover
+## non-endemic representation 
 
 ```{r}
 # predictions
@@ -444,7 +317,7 @@ f <- tibble(
     )
   )+
   labs(x = "Gross Domestic Product - GDP",
-       y = "NBT turnover") +
+       y = "Non-endemic name bearers") +
   theme_classic()+
   theme(
     axis.title = element_text(face = "bold"),
@@ -464,9 +337,9 @@ f <- tibble(
 
 ```{r}
 fig_model <-
-  a+b+c+d+e+f+
+  a+b+e+f+
   patchwork::plot_annotation(tag_levels = "a")+
-  patchwork::plot_layout(nrow = 3)&
+  patchwork::plot_layout(nrow = 2)&
   theme(
     plot.margin = margin(5.5,8,5.5,5.5,"pt")
   )
@@ -477,7 +350,7 @@ fig_model
 # saving model figure
 
 ggsave(here::here("output", "figures", "Fig4_models.png"),
-       width = 6, height = 8,
+       width = 6, height = 7,
        dpi = 600, plot = fig_model)
 ```
 
