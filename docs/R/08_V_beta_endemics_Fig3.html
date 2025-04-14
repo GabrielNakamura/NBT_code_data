@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3) – The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science</title>
+<title>08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2) – The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/08_V_beta_endemics_Fig3.html">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/08_V_beta_endemics_Fig3.html">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,7 +195,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/04_A_model_NBTs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">04 - Modelling different aspects of countries regarding NBT characteristics</span></a>
+ <span class="menu-text">04 - Modelling different aspects of countries regarding name bearers characteristics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,21 +211,18 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../R/07_V_scatterplot_Fig2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07 - DC and DR for each region per time (Figure 2)</span></a>
-  </div>
-</li>
+ <span class="menu-text">R/07_V_scatterplot_Fig2.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/08_V_beta_endemics_Fig3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</span></a>
+ <span class="menu-text">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/09_V_model_Fig4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09 - Results from generalized linear models (Figure 4)</span></a>
+ <span class="menu-text">09 - Results from generalized linear models (Figure 3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -263,7 +260,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#plotting-native-and-nbt-turnover-for-endemic-species-for-each-country" id="toc-plotting-native-and-nbt-turnover-for-endemic-species-for-each-country" class="nav-link active" data-scroll-target="#plotting-native-and-nbt-turnover-for-endemic-species-for-each-country">Plotting native and NBT turnover for endemic species for each country</a></li>
+  <li><a href="#plotting-endemic-deficit-and-non-endemic-representation-for-each-country" id="toc-plotting-endemic-deficit-and-non-endemic-representation-for-each-country" class="nav-link active" data-scroll-target="#plotting-endemic-deficit-and-non-endemic-representation-for-each-country">Plotting endemic deficit and non-endemic representation for each country</a></li>
   <li><a href="#plotting-maps" id="toc-plotting-maps" class="nav-link" data-scroll-target="#plotting-maps">Plotting maps</a></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/GabrielNakamura/NBT_code_data"><i class="bi bi-file-code"></i>Source Code</a></li></ul></div></nav>
@@ -271,9 +268,9 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/08_V_beta_endemics_Fig3.html">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/08_V_beta_endemics_Fig3.html">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</h1>
+<h1 class="title">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</h1>
 <p class="subtitle lead">08_V_beta_endemics_Fig3.qmd</p>
 </div>
 
@@ -291,8 +288,8 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 </header>
 
 
-<section id="plotting-native-and-nbt-turnover-for-endemic-species-for-each-country" class="level1">
-<h1>Plotting native and NBT turnover for endemic species for each country</h1>
+<section id="plotting-endemic-deficit-and-non-endemic-representation-for-each-country" class="level1">
+<h1>Plotting endemic deficit and non-endemic representation for each country</h1>
 <p>Loading packages</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot</span></span>
@@ -410,7 +407,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Plotting the two quantities (native and types turnover) in a bivariate map</p>
+<p>Plotting the two quantities in a bivariate map</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sf_bivar_types_endemic <span class="ot">&lt;-</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bi_class</span>(df_endemic_beta_sf2, </span>
@@ -475,7 +472,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"figures"</span>, <span class="st">"Fig3_turnover_metrics_endemics.png"</span>),</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"figures"</span>, <span class="st">"Fig2_turnover_metrics_endemics.png"</span>),</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       map_turnover_endemic, <span class="at">dpi=</span><span class="dv">600</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

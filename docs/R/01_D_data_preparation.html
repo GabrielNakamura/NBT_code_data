@@ -195,7 +195,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/04_A_model_NBTs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">04 - Modelling different aspects of countries regarding NBT characteristics</span></a>
+ <span class="menu-text">04 - Modelling different aspects of countries regarding name bearers characteristics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,21 +211,18 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../R/07_V_scatterplot_Fig2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07 - DC and DR for each region per time (Figure 2)</span></a>
-  </div>
-</li>
+ <span class="menu-text">R/07_V_scatterplot_Fig2.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/08_V_beta_endemics_Fig3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</span></a>
+ <span class="menu-text">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/09_V_model_Fig4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09 - Results from generalized linear models (Figure 4)</span></a>
+ <span class="menu-text">09 - Results from generalized linear models (Figure 3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -311,7 +308,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create period of 50 years</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>floor_period <span class="ot">=</span> <span class="cf">function</span>(value){ <span class="fu">return</span>(value <span class="sc">-</span> value <span class="sc">%%</span> <span class="dv">50</span>) }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Data containing NBT (Name Bearing Types) flow. This data frame contains the flow of NBT among countries. The source country of the NBT is represented by its three letter acronym (country_type) and its respective world bank region (region_type). The housing location is represented by three letter code of the country (contry_museum) and its respective world bank region of the museum (region_museum). NBT flowing is represented by 50-year time intervals. The total number of NBT flowing from one region/country to another is represented by the column n.&nbsp;These names and meanings are consistent throughout all data sets</p>
+<p>Data containing Name Bearing Types (simply name bearers) flow. This data frame contains the flow of name bearers among countries. The source country of the name bearers is represented by its three letter acronym (country_type) and its respective world bank region (region_type). The housing location is represented by three letter code of the country (contry_museum) and its respective world bank region of the museum (region_museum). name bearers flowing is represented by 50-year time intervals. The total number of name bearers flowing from one region/country to another is represented by the column n.&nbsp;These names and meanings are consistent throughout all data sets</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Flow by each period, region and country</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>flow_period_region_country <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"flow_period_region_country.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -322,14 +319,14 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Flow by each period - total number of NBT by period</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Flow by each period - total number of name bearers by period</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>flow_period <span class="ot">&lt;-</span> flow_period_region_country <span class="sc">|&gt;</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(period) <span class="sc">|&gt;</span> </span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(<span class="at">wt =</span> n) <span class="sc">|&gt;</span> </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">add_count</span>(<span class="at">name =</span> <span class="st">"total_period"</span>, <span class="at">wt =</span> n)</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Flow by each region - total number of NBT among regions</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Flow by each region - total number of name bearers among regions</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>flow_region <span class="ot">&lt;-</span> flow_period_region_country <span class="sc">|&gt;</span> </span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(region_type, region_museum) <span class="sc">|&gt;</span> </span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(<span class="at">wt =</span> n) <span class="sc">|&gt;</span> </span>
@@ -383,13 +380,13 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
 <span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group by period and museum region</span></span>
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(period, region_museum) <span class="sc">|&gt;</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count how many NBTs were deposited in the museums of this region during the period</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count how many name bearerss were deposited in the museums of this region during the period</span></span>
 <span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">add_count</span>(<span class="at">wt =</span> n, <span class="at">name =</span> <span class="st">"total_period_region_museum"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ungroup</span></span>
 <span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
 <span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group by period</span></span>
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(period) <span class="sc">|&gt;</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count how many NBTs were described during the period</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count how many name bearerss were described during the period</span></span>
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">add_count</span>(<span class="at">wt =</span> n, <span class="at">name =</span> <span class="st">"total_period"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter only within each region</span></span>
 <span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(region_type <span class="sc">==</span> region_museum) <span class="sc">|&gt;</span></span>
@@ -407,7 +404,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
 <span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group by period and museum region</span></span>
 <span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(region_museum) <span class="sc">|&gt;</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count how many NBTs were deposited in the museums of this region</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count how many name bearers were deposited in the museums of this region</span></span>
 <span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">add_count</span>(<span class="at">wt =</span> n, <span class="at">name =</span> <span class="st">"total_region_museum"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ungroup</span></span>
 <span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>

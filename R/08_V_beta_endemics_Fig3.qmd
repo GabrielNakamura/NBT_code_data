@@ -1,5 +1,5 @@
 ---
-title: "08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)"
+title: "08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)"
 subtitle: "08_V_beta_endemics_Fig3.qmd"
 eval: true
 warning: false
@@ -12,7 +12,7 @@ format:
     fig-height: 9
 ---
 
-# Plotting native and NBT turnover for endemic species for each country
+# Plotting endemic deficit and non-endemic representation for each country
 
 Loading packages
 
@@ -143,7 +143,7 @@ map_type_endemic_beta <-
   ) 
 ```
 
-Plotting the two quantities (native and types turnover) in a bivariate map
+Plotting the two quantities in a bivariate map
 
 ```{r}
 sf_bivar_types_endemic <-
@@ -206,7 +206,7 @@ map_turnover_endemic <-
 map_turnover_endemic
 
 
-ggsave(here::here("output", "figures", "Fig3_turnover_metrics_endemics.png"),
+ggsave(here::here("output", "figures", "Fig2_turnover_metrics_endemics.png"),
        map_turnover_endemic, dpi=600, width = 10, height = 9)
 
 ```

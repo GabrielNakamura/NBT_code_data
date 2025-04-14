@@ -27,13 +27,13 @@ library(readr)   # reading CSV files
 floor_period = function(value){ return(value - value %% 50) }
 ```
 
-Data containing NBT (Name Bearing Types) flow. This data frame contains the flow of NBT
-    among countries. The source country of the NBT is represented by its three 
+Data containing Name Bearing Types (simply name bearers) flow. This data frame contains the flow of name bearers
+    among countries. The source country of the name bearers is represented by its three 
     letter acronym (country_type) and its respective world bank region (region_type). 
     The housing location is represented by three letter code of the country (contry_museum) and its 
     respective world bank region of the museum (region_museum).
-    NBT flowing is represented by 50-year time intervals. The total number of 
-    NBT flowing from one region/country to another is represented by the column
+    name bearers flowing is represented by 50-year time intervals. The total number of 
+    name bearers flowing from one region/country to another is represented by the column
     n. These names and meanings are consistent throughout all data sets
 
 ```{r}
@@ -46,14 +46,14 @@ flow_period_region_country <- readr::read_csv(here::here("data", "raw", "flow_pe
 ```{r}
 # 1
 
-# Flow by each period - total number of NBT by period
+# Flow by each period - total number of name bearers by period
 flow_period <- flow_period_region_country |> 
   dplyr::group_by(period) |> 
   dplyr::count(wt = n) |> 
   dplyr::ungroup() |>
   dplyr::add_count(name = "total_period", wt = n)
 
-# Flow by each region - total number of NBT among regions
+# Flow by each region - total number of name bearers among regions
 flow_region <- flow_period_region_country |> 
   dplyr::group_by(region_type, region_museum) |> 
   dplyr::count(wt = n) |> 
@@ -107,13 +107,13 @@ flow_period_region_prop <- flow_period_region |>
   dplyr::ungroup() |>
   # group by period and museum region
   dplyr::group_by(period, region_museum) |>
-  # count how many NBTs were deposited in the museums of this region during the period
+  # count how many name bearerss were deposited in the museums of this region during the period
   dplyr::add_count(wt = n, name = "total_period_region_museum") |>
   # ungroup
   dplyr::ungroup() |>
   # group by period
   dplyr::group_by(period) |>
-  # count how many NBTs were described during the period
+  # count how many name bearerss were described during the period
   dplyr::add_count(wt = n, name = "total_period") |>
   # filter only within each region
   dplyr::filter(region_type == region_museum) |>
@@ -131,7 +131,7 @@ flow_region_prop <- flow_region |>
   dplyr::ungroup() |>
   # group by period and museum region
   dplyr::group_by(region_museum) |>
-  # count how many NBTs were deposited in the museums of this region
+  # count how many name bearers were deposited in the museums of this region
   dplyr::add_count(wt = n, name = "total_region_museum") |>
   # ungroup
   dplyr::ungroup() |>

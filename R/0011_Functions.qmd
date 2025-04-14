@@ -6,7 +6,7 @@ eval: FALSE
 date: 2024-07-31
 ---
 
-# Function for beta diversity
+# Function for endemic deficit and non-endemic representation 
 
 ## beta_types (function_beta_types_success_fail.R)
 

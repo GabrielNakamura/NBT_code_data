@@ -11,7 +11,7 @@ knitr:
 
 # Overview
 
-Here we process the data on species native distribution filtering by species with only one occurrence of native distribution per country. This was done in order to reduce the effects of species with large distribution ranges in the the metrics of native turnover and NBT turnover
+Here we process the data on species native distribution filtering by species with only one occurrence of native distribution per country. This was done in order to reduce the effects of species with large distribution ranges in the the metrics of native deficit (native beta in the final data frame) and non-endemic name bearer (type beta in the final data frame) 
     
 # Packages
 

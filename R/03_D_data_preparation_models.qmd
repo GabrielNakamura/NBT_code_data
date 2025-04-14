@@ -55,7 +55,7 @@ countries_list <-
   tidyr::drop_na(region, iso3c)
 ```
 
-Joining primary type (NBT) and native data with Bio-Dem, Infra-museum, and Beta metrics (NBT turnover and native turnover)
+Joining name bearers and native data with Bio-Dem, Infra-museum, and native deficit and non-endemic name bearers proportions
 
 ```{r}
 # joining type and native data frames
@@ -108,7 +108,7 @@ df_country_complete3 <-
 
 ## Modelling number of primary types per country
 
-Here we will model the number (counting) of total NBT in each country. Countries with no NBT in their museums and natural history collections are represented with NA. However the absence of primary types are an important information, and consist in a true absence, meaning that these countries host no NBT. So, first we transformed the NA values in `type_richness` variable to 0. Then we standardized all the predictors to 0 mean and 1 variation unit.
+Here we will model the number (counting) of total name bearers in each country. Countries with no name bearers in their museums and natural history collections are represented with NA. However the absence of primary types are an important information, and consist in a true absence, meaning that these countries host no name bearers. So, first we transformed the NA values in `type_richness` variable to 0. Then we standardized all the predictors to 0 mean and 1 variation unit.
 
 ```{r}
 df_country_complete4 <-
@@ -131,7 +131,7 @@ df_country_complete4 <-
   )
 ```
 
-Transforming turnover metrics (NBT turnover and Native turnover) to fit in the model. Here we transform beta metrics to fit it between zero and one, following [Ferrari and Cribari-Neto](https://www.ime.usp.br/~sferrari/beta.pdf)
+Transforming endemic deficit and non-endemic name bearers proportions to fit in the model. Here we transform these proportions to fit it between zero and one, following [Ferrari and Cribari-Neto](https://www.ime.usp.br/~sferrari/beta.pdf)
 
 ```{r}
 # just transforming type and native turnover variable to fit it between zero and one
@@ -149,7 +149,7 @@ df_country_complete5 <-
                 native.beta.model = std_beta(x = native.beta, s = 0.5))
 ```
 
-Data frame used to model Domestic Contribution (DC) and Domestic Retention (DR)
+Here we perform some other calculations to add the total name bearers in museums, countries and some simple proportions
 
 ```{r}
 df_country_prop <- 

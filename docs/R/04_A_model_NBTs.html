@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>04 - Modelling different aspects of countries regarding NBT characteristics – The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science</title>
+<title>04 - Modelling different aspects of countries regarding name bearers characteristics – The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/04_A_model_NBTs.html">04 - Modelling different aspects of countries regarding NBT characteristics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/04_A_model_NBTs.html">04 - Modelling different aspects of countries regarding name bearers characteristics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,7 +195,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/04_A_model_NBTs.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">04 - Modelling different aspects of countries regarding NBT characteristics</span></a>
+ <span class="menu-text">04 - Modelling different aspects of countries regarding name bearers characteristics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,21 +211,18 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../R/07_V_scatterplot_Fig2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07 - DC and DR for each region per time (Figure 2)</span></a>
-  </div>
-</li>
+ <span class="menu-text">R/07_V_scatterplot_Fig2.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/08_V_beta_endemics_Fig3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</span></a>
+ <span class="menu-text">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/09_V_model_Fig4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09 - Results from generalized linear models (Figure 4)</span></a>
+ <span class="menu-text">09 - Results from generalized linear models (Figure 3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -269,11 +266,9 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
   <li><a href="#modelling-primary-type-distribution-with-biological-and-sociologicaleconomicpolitical-variables" id="toc-modelling-primary-type-distribution-with-biological-and-sociologicaleconomicpolitical-variables" class="nav-link" data-scroll-target="#modelling-primary-type-distribution-with-biological-and-sociologicaleconomicpolitical-variables">Modelling primary type distribution with biological and sociological/economic/political variables</a></li>
   <li><a href="#data-and-models" id="toc-data-and-models" class="nav-link" data-scroll-target="#data-and-models">Data and Models</a>
   <ul class="collapse">
-  <li><a href="#total-number-of-nbt-by-country" id="toc-total-number-of-nbt-by-country" class="nav-link" data-scroll-target="#total-number-of-nbt-by-country">Total number of NBT by country</a></li>
-  <li><a href="#modelling-native-and-nbt-turnover" id="toc-modelling-native-and-nbt-turnover" class="nav-link" data-scroll-target="#modelling-native-and-nbt-turnover">Modelling native and NBT turnover</a></li>
+  <li><a href="#total-number-of-name-bearers-by-country" id="toc-total-number-of-name-bearers-by-country" class="nav-link" data-scroll-target="#total-number-of-name-bearers-by-country">Total number of name bearers by country</a></li>
+  <li><a href="#modelling-endemic-deficit-and-non-endemic-representation" id="toc-modelling-endemic-deficit-and-non-endemic-representation" class="nav-link" data-scroll-target="#modelling-endemic-deficit-and-non-endemic-representation">Modelling endemic deficit and non-endemic representation</a></li>
   <li><a href="#modelling-country-characteristics-based-on-biological-collections-domestic-contribution-and-domestic-retention" id="toc-modelling-country-characteristics-based-on-biological-collections-domestic-contribution-and-domestic-retention" class="nav-link" data-scroll-target="#modelling-country-characteristics-based-on-biological-collections-domestic-contribution-and-domestic-retention">Modelling country characteristics based on biological collections (Domestic Contribution and Domestic Retention)</a></li>
-  <li><a href="#dc" id="toc-dc" class="nav-link" data-scroll-target="#dc">DC</a></li>
-  <li><a href="#dr" id="toc-dr" class="nav-link" data-scroll-target="#dr">DR</a></li>
   </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/GabrielNakamura/NBT_code_data"><i class="bi bi-file-code"></i>Source Code</a></li></ul></div></nav>
@@ -281,9 +276,9 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/04_A_model_NBTs.html">04 - Modelling different aspects of countries regarding NBT characteristics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R/01_D_data_preparation.html">R</a></li><li class="breadcrumb-item"><a href="../R/04_A_model_NBTs.html">04 - Modelling different aspects of countries regarding name bearers characteristics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">04 - Modelling different aspects of countries regarding NBT characteristics</h1>
+<h1 class="title">04 - Modelling different aspects of countries regarding name bearers characteristics</h1>
 <p class="subtitle lead">04_A_model_NBTs.qmd</p>
 </div>
 
@@ -303,7 +298,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 
 <section id="general-overview" class="level1">
 <h1>General overview</h1>
-<p>Here we provided the code used to model the total number of NBT, Domestic Contribution (DC), Domestic Retention (DR), Native turnover and NBT turnover. These models are represented in Figures 4 in the main text, Figure S3 and S4, and tables S1, S2 and S3 in Supplementary material.</p>
+<p>Here we provided the code used to model the total number of name bearers, endemic deficit and non-endemic representation. These models are represented in Figures 3 in the main text, Figure S2 and S3, and tables S1, S2 and S3 in Supplementary material.</p>
 </section>
 <section id="reading-libraries" class="level1">
 <h1>Reading libraries</h1>
@@ -345,18 +340,18 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <h1>Modelling primary type distribution with biological and sociological/economic/political variables</h1>
 <p>In the modelling approach we used four response variables:</p>
 <ul>
-<li><p>The total number of NBTs owned by a country <code>total_country_museum</code></p></li>
-<li><p>The proportion of Domestic Contribution by a country <code>prop_DC</code> and <code>success.DC</code></p></li>
-<li><p>The proportion of Domestic Retention by a country <code>prop_DR</code> and <code>success.DR</code></p></li>
-<li><p>The rate of native underrepresentation by a country <code>native.beta</code></p></li>
-<li><p>The rate of type overrepresentation by a country <code>type.beta</code></p></li>
+<li><p>The total number of name bearers owned by a country <code>total_country_museum</code></p></li>
+<li><p>The proportion of Domestic Type Contribution by a country <code>prop_DC</code> and <code>success.DC</code></p></li>
+<li><p>The proportion of Domestic Type Retention by a country <code>prop_DR</code> and <code>success.DR</code></p></li>
+<li><p>The rate of endemic deficit by a country <code>native.beta</code></p></li>
+<li><p>The rate of non-endemic representation by a country <code>type.beta</code></p></li>
 </ul>
 <p>All these variables are used in a country level (i.e.&nbsp;each point in the figures corresponds to a country)</p>
 </section>
 <section id="data-and-models" class="level1">
 <h1>Data and Models</h1>
-<section id="total-number-of-nbt-by-country" class="level2">
-<h2 class="anchored" data-anchor-id="total-number-of-nbt-by-country">Total number of NBT by country</h2>
+<section id="total-number-of-name-bearers-by-country" class="level2">
+<h2 class="anchored" data-anchor-id="total-number-of-name-bearers-by-country">Total number of name bearers by country</h2>
 <p>After standardize the variables we can fit the models. Since we have a huge amount of zeroes in our response variable we will use a zero-inflation poisson model and also test with a poisson distribution.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_country_complete6, <span class="fu">aes</span>(type.richness.pad)) <span class="sc">+</span></span>
@@ -413,9 +408,9 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mod_zero_pois, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"models"</span>, <span class="st">"model_res_counting.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="modelling-native-and-nbt-turnover" class="level2">
-<h2 class="anchored" data-anchor-id="modelling-native-and-nbt-turnover">Modelling native and NBT turnover</h2>
-<p>In this section we will model the two turnover metrics that represent the deficit of native species in biological collections of a given country and the overrepresentation of primary types regarding the native fish fauna of a given country. These variables are <code>native.beta</code> and <code>type.beta</code>.</p>
+<section id="modelling-endemic-deficit-and-non-endemic-representation" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-endemic-deficit-and-non-endemic-representation">Modelling endemic deficit and non-endemic representation</h2>
+<p>In this section we will model endemic deficit and non-endemic representation. These variables are under the names <code>native.beta</code> and <code>type.beta</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mod_native_turnover <span class="ot">&lt;-</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  glmmTMB<span class="sc">::</span><span class="fu">glmmTMB</span>(<span class="fu">cbind</span>(native.success, native.fail) <span class="sc">~</span> native.richness.pad <span class="sc">+</span></span>
@@ -456,54 +451,6 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <section id="modelling-country-characteristics-based-on-biological-collections-domestic-contribution-and-domestic-retention" class="level2">
 <h2 class="anchored" data-anchor-id="modelling-country-characteristics-based-on-biological-collections-domestic-contribution-and-domestic-retention">Modelling country characteristics based on biological collections (Domestic Contribution and Domestic Retention)</h2>
 <p>Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR)</p>
-</section>
-<section id="dc" class="level2">
-<h2 class="anchored" data-anchor-id="dc">DC</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mod_beta_dc_binom <span class="ot">&lt;-</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  glmmTMB<span class="sc">::</span><span class="fu">glmmTMB</span>(<span class="fu">cbind</span>(success.DC, failures.DC) <span class="sc">~</span> native.richness.pad <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                     records.per.area.pad <span class="sc">+</span> years.independence.pad <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                     gdp.pad <span class="sc">+</span> n.museums.pad,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> glmmTMB<span class="sc">::</span>betabinomial, </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> df_country_complete6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Checking model output</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_beta_dc_binom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Diagnostic residuals distribution and model collinearity</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DHARMa<span class="sc">::</span><span class="fu">simulateResiduals</span>(<span class="at">fittedModel =</span> mod_beta_dc_binom, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_collinearity</span>(mod_beta_dc_binom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="dr" class="level2">
-<h2 class="anchored" data-anchor-id="dr">DR</h2>
-<p>Running model and checking results</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mod_beta_dr_binom <span class="ot">&lt;-</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  glmmTMB<span class="sc">::</span><span class="fu">glmmTMB</span>(<span class="fu">cbind</span>(success.DR, failures.DR) <span class="sc">~</span> native.richness.pad <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                     records.per.area.pad <span class="sc">+</span> years.independence.pad <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                     gdp.pad <span class="sc">+</span> n.museums.pad, <span class="at">ziformula =</span> <span class="sc">~</span>., </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> glmmTMB<span class="sc">::</span>betabinomial, </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> df_country_complete6)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_beta_dr_binom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Checking residual distribution and colinearity</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>DHARMa<span class="sc">::</span><span class="fu">simulateResiduals</span>(<span class="at">fittedModel =</span> mod_beta_dr_binom, </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_collinearity</span>(mod_beta_dr_binom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Saving models for DR and DC</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># saving results</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mod_beta_dc_binom, </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"models"</span>, <span class="st">"model_res_dc.rds"</span>))</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mod_beta_dr_binom, </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"models"</span>, <span class="st">"model_res_dr.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 
 
 </section>

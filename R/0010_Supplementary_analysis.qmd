@@ -110,73 +110,7 @@ ggsave(here::here("output", "figures",
        width = 7, height = 5, dpi = 600)
 ```
 
-# All time Domestic Contribution (DC) and Domestic Retention (DR)
 
-Here we provided all time values of DR and DC for each region. We used the same data from Figure 2 of the main text, but pulling together all the data 
-
-```{r}
-# Data from 01_C_data_preparation.qmd
-flow_region_prop <- readr::read_csv(file = here::here("data", "processed", "flow_region_prop.csv"))
-```
-
-## Figure S2 - Scatterplot of all-time
-
-```{r}
-#| fig-width: 3.5
-#| fig-height: 3
-
-flow_region_prop |>
-  ggplot(aes(x = prop_DC, y = prop_DR, fill = region_type))+
-  geom_hline(yintercept = 0.5, linetype = "dashed")+
-  geom_vline(xintercept = 0.5, linetype = "dashed")+
-  geom_point(
-    shape = 21,
-    size = 2.5
-  )+
-  scale_fill_manual(
-    values = c(
-      "Europe & Central Asia"= "#f34d4d",
-      "East Asia & Pacific"= "#4da8a6",
-      "North America"= "#416295",
-      "South Asia"= "#a6a7a6",
-      "Latin America & Caribbean"= "#4dae7d",
-      "Sub-Saharan Africa"= "#e0a0a7",
-      "Middle East & North Africa" = "#9D7AAB"
-    )
-  )+
-  scale_x_continuous(
-    labels = scales::label_percent(),
-    expand = expansion(mult = c(0.05, 0))
-  )+
-  scale_y_continuous(
-    labels = scales::label_percent(),
-    expand = expansion(mult = c(0.05, 0))
-  )+
-  labs(
-    x = "Domestic Contribution (DC)",
-    y = "Domestic Retention (DR)"
-  )+
-  theme_classic()+
-  theme(
-    strip.background = element_rect(fill = NA, color = NA),
-    strip.text = element_text(face = "bold"),
-    legend.position = "none",
-    plot.background = element_blank(),
-    panel.spacing = unit(5, "pt"),
-    panel.spacing.x = unit(15, "pt"),
-    plot.margin = margin(5,15,5,5,"pt"),
-    axis.line = element_line(lineend = "round"),
-    axis.text = element_text(color = "black"),
-    axis.ticks = element_line(color = "black")
-  )+
-  coord_cartesian(xlim = c(0,1),
-                  ylim = c(0,1),
-                  clip = "off")
-
-# saving image
-ggsave(filename = here::here("output", "figures", "Supp-material", "FigS2_scatterplot.png"), 
-       width = 3.5, height = 3)
-```
 # Calculating native deficit and non-native representation metrics with full native dataset
 
 ## Reading packages
@@ -250,11 +184,10 @@ sparse_all_pa2 <- rbind(sparse_all_pa, matrix_type_zero)
 
 ```
 
-## Calculating directional turnover based on native and primary type comparison
+## Calculating native defict and non-native representation
 
-Here we calculated the turnover in two directions. One is the turnover of native composition, in other words, the underrepresentation of native fish species in museums and natural collections within the country. Values closer to one indicate that the country present a huge underepresentation of its native fish fauna in primary types located within the country. 
-
-The other metric is primary type turnover. Values approaching one indicate that there is an overepresentation of primary types maintained in the country when compared to the native fish fauna of that country.
+Here we calculate the values of native deficit (proportion of native species lacking in a country's biological collections)
+    and the proportion of name bearers that corresponds to non native species 
 
 ```{r}
 source(here::here("R", "functions", "function_beta_types_success_fail.R"))
@@ -271,7 +204,7 @@ readr::write_csv(df_all_beta, here::here("data", "processed", "df_all_beta.csv")
 # Plotting native deficit and non-native representation for each country
 
 In this section we present the cartogram of world map with values of native deficit and 
-    non-native representation using the full dataset of native species (Figure S4)
+    non-native representation using the full dataset of native species (Figure S2)
 
 ## Loading packages
 
@@ -405,7 +338,7 @@ map_type_beta <-
   ) 
 ```
 
-## Plotting the two quantities (native and types turnover) in a bivariate map
+## Plotting the two quantities in a bivariate map
 
 ```{r}
 sf_bivar_types <-
@@ -477,7 +410,7 @@ ggsave(here::here("output", "figures", "Supp-material", "FigS3_turnover_metrics.
 
 # Comparison between full dataset and endemic dataset
 
-We performed correlations between Native and NBT turnover calculated using
+We performed correlations between native deficit and non-native representation calculated using
     the endemic dataset and the full dataset of native species
 
 ```{r}
@@ -604,7 +537,7 @@ sjPlot::tab_model(mod_turnover_nbt,
 ## Diagnostic graphics
 
 QQ-plots and residuals x predicted plots using DHARMa package. These plots are 
-    used to compose the Figure S4 in the Supplementary material
+    used to compose the Figure S3 in the Supplementary material
 
 ```{r}
 #| fig-width: 8

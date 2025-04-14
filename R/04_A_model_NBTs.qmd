@@ -1,5 +1,5 @@
 ---
-title: "04 - Modelling different aspects of countries regarding NBT characteristics"
+title: "04 - Modelling different aspects of countries regarding name bearers characteristics"
 subtitle: "04_A_model_NBTs.qmd"
 format: html
 eval: false
@@ -7,10 +7,9 @@ eval: false
 
 # General overview
 
-Here we provided the code used to model the total number of NBT, 
-    Domestic Contribution (DC), Domestic Retention (DR), Native turnover
-    and NBT turnover. These models are represented in Figures 4 in the main text,
-    Figure S3 and S4, and tables S1, S2 and S3 in Supplementary material.
+Here we provided the code used to model the total number of name bearers, endemic deficit
+    and non-endemic representation. These models are represented in Figures 3 in the main text,
+    Figure S2 and S3, and tables S1, S2 and S3 in Supplementary material.
 
 # Reading libraries
 
@@ -53,15 +52,15 @@ plot_data <- data.frame(x = 0:10,
 
 In the modelling approach we used four response variables: 
 
-- The total number of NBTs owned by a country `total_country_museum`
+- The total number of name bearers owned by a country `total_country_museum`
 
-- The proportion of Domestic Contribution by a country `prop_DC` and `success.DC`
+- The proportion of Domestic Type Contribution by a country `prop_DC` and `success.DC`
 
-- The proportion of Domestic Retention by a country `prop_DR` and `success.DR`
+- The proportion of Domestic Type Retention by a country `prop_DR` and `success.DR`
 
-- The rate of native underrepresentation by a country `native.beta`
+- The rate of endemic deficit by a country `native.beta`
 
-- The rate of type overrepresentation by a country `type.beta`
+- The rate of non-endemic representation by a country `type.beta`
 
 All these variables are used in a country level (i.e. each point in the figures
     corresponds to a country)
@@ -69,7 +68,7 @@ All these variables are used in a country level (i.e. each point in the figures
 
 # Data and Models
 
-## Total number of NBT by country
+## Total number of name bearers by country
 
 After standardize the variables we can fit the models. Since we have a huge amount
     of zeroes in our response variable we will use a zero-inflation poisson model
@@ -147,9 +146,9 @@ saveRDS(mod_zero_pois, here::here("output", "models", "model_res_counting.rds"))
 ```
 
 
-## Modelling native and NBT turnover
+## Modelling endemic deficit and non-endemic representation
 
-In this section we will model the two turnover metrics that represent the deficit of native species in biological collections of a given country and the overrepresentation of primary types regarding the native fish fauna of a given country. These variables are `native.beta` and `type.beta`.
+In this section we will model endemic deficit and non-endemic representation. These variables are under the names `native.beta` and `type.beta`.
 
 
 ```{r}
@@ -207,68 +206,5 @@ saveRDS(mod_type_turnover, here::here("output", "models", "model_res_turnover_nb
 
 Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR)
 
-## DC
 
-```{r}
-mod_beta_dc_binom <-
-  glmmTMB::glmmTMB(cbind(success.DC, failures.DC) ~ native.richness.pad +
-                     records.per.area.pad + years.independence.pad +
-                     gdp.pad + n.museums.pad,
-                   family = glmmTMB::betabinomial, 
-                   data = df_country_complete6)
-
-
-```
-
-Checking model output
-
-```{r}
-summary(mod_beta_dc_binom)
-
-```
-
-Diagnostic residuals distribution and model collinearity
-
-```{r}
-DHARMa::simulateResiduals(fittedModel = mod_beta_dc_binom, plot = TRUE)
-performance::check_collinearity(mod_beta_dc_binom)
-
-```
-
-## DR
-
-Running model and checking results
-
-```{r}
-
-mod_beta_dr_binom <-
-  glmmTMB::glmmTMB(cbind(success.DR, failures.DR) ~ native.richness.pad +
-                     records.per.area.pad + years.independence.pad +
-                     gdp.pad + n.museums.pad, ziformula = ~., 
-                   family = glmmTMB::betabinomial, 
-                   data = df_country_complete6)
-summary(mod_beta_dr_binom)
-
-```
-
-Checking residual distribution and colinearity
-
-```{r}
-DHARMa::simulateResiduals(fittedModel = mod_beta_dr_binom, 
-                          plot = TRUE)
-
-performance::check_collinearity(mod_beta_dr_binom)
-
-```
-
-Saving models for DR and DC
-
-```{r}
-# saving results
-saveRDS(mod_beta_dc_binom, 
-        here::here("output", "models", "model_res_dc.rds"))
-saveRDS(mod_beta_dr_binom, 
-        here::here("output", "models", "model_res_dr.rds"))
-
-```
 

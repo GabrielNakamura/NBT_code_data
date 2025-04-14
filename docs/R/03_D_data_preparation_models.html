@@ -195,7 +195,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/04_A_model_NBTs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">04 - Modelling different aspects of countries regarding NBT characteristics</span></a>
+ <span class="menu-text">04 - Modelling different aspects of countries regarding name bearers characteristics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,21 +211,18 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../R/07_V_scatterplot_Fig2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07 - DC and DR for each region per time (Figure 2)</span></a>
-  </div>
-</li>
+ <span class="menu-text">R/07_V_scatterplot_Fig2.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/08_V_beta_endemics_Fig3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">08 - World map with countries represented by its NBT and native turnover for endemic species (Figure 3)</span></a>
+ <span class="menu-text">08 - World map with countries represented by its endemic deficit for non-endemic representation (Figure 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R/09_V_model_Fig4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09 - Results from generalized linear models (Figure 4)</span></a>
+ <span class="menu-text">09 - Results from generalized linear models (Figure 3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -338,7 +335,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(region, iso3c) <span class="sc">|&gt;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(region, iso3c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Joining primary type (NBT) and native data with Bio-Dem, Infra-museum, and Beta metrics (NBT turnover and native turnover)</p>
+<p>Joining name bearers and native data with Bio-Dem, Infra-museum, and native deficit and non-endemic name bearers proportions</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># joining type and native data frames</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_country_all <span class="ot">&lt;-</span></span>
@@ -388,7 +385,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 </div>
 <section id="modelling-number-of-primary-types-per-country" class="level2">
 <h2 class="anchored" data-anchor-id="modelling-number-of-primary-types-per-country">Modelling number of primary types per country</h2>
-<p>Here we will model the number (counting) of total NBT in each country. Countries with no NBT in their museums and natural history collections are represented with NA. However the absence of primary types are an important information, and consist in a true absence, meaning that these countries host no NBT. So, first we transformed the NA values in <code>type_richness</code> variable to 0. Then we standardized all the predictors to 0 mean and 1 variation unit.</p>
+<p>Here we will model the number (counting) of total name bearers in each country. Countries with no name bearers in their museums and natural history collections are represented with NA. However the absence of primary types are an important information, and consist in a true absence, meaning that these countries host no name bearers. So, first we transformed the NA values in <code>type_richness</code> variable to 0. Then we standardized all the predictors to 0 mean and 1 variation unit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_country_complete4 <span class="ot">&lt;-</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  df_country_complete3 <span class="sc">|&gt;</span></span>
@@ -409,7 +406,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">colonization =</span> <span class="fu">relevel</span>(<span class="fu">as.factor</span>(years.independence.fac), <span class="at">ref =</span> <span class="st">"0"</span>)</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Transforming turnover metrics (NBT turnover and Native turnover) to fit in the model. Here we transform beta metrics to fit it between zero and one, following <a href="https://www.ime.usp.br/~sferrari/beta.pdf">Ferrari and Cribari-Neto</a></p>
+<p>Transforming endemic deficit and non-endemic name bearers proportions to fit in the model. Here we transform these proportions to fit it between zero and one, following <a href="https://www.ime.usp.br/~sferrari/beta.pdf">Ferrari and Cribari-Neto</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># just transforming type and native turnover variable to fit it between zero and one</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -425,7 +422,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">type.beta.model =</span> <span class="fu">std_beta</span>(<span class="at">x =</span> type.beta, <span class="at">s =</span> <span class="fl">0.5</span>),</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">native.beta.model =</span> <span class="fu">std_beta</span>(<span class="at">x =</span> native.beta, <span class="at">s =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Data frame used to model Domestic Contribution (DC) and Domestic Retention (DR)</p>
+<p>Here we perform some other calculations to add the total name bearers in museums, countries and some simple proportions</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_country_prop <span class="ot">&lt;-</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  flow_country <span class="sc">|&gt;</span> </span>
