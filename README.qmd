@@ -10,19 +10,11 @@ editor:
 # General overview
 
 This repository contains the data and code used in the analysis of the
-manuscript entitled **"The macroecology of knowledge: Spatio-temporal
-patterns of name-bearing types in biodiversity science"**.
+manuscript entitled **"The hidden biodiversity knowledge split in biological collections"**.
 
-In this study we characterized different aspects of spatial and temporal
-patterns of fish Name Bearing Types (NBT) among countries and world
-regions. The characteristics comprises the number of total NBT, the NBT
-flowing among different world regions, the characteristics of regions
-and countries regarding the source of NBT in their biological
-collection, the level of underepresentation of native species and the
-level of overepresentation of non-native species for each country.
+# Context 
 
-We discuss how the fundamental knowledge in fish species is distributed
-and its implications for science development and knowledge sharing.
+Ecological and evolutionary processes generate biodiversity, yet how biodiversity data are organized and shared globally can shape our understanding of these processes. We show that name-bearing type specimens—the primary reference for species identity—of all freshwater and brackish fish species are predominantly housed in Global North museums, disconnected from their countries of origin. This geographical divide creates a ‘knowledge split’ with consequences for biodiversity science, particularly in the Global South, where researchers face barriers in studying native species’ name bearers housed abroad. Meanwhile, Global North collections remain flooded with non-native name bearers. We relate this imbalance to historical and socioeconomic factors, which ultimately restricts access to critical taxonomic reference materials and hinders global species documentation. To address this disparity, we call for international initiatives to promote fairer access to biological knowledge, including specimen repatriation,  improved accessibility protocols for researchers in countries where specimens originated, and inclusive research partnerships.
 
 # Repository structure
 
@@ -107,31 +99,31 @@ analysis presented in this study
 
 ### processed
 
--   `flow_region.csv` a data frame containing flowing of NBT among world
-    regions and the total number of NBT derived from the source region
+-   `flow_region.csv` a data frame containing flowing of name bearers among world
+    regions and the total number of name bearers derived from the source region
 
--   `flow_period_region.csv` a data frame with the number of NBT between
-    the world regions per 50-year time frame and the total number of NBT
+-   `flow_period_region.csv` a data frame with the number of name bearers between
+    the world regions per 50-year time frame and the total number of name bearers
     in each time frame for each world region
 
--   `flow_period_region_prop.csv` a data frame with the number of NBT,
+-   `flow_period_region_prop.csv` a data frame with the number of name bearers,
     the Domestic Contribution and Domestic Retention between the world
-    regions in a 50-year time frame
+    regions in a 50-year time frame - this is not used anymore in downstream analyses
 
 -   `flow_region_prop.csv` data with the total number of species flowing
-    between world regions, Domestic Contribution and Domestic Retention
+    between world regions, Domestic Contribution and Domestic Retention - this is no longer used in downstream analyses
 
--   `flow_country.csv` data frame with flowing information of NBT among
+-   `flow_country.csv` data frame with flowing information of name bearers among
     countries
 
 -   `df_country_native.csv` data frame with the number of native species
     at the country level
 
--   `df_country_type.csv` data frame with the number of NBT at the
+-   `df_country_type.csv` data frame with the number of name bearers at the
     country level
 
--   `df_all_beta.csv` data frame with values of native and NBT turnover
-    at the country level
+-   `df_all_beta.csv` data frame with values of endemic deficit and non-endemic 
+    representation at the country level
 
 ## R
 
@@ -140,73 +132,52 @@ processing (D), data analysis (A) and results visualization (V). The
 script sequence to reproduce the workflow is indicated by the numbers at
 the beginning of the name of the script file
 
--   `01_D_data_preparation.qmd` initial data preparation
+-   [`01_D_data_preparation.qmd`](R/01_D_data_preparation.qmd) initial data preparation
 
--   `02_A_beta-countries.qmd` analysis of beta diversity metrics. This
-    script is used to calculate `turnover NBT` and `native NBT`
+-   [`02_A_beta-endemics-countries.qmd`](R/02_A_beta-endemics-countries.qmd) analysis of endemic deficit and non endemic representation. This script is used to calculate `native/endemic deficit` and `non-native/non-endemic representation`
 
--   `03_D_data_preparation_models.qmd` script used to build data frames
-    that will be used in statistical models ([04_A_model_NBTs.qmd]())
+-   [`03_D_data_preparation_models.qmd`](R/03_D_data_preparation_models.qmd) script used to build data frames that will be used in statistical models ([`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd))
 
--   `04_A_model_NBTs.qmd` statistical models for the total number of
-    NBT, native and NBT turnover, Domestic Contribution and Domestic
-    Retention
+-   [`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd) statistical models for the total number of name bearers, endemic deficit and non-endemic representation
 
--   `05_V_chord_diagram_Fig1.qmd` code used to produce circular flow
-    diagram. This is the Figure 1 of the study
+-   [`05_V_chord_diagram_Fig1.qmd`](R/05_V_chord_diagram_Fig1.qmd) code used to produce circular flow diagram. This is the Figure 1 of the study
 
--   `06_V_world_map_Fig1.qmd` code used to produce the world map in the
-    Figure 1 of the main text
+-   [`06_V_world_map_Fig1.qmd`](R/06_V_world_map_Fig1.qmd) code used to produce the world map in the Figure 1 of the main text
 
--   `07_V_scatterplot_Fig2.qmd` code used to reproduce the Figure 2 of
-    the main text
+-   [08_V_beta_endemics_Fig3.qmd](R/08_V_beta_endemics_Fig3.qmd) code used to build Figure 2 of the main text
 
--   `08_V_beta_Fig3.qmd` code used to build Figure 3 of the main text
+-   [`09_V_model_Fig4.qmd`](R/09_V_model_Fig4.qmd) code used to build the Figure 3 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
 
--   `09_V_model_Fig4.qmd` code used to build the Figure 4 of the main
-    text. This is the representation of the results of the models
-    present in the script [04_A_model_NBTs.qmd]()
-
--   `0010_Supplementary_analysis.qmd` code to produce all the tables and
-    figures presented in the Supplementary material of this study
+-   [`0010_Supplementary_analysis.qmd`](R/0010_Supplementary_analysis.qmd) code to produce all the tables and figures presented in the Supplementary material of this study
 
 ## output
 
 ### Figures
 
-In this folder you will find all figures used in the main text and
-supplementary material of this study
+In this folder you will find all figures used in the main text and supplementary material of this study
 
-`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux
-of NBT among regions of the world in a 50-year time window
+`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux of name bearers among regions of the world in a 50-year time window
 
-`Fig2_DC_DR.png` Scaterplot with World regions characterized by their
-Domestic Contribution and Domestic Retention values in a 50-year time
-frame
+`Fig3_turnover_metrics_endemics.png` Cartogram with 3 maps showing the level of endemic deficit
+    non-endemic representation and the combination of both metrics in a combined map
 
-`Fig3_turnover_metrics.png` Cartogram with 3 maps showing the level of
-native turnover, NBT turnover and the combination of both metrics in a
-combined map
-
-`Fig4_models.png` Figure showing the predictions of the number of NBT,
-DC, DR, native turnover and NBT turnover for different predictors. This
-is derived from the statistical models
+`Fig4_models.png` Figure showing the predictions of the number of name bearers,
+    endemic deficit and non-endemic representation for different predictors.
+    This is derived from the statistical models
 
 #### Supp-material
 
 This folder contains the figures in the Supplementary material
 
--   `FigS1_native_richness.png` World map with countries coloured
-    according to the number of native species richness according to the
-    Catalog of Fishes
+-   `FigS1_native_richness.png` World map with countries coloured according to the number of native species richness according to the Catalog of Fishes
 
--   `FigS2_scatterplot.png` All-time Domestic contribution (DC) and
-    Domestic retention (DR) for world regions
-
+-   `FigS3_turnover_metrics.png` Cartogram with 3 maps showing the level of 
+    native deficit, non-native representation and the combination of both metrics in a combined map
+    
 # Authors
 
 Gabriel Nakamura, Lívia Estéfane F. Frateles, Bruno Henrique Mioto
-Stabile, Matheus Lima Araujo, Emanuel Neuhaus, Manoela Maria Ferreira
+Stabile, Mario R. Moura, Matheus Lima Araujo, Emanuel Neuhaus, Manoela Maria Ferreira
 Marinho, Aline Richter, Liuyong Ding, Tiago Magalhães da Silva Freitas,
 Bruno Eleres Soares, Weferson Júnio da Graça, José Alexandre Felizola
 Diniz-Filho

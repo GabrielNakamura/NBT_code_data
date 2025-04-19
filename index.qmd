@@ -1,5 +1,5 @@
 ---
-title: "The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science"
+title: "The hidden biodiversity knowledge split in biological collections"
 format: html
 eval: FALSE
 date: 2024-07-24
@@ -132,21 +132,19 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 -   [`01_D_data_preparation.qmd`](R/01_D_data_preparation.qmd) initial data preparation
 
--   [`02_A_beta-endemics-countries.qmd`](R/02_A_beta-endemics-countries.qmd) analysis of beta diversity metrics. This script is used to calculate `turnover NBT` and `native NBT`
+-   [`02_A_beta-endemics-countries.qmd`](R/02_A_beta-endemics-countries.qmd) analysis of endemic deficit and non endemic representation. This script is used to calculate `native/endemic deficit` and `non-native/non-endemic representation`
 
 -   [`03_D_data_preparation_models.qmd`](R/03_D_data_preparation_models.qmd) script used to build data frames that will be used in statistical models ([`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd))
 
--   [`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd) statistical models for the total number of NBT, native and NBT turnover, Domestic Contribution and Domestic Retention
+-   [`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd) statistical models for the total number of name bearers, endemic deficit and non-endemic representation
 
 -   [`05_V_chord_diagram_Fig1.qmd`](R/05_V_chord_diagram_Fig1.qmd) code used to produce circular flow diagram. This is the Figure 1 of the study
 
 -   [`06_V_world_map_Fig1.qmd`](R/06_V_world_map_Fig1.qmd) code used to produce the world map in the Figure 1 of the main text
 
--   [`07_V_scatterplot_Fig2.qmd`](R/07_V_scatterplot_Fig2.qmd) code used to reproduce the Figure 2 of the main text
+-   [08_V_beta_endemics_Fig3.qmd](R/08_V_beta_endemics_Fig3.qmd) code used to build Figure 2 of the main text
 
--   [08_V_beta_endemics_Fig3.qmd](R/08_V_beta_endemics_Fig3.qmd) code used to build Figure 3 of the main text
-
--   [`09_V_model_Fig4.qmd`](R/09_V_model_Fig4.qmd) code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
+-   [`09_V_model_Fig4.qmd`](R/09_V_model_Fig4.qmd) code used to build the Figure 3 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
 
 -   [`0010_Supplementary_analysis.qmd`](R/0010_Supplementary_analysis.qmd) code to produce all the tables and figures presented in the Supplementary material of this study
 
@@ -154,9 +152,10 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 ### functions
 
--   [`function_beta_types_success_fail.R`]() function used to calculate turnover metrics.
+-   [`function_beta_types_success_fail.R`]() function used to calculate native/endemic deficit and non-native/
+    non-endemic representation.
 
--   [`function_scale_back.R`]() function used to transform back normalized variables
+-   [`function_scale_back.R`]() auxiliar function used to transform back normalized variables
 
 ## output
 
@@ -164,13 +163,14 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 In this folder you will find all figures used in the main text and supplementary material of this study
 
-`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux of NBT among regions of the world in a 50-year time window
+`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux of name bearers among regions of the world in a 50-year time window
 
-`Fig2_DC_DR.png` Scaterplot with World regions characterized by their Domestic Contribution and Domestic Retention values in a 50-year time frame
+`Fig3_turnover_metrics_endemics.png` Cartogram with 3 maps showing the level of endemic deficit
+    non-endemic representation and the combination of both metrics in a combined map
 
-`Fig3_turnover_metrics_endemics.png` Cartogram with 3 maps showing the level of native endemic turnover, NBT turnover and the combination of both metrics in a combined map
-
-`Fig4_models.png` Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models
+`Fig4_models.png` Figure showing the predictions of the number of name bearers,
+    endemic deficit and non-endemic representation for different predictors.
+    This is derived from the statistical models
 
 #### Supp-material
 
@@ -178,9 +178,8 @@ This folder contains the figures in the Supplementary material
 
 -   `FigS1_native_richness.png` World map with countries coloured according to the number of native species richness according to the Catalog of Fishes
 
--   `FigS2_scatterplot.png` All-time Domestic contribution (DC) and Domestic retention (DR) for world regions
-
--   `FigS3_turnover_metrics.png` Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map
+-   `FigS3_turnover_metrics.png` Cartogram with 3 maps showing the level of 
+    native deficit, non-native representation and the combination of both metrics in a combined map
 
 ## Packages
 
