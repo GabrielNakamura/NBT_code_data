@@ -6,7 +6,7 @@ execute:
   freeze: auto
 
 website:
-  title: "The macroecology of knowledge: Spatio-temporal patterns of name-bearing types in biodiversity science"
+  title: "The hidden biodiversity knowledge split in biological collections"
   sidebar:
     style: "docked"
     search: true
@@ -28,18 +28,18 @@ website:
       - section: "Functions"
         contents:
           - R/0011_Functions.qmd
-    tools:
-      - icon: github
-        menu:
-          - text: Source Code
-            href:  https://github.com/GabrielNakamura/NBT_code_data
+    # tools:
+    #   - icon: github
+    #     menu:
+    #       - text: Source Code
+    #         href:  https://github.com/GabrielNakamura/NBT_code_data
   google-analytics: "G-NJP5GZ6SZH"
 
 format:
   html:
     theme: cosmo
     toc: true
-    code-links:
-      - text: Source Code
-        icon: file-code
-        href: https://github.com/GabrielNakamura/NBT_code_data
+    # code-links:
+    #   - text: Source Code
+    #     icon: file-code
+    #     href: https://github.com/GabrielNakamura/NBT_code_data

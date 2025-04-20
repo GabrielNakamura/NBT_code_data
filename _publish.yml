@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: ddcee986-4c99-4cb6-a4a6-3e9b7175d1e1
+      url: https://sparkling-kashata-276704.netlify.app
