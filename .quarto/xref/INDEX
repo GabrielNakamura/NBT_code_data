@@ -46,5 +46,20 @@
   },
   "R/0011_Functions.qmd": {
     "0011_Functions.html": "e93df826"
+  },
+  "R/010_Functions.qmd": {
+    "010_Functions.html": "32672b16"
+  },
+  "R/07_V_beta_endemics_Fig2.qmd": {
+    "07_V_beta_endemics_Fig2.html": "f46ea1d5"
+  },
+  "R/08_V_model_Fig3.qmd": {
+    "08_V_model_Fig3.html": "5e7cccb3"
+  },
+  "R/09_Supplementary_analysis.qmd": {
+    "09_Supplementary_analysis.html": "63b167c0"
+  },
+  "R/011_Summary_stats.qmd": {
+    "011_Summary_stats.html": "1077ea1b"
   }
 }

@@ -1,0 +1,158 @@
+---
+title: "Summary statistics"
+subtitle: "011_Summary_stats.qmd"
+format: html
+eval: TRUE
+warning: false
+knitr: 
+  opts_chunk:
+    message: false
+---
+
+# General overview
+
+In this manuscript we will provide the code needed to reproduce summary statistics reported in the *Results* section of the main text of the study *"The hidden biodiversity knowledge split in biological collections"*
+
+Here you will find how we obtained the values of
+
+-   Total fish binomial
+
+-   Total fish binomials in countries of the Global South
+
+-   Total fish binomials in countries of the Global North
+
+-   Total name bearers in museums of Global South since 2000
+
+-   Total name bearers in museum of Global North since 2000
+
+-   Name bearers in Global North museums from Global South since 2000
+
+-   Name bearers in Global South museums from Global North since 2000
+
+All these descriptive statistics considered as Global North the countries in East Asia and Pacific, Europe and Central Asia and North America regions. We considered as Global South Latin America and Caribbean, Middle East and North Africa, South Asia and Sub-Saharan Africa.
+
+# Packages and data used
+
+Packages
+
+```{r}
+library(dplyr)   # data manipulation
+library(tidyr)   # data tidying
+library(glue)    # string interpolation
+library(here)    # constructing file paths
+library(readr)   # reading CSV files
+
+# create period of 50 years
+floor_period = function(value){ return(value - value %% 50) }
+```
+
+Data and data preparation
+
+```{r}
+flow_period_region_country <- readr::read_csv(here::here("data", "raw", "flow_period_region_country.csv"))
+```
+
+We first classified, according to the regions defined above, the countries in which the specimen has been collected (`region_type`) and the country of the museum in which it is housed was classified as Global North and Global South
+
+```{r}
+flow_period_region_country2 <- 
+  flow_period_region_country |> 
+  mutate(north.south.type = ifelse(region_type == "Latin America & Caribbean" | 
+                                     region_type == "Sub-Saharan Africa" |
+                                     region_type == "Middle East & North Africa" |
+                                     region_type == "South Asia", "Global.South", "Global.North")) |> 
+  mutate(north.south.museum = ifelse(region_museum == "Latin America & Caribbean" | 
+                                       region_museum == "Sub-Saharan Africa" |
+                                       region_museum == "Middle East & North Africa" |
+                                       region_museum == "South Asia", "Global.South", "Global.North"))
+
+```
+
+# Total fish binomial
+
+```{r}
+total_fish_binomial <- 
+  flow_period_region_country2 |> 
+  pull(n) |> 
+  sum()
+```
+
+The total fish binomial is `r total_fish_binomial`
+
+
+# Total fish binomials in museum countries of the Global South
+
+```{r}
+total_fish_binomial_museum_south <- 
+  flow_period_region_country2 |> 
+  filter(north.south.museum == "Global.South") |> 
+  pull(n) |> 
+  sum()
+
+```
+# Total fish binomials in museum countries of the Global North
+
+```{r}
+total_fish_binomial_museum_north <- 
+  flow_period_region_country2 |> 
+  filter(north.south.museum == "Global.North") |> 
+  pull(n) |> 
+  sum()
+
+```
+
+# Total name bearers in museums within Global North and South since 2000
+
+```{r}
+
+# Total in Global North 
+sum_post2000_total_north <- 
+  flow_period_region_country2 |> 
+  filter(period >= 2000,
+         north.south.museum == "Global.North") |> 
+  pull(n) |> 
+  sum()
+
+# Total in Global South
+sum_post2000_total_south <- 
+  flow_period_region_country2 |> 
+  filter(period >= 2000,
+         north.south.museum == "Global.South") |> 
+  pull(n) |> 
+  sum()
+
+```
+
+# Name bearers in Global North museums from Global South since 2000
+
+Calculating the number of name bearers collected in Global South and housed in Global North since 2000
+
+```{r}
+sum_post2000_south_north <- 
+  flow_period_region_country2 |> 
+  filter(period >= 2000,
+         north.south.type == "Global.South" & north.south.museum == "Global.North") |> 
+  pull(n) |> 
+  sum()
+```
+
+# Name bearers in Global South museums from Global North since 2000
+
+Calculating the number of name bearers collected in Global North countries and housed in Global South museums since 2000
+
+```{r}
+sum_post2000_north_south <- 
+  flow_period_region_country2 |> 
+  filter(period >= 2000,
+         north.south.type == "Global.North" & north.south.museum == "Global.South") |> 
+  pull(n) |> 
+  sum()
+```
+
+
+-   Proportion of name bearers from Global South housed in Global North museums since 2000 is of `r ((sum_post2000_south_north)/(sum_post2000_total_north)) *100`
+
+- Proportion of name bearers from Global North housed in Global South museums since 
+    2000 is of `r ((sum_post2000_north_south)/(sum_post2000_total_south)) *100`
+    
+    
