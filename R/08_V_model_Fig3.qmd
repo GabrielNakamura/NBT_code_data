@@ -330,7 +330,7 @@ f <- tibble(
 
 ## Joining all plots
 
-```{r}
+```{r,fig.width=6,fig.height=5, dpi=600}
 fig_model <-
   a+b+e+f+
   patchwork::plot_annotation(tag_levels = "a")+
