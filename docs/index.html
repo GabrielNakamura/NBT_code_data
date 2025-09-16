@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,6 +18,7 @@
 <meta name="author" content="Tiago Magalhães da Silva Freitas">
 <meta name="author" content="Bruno Eleres Soares">
 <meta name="author" content="Weferson Júnio da Graça">
+<meta name="author" content="Mario Ribeiro de Moura">
 <meta name="author" content="José Alexandre Felizola Diniz-Filho">
 <meta name="dcterms.date" content="2025-09-15">
 
@@ -83,10 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b512256bc363577b27543e003c495f0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -287,7 +288,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a>
   <ul class="collapse">
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">functions</a></li>
-  <li><a href="#summary-stats" id="toc-summary-stats" class="nav-link" data-scroll-target="#summary-stats">Summary stats</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a></li>
   </ul></li>
   <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">output</a>
   <ul class="collapse">
@@ -327,6 +328,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
              <p>Tiago Magalhães da Silva Freitas <a href="https://orcid.org/0000-0003-3203-3408" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
              <p>Bruno Eleres Soares <a href="https://orcid.org/0000-0001-5678-0403" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
              <p>Weferson Júnio da Graça <a href="https://orcid.org/0000-0002-8925-5629" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Mario Ribeiro de Moura <a href="https://orcid.org/0000-0002-7369-7502" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
              <p>José Alexandre Felizola Diniz-Filho <a href="https://orcid.org/0000-0002-0967-9684" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
   </div>
@@ -406,7 +408,7 @@ Note
 </ul></li>
 <li><p><code>museum_data.csv</code> data frame with museums’ acronyms and the world region of each. Variables:</p>
 <ul>
-<li><p><code>code_museum</code> character. The acronym (three letter code) of the museum</p></li>
+<li><p><code>code_museum</code> character. Three letter code of the museum</p></li>
 <li><p><code>country_museum</code> character. A three letter code (alpha-3 ISO3166) representing a country</p></li>
 <li><p><code>region_museum</code> character. The name of the region acording with World Bank</p></li>
 </ul></li>
@@ -415,15 +417,72 @@ Note
 <section id="processed" class="level3">
 <h3 class="anchored" data-anchor-id="processed">processed</h3>
 <ul>
-<li><p><code>flow_region.csv</code> a data frame containing flowing of NBT among world regions and the total number of NBT derived from the source region</p></li>
-<li><p><code>flow_period_region.csv</code> a data frame with the number of NBT between the world regions per 50-year time frame and the total number of NBT in each time frame for each world region</p></li>
-<li><p><code>flow_period_region_prop.csv</code> a data frame with the number of NBT, the Domestic Contribution and Domestic Retention between the world regions in a 50-year time frame</p></li>
-<li><p><code>flow_region_prop.csv</code> data with the total number of species flowing between world regions, Domestic Contribution and Domestic Retention</p></li>
-<li><p><code>flow_country.csv</code> data frame with flowing information of NBT among countries</p></li>
-<li><p><code>df_country_native.csv</code> data frame with the number of native species at the country level</p></li>
-<li><p><code>df_country_type.csv</code> data frame with the number of NBT at the country level</p></li>
-<li><p><code>df_endemic_beta.csv</code> data frame with values of native and NBT turnover at the country level using only species with restricted occurrences at the country level</p></li>
-<li><p><code>df_all_beta.csv</code> data frame with values of native and NBT turnover at the country level. This is used in the analysis of Supplementary material</p></li>
+<li><p><code>flow_region.csv</code> a data frame containing flowing of NBT among world regions and the total number of NBT derived from the source region</p>
+<ul>
+<li><p><code>region_type</code> character. The region, according to World bank classification, where the type was collected</p></li>
+<li><p><code>region_museum</code> character. The region, according to World bank classification, where the type is housed</p></li>
+<li><p><code>n</code> numeric. The number of types that flowed from <code>region_type</code> to <code>region_museum</code></p></li>
+<li><p><code>total_region_type</code> numeric. The total number of name bearers sampled in each region</p></li>
+</ul></li>
+<li><p><code>flow_period_region.csv</code> a data frame with the number of NBT between the world regions per 50-year time frame and the total number of NBT in each time frame for each world region</p>
+<ul>
+<li><p><code>period</code> numeric. The year in which the name bearer was discovered</p></li>
+<li><p><code>region_type</code> character. The region, according to World bank classification, where the type was collected</p></li>
+<li><p><code>region_museum</code> character. The region, according to World bank classification, where the type is housed</p></li>
+<li><p><code>n</code> numeric. The number of name bearers that flowed from <code>region_type</code> to <code>region_museum</code></p></li>
+<li><p><code>total_region_type</code> numeric. The total number of name bearers sampled in each region in each time period</p></li>
+</ul></li>
+<li><p><code>flow_period_region_prop.csv</code> a data frame with the number of NBT, the Domestic Contribution and Domestic Retention between the world regions in a 50-year time frame</p>
+<ul>
+<li><p><code>period</code> numeric. The year in which the name bearer was discovered</p></li>
+<li><p><code>region_type</code> character. The region, according to World bank classification, where the type was collected</p></li>
+<li><p><code>region_museum</code> character. The region, according to World bank classification, where the type is housed</p></li>
+<li><p><code>n</code> numeric. The number of name bearers that flowed from <code>region_type</code> to <code>region_museum</code></p></li>
+<li><p><code>total_period_region_type</code> numeric. The number of name bearers samples in a region in a time period</p></li>
+<li><p><code>total_period_region_museum</code> numeric. The number of name bearers housed in biological collections in a region in a time period</p></li>
+<li><p><code>total_period</code> numeric. The total number of name bearers described in a period</p></li>
+<li><p><code>prop_DC</code> numeric. The proportion of name bearers in biological collection of a region sampled within the region in a time period. This variable is not used in the final version of the study.</p></li>
+<li><p><code>prop_DR</code> numeric. The proportion of all name bearers sampled that were retained in a region in a time period. This variable is not used in the final version of the study.</p></li>
+</ul></li>
+<li><p><code>flow_region_prop.csv</code> data with the total number of species flowing between world regions, Domestic Contribution and Domestic Retention</p>
+<ul>
+<li><p><code>region_type</code> character. The region, according to World bank classification, where the type was collected</p></li>
+<li><p><code>region_museum</code> character. The region, according to World bank classification, where the type is housed</p></li>
+<li><p><code>total_region_type</code> numeric. The total number of name bearers sampled in a region</p></li>
+<li><p><code>total_region_museum</code> numeric. The total number of name bearers housed in biological collections in a region</p></li>
+<li><p><code>prop_DC</code> numeric. The proportion of name bearers in biological collection of a region sampled within the region. This variable is not used in the final version of the study</p></li>
+<li><p><code>prop_DR</code> numeric. The proportion of all name bearers sampled that were retained in a region. This variable is not used in the final version of the study</p></li>
+</ul></li>
+<li><p><code>flow_country.csv</code> data frame with flowing information of NBT among countries</p>
+<ul>
+<li><p><code>country_type</code> character. A three letter code (alpha-3 ISO3166) representing a country where the name bearer was sampled</p></li>
+<li><p><code>country_museum</code> character. A three letter code (alpha-3 ISO3166) representing a country where the name bearer was housed</p></li>
+<li><p><code>n</code> numeric. The number of name bearers that flowed from <code>country_type</code> to <code>country_museum</code></p></li>
+<li><p><code>total_country_type</code> numeric. The number of name bearers sampled in a country</p></li>
+</ul></li>
+<li><p><code>df_country_native.csv</code> data frame with the number of native species at the country level</p>
+<ul>
+<li><p><code>country_distribution</code> character. A three letter code (alpha-3 ISO3166) representing a country</p></li>
+<li><p><code>region_distribution</code> character. The name of a region according to World Bank</p></li>
+<li><p><code>native.richness</code> numeric. The number of native species in a country according to Catalog of Fishes</p></li>
+</ul></li>
+<li><p><code>df_country_type.csv</code> data frame with the number of NBT at the country level</p>
+<ul>
+<li><p><code>country_museum</code> character. A three letter code (alpha-3 ISO3166) representing a country</p></li>
+<li><p><code>region_museum</code> character. The name of a region according to World Bank</p></li>
+<li><p><code>type_region</code> numeric. The number of name bearers in biological collections in countries</p></li>
+</ul></li>
+<li><p><code>df_endemic_beta.csv</code> data frame with values of endemic deficit and non-endemic representation at the country level using only species with restricted occurrences (only one occurrence per country) at the country level</p>
+<ul>
+<li><p><code>native.beta</code> numeric. The endemic deficit calculated as the number of endemic species outside of the country of origin</p></li>
+<li><p><code>type.beta</code> numeric. The number of non-endemic name bearers</p></li>
+</ul></li>
+<li><p><code>df_all_beta.csv</code> data frame with values of endemic deficit and non-endemic representation at the country level. This is used in the analysis of Supplementary material, specifically to generate Figure S2.</p>
+<ul>
+<li><p><code>countries</code> character. A three letter code (alpha-3 ISO3166) representing a country</p></li>
+<li><p><code>native.beta</code> numeric. The endemic deficit calculated as the number of endemic species outside of the country of origin</p></li>
+<li><p><code>type.beta</code> numeric. The number of non-endemic name bearers</p></li>
+</ul></li>
 </ul>
 </section>
 </section>
@@ -433,30 +492,26 @@ Note
 <p><img src="scripts_diagram.png" class="img-fluid"></p>
 <ul>
 <li><p><a href="./R/01_D_data_preparation.html"><code>01_D_data_preparation.qmd</code></a> initial data preparation</p></li>
-<li><p><a href="./R/02_A_beta-endemics-countries.html"><code>02_A_beta-endemics-countries.qmd</code></a> analysis of beta diversity metrics. This script is used to calculate <code>turnover NBT</code> and <code>native NBT</code></p></li>
+<li><p><a href="./R/02_A_beta-endemics-countries.html"><code>02_A_beta-endemics-countries.qmd</code></a> This script is used to calculate <code>non endemic name bearers</code> and <code>endemic deficit</code> that will be used in the script <a href="./R/07_V_beta_endemics_Fig2.html"><code>07_V_beta_endemics_Fig2.qmd</code></a></p></li>
 <li><p><a href="./R/03_D_data_preparation_models.html"><code>03_D_data_preparation_models.qmd</code></a> script used to build data frames that will be used in statistical models (<a href="./R/04_A_model_NBTs.html"><code>04_A_model_NBTs.qmd</code></a>)</p></li>
-<li><p><a href="./R/04_A_model_NBTs.html"><code>04_A_model_NBTs.qmd</code></a> statistical models for the total number of NBT, native and NBT turnover, Domestic Contribution and Domestic Retention</p></li>
+<li><p><a href="./R/04_A_model_NBTs.html"><code>04_A_model_NBTs.qmd</code></a> statistical models for the total number of NBT, endemic deficit and non endemic name bearers</p></li>
 <li><p><a href="./R/05_V_chord_diagram_Fig1.html"><code>05_V_chord_diagram_Fig1.qmd</code></a> code used to produce circular flow diagram. This is the Figure 1 of the study</p></li>
 <li><p><a href="./R/06_V_world_map_Fig1.html"><code>06_V_world_map_Fig1.qmd</code></a> code used to produce the world map in the Figure 1 of the main text</p></li>
-</ul>
-<!-- -   [`07_V_scatterplot_Fig2.qmd`](R/07_V_scatterplot_Fig2.qmd) code used to reproduce the Figure 2 of the main text -->
-<ul>
-<li><p><a href="./R/07_V_beta_endemics_Fig2.html">07_V_beta_endemics_Fig2.qmd</a> code used to build Figure 3 of the main text</p></li>
-<li><p><a href="./R/08_V_model_Fig3.html"><code>08_V_model_Fig3.qmd</code></a> code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script <a href="./R/04_A_model_NBTs.html">04_A_model_NBTs.qmd</a></p></li>
+<li><p><a href="./R/07_V_beta_endemics_Fig2.html">07_V_beta_endemics_Fig2.qmd</a> code used to build Figure 2 of the main text</p></li>
+<li><p><a href="./R/08_V_model_Fig3.html"><code>08_V_model_Fig3.qmd</code></a> code used to build the Figure 3 of the main text. This is the representation of the results of the models present in the script <a href="./R/04_A_model_NBTs.html">04_A_model_NBTs.qmd</a></p></li>
 <li><p><a href="./R/09_Supplementary_analysis.html"><code>09_Supplementary_analysis.qmd</code></a> code to produce all the tables and figures presented in the Supplementary material of this study</p></li>
 </ul>
-<!-- -   [`0011_V_beta_all_FigS3.qmd`](R/0011_V_beta_all_FigS3.qmd) code to produce the Figure S3 in the supplementary material producing a cartogram with countries coloured accoridng to its native and NBT turnover values, considering all species -->
 <section id="functions" class="level3">
 <h3 class="anchored" data-anchor-id="functions">functions</h3>
 <ul>
-<li><p><a href="./R/010_Functions.html"><code>function_beta_types_success_fail.R</code></a> function used to calculate turnover metrics.</p></li>
+<li><p><a href="./R/010_Functions.html"><code>function_beta_types_success_fail.R</code></a> function used to calculate endemic deficit and non endemic name bearers.</p></li>
 <li><p><a href="./R/010_Functions.html"><code>function_scale_back.R</code></a> function used to transform back normalized variables</p></li>
 </ul>
 </section>
-<section id="summary-stats" class="level3">
-<h3 class="anchored" data-anchor-id="summary-stats">Summary stats</h3>
+<section id="summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h3>
 <ul>
-<li><a href="./R/011_Summary_stats.html"><code>011_Summary_stats.qmd</code></a></li>
+<li><a href="./R/011_Summary_stats.html"><code>011_Summary_stats.qmd</code></a> code needed to reproduce summary statistics reported in the <em>Results</em> section of the main text of the study <em>“The hidden biodiversity knowledge split in biological collections”</em></li>
 </ul>
 </section>
 </section>
@@ -465,17 +520,20 @@ Note
 <section id="figures" class="level3">
 <h3 class="anchored" data-anchor-id="figures">Figures</h3>
 <p>In this folder you will find all figures used in the main text and supplementary material of this study</p>
-<p><code>Fig1_flow_circle_plot.png</code> Figure with circular plots showing the flux of NBT among regions of the world in a 50-year time window</p>
+<ul>
+<li><code>Fig1_flow_circle_plot.png</code> Figure with circular plots showing the flux of NBT among regions of the world in a 50-year time window</li>
+</ul>
 <!-- `Fig2_DC_DR.png` Scaterplot with World regions characterized by their Domestic Contribution and Domestic Retention values in a 50-year time frame -->
-<p><code>Fig2_turnover_metrics_endemics.png</code> Cartogram with 3 maps showing the level of native endemic turnover, NBT turnover and the combination of both metrics in a combined map</p>
-<p><code>Fig3_models.png</code> Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models</p>
+<ul>
+<li><code>Fig2_turnover_metrics_endemics.png</code> Cartogram with 3 maps showing the level of endemic deficit, non endemic name bearers and the combination of both metrics biscale map. This is the Figure 2 in the main text</li>
+</ul>
+<p><code>Fig3_models.png</code> Figure showing the predictions of the number of name bearers, endemic deficit and non endemic name bearers for different predictors. Corresponds to Figure 3 This is derived from the <a href="./R/04_A_model_NBTs.html">statistical models scripts</a></p>
 <section id="supp-material" class="level4">
 <h4 class="anchored" data-anchor-id="supp-material">Supp-material</h4>
 <p>This folder contains the figures in the Supplementary material</p>
 <ul>
-<li><p><code>FigS1_native_richness.png</code> World map with countries coloured according to the number of native species richness according to the Catalog of Fishes</p></li>
-<li><p><code>FigS2_scatterplot.png</code> All-time Domestic contribution (DC) and Domestic retention (DR) for world regions</p></li>
-<li><p><code>FigS3_turnover_metrics.png</code> Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map</p></li>
+<li><p><code>FigS1_native_richness.png</code> World map with countries colored according to the number of native species richness according to the Catalog of Fishes. This corresponds to Figure S1 in Supplementary material</p></li>
+<li><p><code>FigS3_turnover_metrics.png</code> Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map. This corresponds to Figure S2 in Supplementary material</p></li>
 </ul>
 </section>
 </section>
@@ -759,6 +817,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -869,6 +929,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

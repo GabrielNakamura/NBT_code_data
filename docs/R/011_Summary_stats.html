@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b512256bc363577b27543e003c495f0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -309,7 +309,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <li><p>Name bearers in Global North museums from Global South since 2000</p></li>
 <li><p>Name bearers in Global South museums from Global North since 2000</p></li>
 </ul>
-<p>All these descriptive statistics considered as Global North the countries in East Asia and Pacific, Europe and Central Asia and North America regions. We considered as Global South Latin America and Caribbean, Middle East and North Africa, South Asia and Sub-Saharan Africa.</p>
+<p>In these descriptive statistics, we classified countries in East Asia and the Pacific, Europe and Central Asia, and North America as the Global North, while Latin America and the Caribbean, the Middle East and North Africa, South Asia, and Sub-Saharan Africa were considered the Global South.</p>
 </section>
 <section id="packages-and-data-used" class="level1">
 <h1>Packages and data used</h1>
@@ -361,6 +361,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(n) <span class="sc">|&gt;</span> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The total fish binomial in museums of Global South is 4208</p>
 </section>
 <section id="total-fish-binomials-in-museum-countries-of-the-global-north" class="level1">
 <h1>Total fish binomials in museum countries of the Global North</h1>
@@ -371,6 +372,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(n) <span class="sc">|&gt;</span> </span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The total fish binomial in museums of Global South is 1.6038^{4}</p>
 </section>
 <section id="total-name-bearers-in-museums-within-global-north-and-south-since-2000" class="level1">
 <h1>Total name bearers in museums within Global North and South since 2000</h1>
@@ -403,6 +405,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(n) <span class="sc">|&gt;</span> </span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>919 name bearers housed in Global North biological collections are from Global South. This represents 37% of the name bearers in Global North since 2000s</p>
 </section>
 <section id="name-bearers-in-global-south-museums-from-global-north-since-2000" class="level1">
 <h1>Name bearers in Global South museums from Global North since 2000</h1>
@@ -415,6 +418,7 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(n) <span class="sc">|&gt;</span> </span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Only 6 of name bearers housed in Global South biological collections are from Global North</p>
 <ul>
 <li><p>Proportion of name bearers from Global South housed in Global North museums since 2000 is of 37.2668289</p></li>
 <li><p>Proportion of name bearers from Global North housed in Global South museums since 2000 is of 0.2196193</p></li>
@@ -506,6 +510,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -616,6 +622,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

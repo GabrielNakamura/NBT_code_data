@@ -51,10 +51,6 @@ In the modelling approach we used four response variables:
 
 - The total number of name bearers owned by a country `total_country_museum`
 
-- The proportion of Domestic Type Contribution by a country `prop_DC` and `success.DC`
-
-- The proportion of Domestic Type Retention by a country `prop_DR` and `success.DR`
-
 - The rate of endemic deficit by a country `native.beta`
 
 - The rate of non-endemic representation by a country `type.beta`
@@ -199,9 +195,6 @@ saveRDS(mod_type_turnover, here::here("output", "models", "model_res_turnover_nb
 
 ```
 
-<!-- ## Modelling country characteristics based on biological collections (Domestic Contribution and Domestic Retention) -->
-
-<!-- Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR) -->
 
 
 

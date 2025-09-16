@@ -29,7 +29,7 @@ Here you will find how we obtained the values of
 
 -   Name bearers in Global South museums from Global North since 2000
 
-All these descriptive statistics considered as Global North the countries in East Asia and Pacific, Europe and Central Asia and North America regions. We considered as Global South Latin America and Caribbean, Middle East and North Africa, South Asia and Sub-Saharan Africa.
+In these descriptive statistics, we classified countries in East Asia and the Pacific, Europe and Central Asia, and North America as the Global North, while Latin America and the Caribbean, the Middle East and North Africa, South Asia, and Sub-Saharan Africa were considered the Global South.
 
 # Packages and data used
 
@@ -90,6 +90,9 @@ total_fish_binomial_museum_south <-
   sum()
 
 ```
+The total fish binomial in museums of Global South is
+    `r total_fish_binomial_museum_south`
+
 # Total fish binomials in museum countries of the Global North
 
 ```{r}
@@ -100,6 +103,8 @@ total_fish_binomial_museum_north <-
   sum()
 
 ```
+The total fish binomial in museums of Global South is
+    `r total_fish_binomial_museum_north`
 
 # Total name bearers in museums within Global North and South since 2000
 
@@ -135,6 +140,9 @@ sum_post2000_south_north <-
   pull(n) |> 
   sum()
 ```
+`r sum_post2000_south_north` name bearers housed in Global North biological 
+    collections are from Global South. This represents 37% of the name bearers 
+    in Global North since 2000s
 
 # Name bearers in Global South museums from Global North since 2000
 
@@ -148,6 +156,8 @@ sum_post2000_north_south <-
   pull(n) |> 
   sum()
 ```
+Only `r sum_post2000_north_south` of name bearers housed in Global South 
+    biological collections are from Global North
 
 
 -   Proportion of name bearers from Global South housed in Global North museums since 2000 is of `r ((sum_post2000_south_north)/(sum_post2000_total_north)) *100`

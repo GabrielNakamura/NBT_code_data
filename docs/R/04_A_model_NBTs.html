@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b512256bc363577b27543e003c495f0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -338,8 +338,6 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <p>In the modelling approach we used four response variables:</p>
 <ul>
 <li><p>The total number of name bearers owned by a country <code>total_country_museum</code></p></li>
-<li><p>The proportion of Domestic Type Contribution by a country <code>prop_DC</code> and <code>success.DC</code></p></li>
-<li><p>The proportion of Domestic Type Retention by a country <code>prop_DR</code> and <code>success.DR</code></p></li>
 <li><p>The rate of endemic deficit by a country <code>native.beta</code></p></li>
 <li><p>The rate of non-endemic representation by a country <code>type.beta</code></p></li>
 </ul>
@@ -451,8 +449,6 @@ gtag('config', 'G-NJP5GZ6SZH', { 'anonymize_ip': true});
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mod_native_turnover, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"models"</span>, <span class="st">"model_res_turnover_native.rds"</span>))</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mod_type_turnover, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"models"</span>, <span class="st">"model_res_turnover_nbt.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<!-- ## Modelling country characteristics based on biological collections (Domestic Contribution and Domestic Retention) -->
-<!-- Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR) -->
 
 
 </section>
@@ -541,6 +537,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -651,6 +649,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

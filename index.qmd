@@ -28,6 +28,8 @@ author:
     orcid: 0000-0001-5678-0403
   - name: Weferson Júnio da Graça
     orcid: 0000-0002-8925-5629
+  - name: Mario Ribeiro de Moura
+    orcid: 0000-0002-7369-7502
   - name: José Alexandre Felizola Diniz-Filho
     orcid: 0000-0002-0967-9684
 ---
@@ -101,7 +103,7 @@ This folder stores raw and processed data used to perform all the analysis prese
 
 -   `museum_data.csv` data frame with museums' acronyms and the world region of each. Variables:
 
-    -   `code_museum` character. The acronym (three letter code) of the museum
+    -   `code_museum` character. Three letter code of the museum
 
     -   `country_museum` character. A three letter code (alpha-3 ISO3166) representing a country
 
@@ -111,21 +113,130 @@ This folder stores raw and processed data used to perform all the analysis prese
 
 -   `flow_region.csv` a data frame containing flowing of NBT among world regions and the total number of NBT derived from the source region
 
+    - `region_type` character. The region, according to World bank classification,
+        where the type was collected
+    
+    - `region_museum` character. The region, according to World bank classification,
+        where the type is housed
+        
+    - `n` numeric. The number of types that flowed from `region_type` to `region_museum`
+    
+    - `total_region_type` numeric. The total number of name bearers sampled in each region
+
 -   `flow_period_region.csv` a data frame with the number of NBT between the world regions per 50-year time frame and the total number of NBT in each time frame for each world region
+
+    - `period` numeric. The year in which the name bearer was discovered
+    
+    - `region_type` character. The region, according to World bank classification,
+        where the type was collected
+        
+    - `region_museum` character. The region, according to World bank classification,
+        where the type is housed
+        
+    - `n` numeric. The number of name bearers that flowed from `region_type` to `region_museum`
+    
+    - `total_region_type` numeric. The total number of name bearers sampled in each region in 
+        each time period
 
 -   `flow_period_region_prop.csv` a data frame with the number of NBT, the Domestic Contribution and Domestic Retention between the world regions in a 50-year time frame
 
+    - `period` numeric. The year in which the name bearer was discovered
+    
+    - `region_type` character. The region, according to World bank classification,
+        where the type was collected
+        
+    - `region_museum` character. The region, according to World bank classification,
+        where the type is housed
+        
+    - `n` numeric. The number of name bearers that flowed from `region_type` to `region_museum`
+    
+    - `total_period_region_type` numeric. The number of name bearers samples in a region in a time 
+        period
+        
+    - `total_period_region_museum` numeric. The number of name bearers housed in biological 
+        collections in a region in a time period
+        
+    - `total_period` numeric. The total number of name bearers described in a period
+    
+    - `prop_DC` numeric. The proportion of name bearers in biological collection of a region 
+        sampled within the region in a time period. This variable is not used in the final 
+        version of the study.
+        
+    - `prop_DR` numeric. The proportion of all name bearers sampled that were retained in
+        a region in a time period. This variable is not used in the final 
+        version of the study. 
+
 -   `flow_region_prop.csv` data with the total number of species flowing between world regions, Domestic Contribution and Domestic Retention
+
+    - `region_type` character. The region, according to World bank classification,
+        where the type was collected
+        
+    - `region_museum` character. The region, according to World bank classification,
+        where the type is housed
+        
+    - `total_region_type` numeric. The total number of name bearers sampled in a 
+        region
+        
+    - `total_region_museum` numeric. The total number of name bearers housed in 
+        biological collections in a region
+        
+    - `prop_DC` numeric. The proportion of name bearers in biological collection of a region 
+        sampled within the region. This variable is not used in the final 
+        version of the study
+        
+    - `prop_DR` numeric. The proportion of all name bearers sampled that were retained in
+        a region. This variable is not used in the final 
+        version of the study
 
 -   `flow_country.csv` data frame with flowing information of NBT among countries
 
+    - `country_type` character. A three letter code (alpha-3 ISO3166) representing a country
+        where the name bearer was sampled
+    
+    - `country_museum` character. A three letter code (alpha-3 ISO3166) representing a country
+        where the name bearer was housed
+        
+    - `n` numeric. The number of name bearers that flowed from `country_type` 
+        to `country_museum` 
+        
+    - `total_country_type` numeric. The number of name bearers sampled in a 
+        country
+
 -   `df_country_native.csv` data frame with the number of native species at the country level
+
+    - `country_distribution` character. A three letter code (alpha-3 ISO3166) representing a country
+    
+    - `region_distribution` character. The name of a region according to World Bank
+    
+    - `native.richness` numeric. The number of native species in a country according 
+         to Catalog of Fishes
 
 -   `df_country_type.csv` data frame with the number of NBT at the country level
 
--   `df_endemic_beta.csv` data frame with values of native and NBT turnover at the country level using only species with restricted occurrences at the country level
+    - `country_museum` character. A three letter code (alpha-3 ISO3166) representing a country
+    
+    - `region_museum` character. The name of a region according to World Bank
+    
+    - `type_region` numeric. The number of name bearers in biological collections
+        in countries
+        
 
--   `df_all_beta.csv` data frame with values of native and NBT turnover at the country level. This is used in the analysis of Supplementary material
+-   `df_endemic_beta.csv` data frame with values of endemic deficit and non-endemic representation at the country level using only species with restricted occurrences (only one occurrence per country) at the country level
+
+    - `native.beta` numeric. The endemic deficit calculated as the number of 
+        endemic species outside of the country of origin
+        
+    - `type.beta` numeric. The number of non-endemic name bearers
+
+-   `df_all_beta.csv` data frame with values of endemic deficit and non-endemic representation at the country level. This is used in the analysis of Supplementary material, specifically to generate
+    Figure S2.
+
+    - `countries` character. A three letter code (alpha-3 ISO3166) representing a country
+
+    - `native.beta` numeric. The endemic deficit calculated as the number of 
+        endemic species outside of the country of origin
+        
+    - `type.beta` numeric. The number of non-endemic name bearers
 
 ## R
 
@@ -135,35 +246,36 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 -   [`01_D_data_preparation.qmd`](R/01_D_data_preparation.qmd) initial data preparation
 
--   [`02_A_beta-endemics-countries.qmd`](R/02_A_beta-endemics-countries.qmd) analysis of beta diversity metrics. This script is used to calculate `turnover NBT` and `native NBT`
+-   [`02_A_beta-endemics-countries.qmd`](R/02_A_beta-endemics-countries.qmd) This script is used to calculate `non endemic name bearers` and `endemic deficit` that will be used in the script [`07_V_beta_endemics_Fig2.qmd`](R/07_V_beta_endemics_Fig2.qmd)
 
 -   [`03_D_data_preparation_models.qmd`](R/03_D_data_preparation_models.qmd) script used to build data frames that will be used in statistical models ([`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd))
 
--   [`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd) statistical models for the total number of NBT, native and NBT turnover, Domestic Contribution and Domestic Retention
+-   [`04_A_model_NBTs.qmd`](R/04_A_model_NBTs.qmd) statistical models for the total number of NBT, endemic deficit
+    and non endemic name bearers
 
 -   [`05_V_chord_diagram_Fig1.qmd`](R/05_V_chord_diagram_Fig1.qmd) code used to produce circular flow diagram. This is the Figure 1 of the study
 
 -   [`06_V_world_map_Fig1.qmd`](R/06_V_world_map_Fig1.qmd) code used to produce the world map in the Figure 1 of the main text
 
-<!-- -   [`07_V_scatterplot_Fig2.qmd`](R/07_V_scatterplot_Fig2.qmd) code used to reproduce the Figure 2 of the main text -->
+-   [07_V_beta_endemics_Fig2.qmd](R/07_V_beta_endemics_Fig2.qmd) code used to build Figure 2 of the main text
 
--   [07_V_beta_endemics_Fig2.qmd](R/07_V_beta_endemics_Fig2.qmd) code used to build Figure 3 of the main text
-
--   [`08_V_model_Fig3.qmd`](R/08_V_model_Fig3.qmd) code used to build the Figure 4 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
+-   [`08_V_model_Fig3.qmd`](R/08_V_model_Fig3.qmd) code used to build the Figure 3 of the main text. This is the representation of the results of the models present in the script [04_A_model_NBTs.qmd](R/04_A_model_NBTs.qmd)
 
 -   [`09_Supplementary_analysis.qmd`](R/09_Supplementary_analysis.qmd) code to produce all the tables and figures presented in the Supplementary material of this study
 
-<!-- -   [`0011_V_beta_all_FigS3.qmd`](R/0011_V_beta_all_FigS3.qmd) code to produce the Figure S3 in the supplementary material producing a cartogram with countries coloured accoridng to its native and NBT turnover values, considering all species -->
 
 ### functions
 
--   [`function_beta_types_success_fail.R`](R/010_Functions.qmd) function used to calculate turnover metrics.
+-   [`function_beta_types_success_fail.R`](R/010_Functions.qmd) function used to calculate endemic 
+    deficit and non endemic name bearers.
 
 -   [`function_scale_back.R`](R/010_Functions.qmd) function used to transform back normalized variables
 
-### Summary stats
+### Summary statistics
 
--   [`011_Summary_stats.qmd`](R/011_Summary_stats.qmd)
+-   [`011_Summary_stats.qmd`](R/011_Summary_stats.qmd) code needed to reproduce 
+    summary statistics reported in the *Results* section of the main text of the 
+    study *"The hidden biodiversity knowledge split in biological collections"* 
 
 ## output
 
@@ -171,23 +283,32 @@ The letters `D`, `A` and `V` represents scripts for, respectively, data processi
 
 In this folder you will find all figures used in the main text and supplementary material of this study
 
-`Fig1_flow_circle_plot.png` Figure with circular plots showing the flux of NBT among regions of the world in a 50-year time window
+- `Fig1_flow_circle_plot.png` Figure with circular plots showing the flux of NBT among regions of the world in a 50-year time window
 
 <!-- `Fig2_DC_DR.png` Scaterplot with World regions characterized by their Domestic Contribution and Domestic Retention values in a 50-year time frame -->
 
-`Fig2_turnover_metrics_endemics.png` Cartogram with 3 maps showing the level of native endemic turnover, NBT turnover and the combination of both metrics in a combined map
+- `Fig2_turnover_metrics_endemics.png` Cartogram with 3 maps showing the level of 
+    endemic deficit, non endemic name bearers and the combination of both metrics
+    biscale map. This is the Figure 2 in the main text
 
-`Fig3_models.png` Figure showing the predictions of the number of NBT, DC, DR, native turnover and NBT turnover for different predictors. This is derived from the statistical models
+`Fig3_models.png` Figure showing the predictions of the number of name bearers, endemic deficit
+    and non endemic name bearers for different predictors. Corresponds to Figure 3
+    This is derived from 
+    the [statistical models scripts](R/04_A_model_NBTs.qmd)
 
 #### Supp-material
 
 This folder contains the figures in the Supplementary material
 
--   `FigS1_native_richness.png` World map with countries coloured according to the number of native species richness according to the Catalog of Fishes
+-   `FigS1_native_richness.png` World map with countries colored according to 
+    the number of native species richness according to the Catalog of Fishes. 
+    This corresponds to Figure S1 in Supplementary material
 
--   `FigS2_scatterplot.png` All-time Domestic contribution (DC) and Domestic retention (DR) for world regions
+-   `FigS3_turnover_metrics.png` Cartogram with 3 maps showing the native
+    deficit, the non native name bearers proportion and the 
+    combination of both metrics in a combined map. This corresponds to Figure S2 
+    in Supplementary material
 
--   `FigS3_turnover_metrics.png` Cartogram with 3 maps showing the level of native turnover, NBT turnover and the combination of both metrics in a combined map
 
 ## Packages
 
