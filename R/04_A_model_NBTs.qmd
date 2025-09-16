@@ -199,9 +199,9 @@ saveRDS(mod_type_turnover, here::here("output", "models", "model_res_turnover_nb
 
 ```
 
-## Modelling country characteristics based on biological collections (Domestic Contribution and Domestic Retention)
+<!-- ## Modelling country characteristics based on biological collections (Domestic Contribution and Domestic Retention) -->
 
-Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR)
+<!-- Model with a binomial distribution with success and failures using the raw data used to calculate Domestic Contribution (DC) and Domestic Retention (DR) -->
 
 
 
